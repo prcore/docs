@@ -1,0 +1,51 @@
+<div class="gdoc-tabs">
+  <input
+    type="radio"
+    class="gdoc-tabs__control hidden"
+    name="tabs-uploading-request-tab-id"
+    id="tabs-uploading-request-tab-id-0"
+    checked="checked"
+  />
+  <label for="tabs-uploading-request-tab-id-0" class="gdoc-tabs__label">
+    Endpoint
+  </label>
+  <div class="gdoc-markdown--nested gdoc-tabs__content">
+    <strong>POST</strong> <code>/event_log</code>
+  </div>
+
+  <input
+    type="radio"
+    class="gdoc-tabs__control hidden"
+    name="tabs-uploading-request-tab-id"
+    id="tabs-uploading-request-tab-id-1"
+  />
+  <label for="tabs-uploading-request-tab-id-1" class="gdoc-tabs__label">
+    Request body type
+  </label>
+  <div class="gdoc-markdown--nested gdoc-tabs__content">
+    <code>form-data</code>
+  </div>
+
+  <input
+    type="radio"
+    class="gdoc-tabs__control hidden"
+    name="tabs-uploading-request-tab-id"
+    id="tabs-uploading-request-tab-id-2"
+  />
+  <label for="tabs-uploading-request-tab-id-2" class="gdoc-tabs__label">
+    Request body properties
+  </label>
+  <div class="gdoc-markdown--nested gdoc-tabs__content">
+    <dl class="gdoc-props">
+      <dt class="flex flex-wrap align-center gdoc-props__meta">
+        <span class="gdoc-props__title">file</span>
+        <span class="gdoc-props__tag warning">required</span>
+
+        <span class="gdoc-props__tag note">string($binary)</span>
+      </dt>
+      <dd>
+        <div class="gdoc-props__description">The file of the event log</div>
+      </dd>
+    </dl>
+  </div>
+</div>

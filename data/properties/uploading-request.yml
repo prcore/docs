@@ -1,0 +1,6 @@
+---
+properties:
+  - name: file
+    type: string($binary)
+    description: The file of the event log
+    required: true

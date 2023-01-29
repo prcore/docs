@@ -1,0 +1,122 @@
+<div class="gdoc-tabs">
+  
+    <input type="radio" class="gdoc-tabs__control hidden" name="tabs-columns-request-tab-id" id="tabs-columns-request-tab-id-0" checked="checked">
+    <label for="tabs-columns-request-tab-id-0" class="gdoc-tabs__label">
+      Endpoint
+    </label>
+    <div class="gdoc-markdown--nested gdoc-tabs__content">
+      <strong>PUT</strong> <code>/event-log/{event_log_id}</code>
+    </div>
+  
+    <input type="radio" class="gdoc-tabs__control hidden" name="tabs-columns-request-tab-id" id="tabs-columns-request-tab-id-1">
+    <label for="tabs-columns-request-tab-id-1" class="gdoc-tabs__label">
+      Request body type
+    </label>
+    <div class="gdoc-markdown--nested gdoc-tabs__content">
+      <code>json</code>
+    </div>
+  
+    <input type="radio" class="gdoc-tabs__control hidden" name="tabs-columns-request-tab-id" id="tabs-columns-request-tab-id-2">
+    <label for="tabs-columns-request-tab-id-2" class="gdoc-tabs__label">
+      Request body properties
+    </label>
+    <div class="gdoc-markdown--nested gdoc-tabs__content">
+        <dl class="gdoc-props">
+            <dt class="flex flex-wrap align-center gdoc-props__meta">
+              <span class="gdoc-props__title">original-name-of-the-column</span>
+                <span class="gdoc-props__tag warning">required</span>
+              
+                <span class="gdoc-props__tag note">dict(str, str)</span>
+            </dt>
+            <dd>
+              <div class="gdoc-props__description">
+    
+                  <p>With the following format:</p>
+    <div class="highlight gdoc-post__codecontainer"><span class="flex align-center justify-center clip gdoc-post__codecopy" data-clipboard-text="{
+        &quot;name&quot;: &quot;new-name-of-the-column&quot;,
+        &quot;type&quot;: &quot;new-type-of-the-column&quot;
+    }" data-copy-feedback="Copied!" role="button" aria-label="Copy"><svg class="gdoc-icon copy"><use xlink:href="#gdoc_copy"></use></svg><svg class="gdoc-icon check hidden"><use xlink:href="#gdoc_check"></use></svg></span><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+    </span></span><span class="line"><span class="cl"><span class="nt">"name"</span><span class="p">:</span> <span class="s2">"new-name-of-the-column"</span><span class="p">,</span>
+    </span></span><span class="line"><span class="cl"><span class="nt">"type"</span><span class="p">:</span> <span class="s2">"new-type-of-the-column"</span><br></span></span><span class="line"><span class="cl"><span class="p">}</span>
+    </span></span></code></pre></div><p>The <code>type</code> property can be chosen from the following list:</p>
+    <ol>
+    <li>Special types:
+    <ul>
+    <li><code>CASE_ID</code></li>
+    </ul>
+    </li>
+    <li>Basic types:
+    <ul>
+    <li><code>TEXT</code></li>
+    <li><code>NUMBER</code></li>
+    <li><code>BOOLEAN</code></li>
+    <li><code>TIMESTAMP</code></li>
+    </ul>
+    </li>
+    <li>Common types:
+    <ul>
+    <li><code>ACTIVITY</code></li>
+    <li><code>RESOURCE</code></li>
+    </ul>
+    </li>
+    <li>Optional types:
+    <ul>
+    <li><code>DURATION</code></li>
+    <li><code>COST</code></li>
+    <li><code>START_TIMESTAMP</code></li>
+    <li><code>END_TIMESTAMP</code></li>
+    </ul>
+    </li>
+    </ol>
+    
+                
+              </div>
+            </dd>
+      </dl>
+    </div>
+  
+    <input type="radio" class="gdoc-tabs__control hidden" name="tabs-columns-request-tab-id" id="tabs-columns-request-tab-id-3">
+    <label for="tabs-columns-request-tab-id-3" class="gdoc-tabs__label">
+      Example
+    </label>
+    <div class="gdoc-markdown--nested gdoc-tabs__content">
+      <p>Based on previous exmaple, here we will use the following columns configuration.</p>
+<div class="highlight gdoc-post__codecontainer"><span class="flex align-center justify-center clip gdoc-post__codecopy" data-clipboard-text="{
+    &quot;Case_ID&quot;: {
+        &quot;name&quot;: &quot;Case ID&quot;,
+        &quot;type&quot;: &quot;CASE_ID&quot;
+    },
+    &quot;Time&quot;: {
+        &quot;name&quot;: &quot;Date&quot;,
+        &quot;type&quot;: &quot;TIMESTAMP&quot;
+    },
+    &quot;Action&quot;: {
+        &quot;name&quot;: &quot;Activity&quot;,
+        &quot;type&quot;: &quot;ACTIVITY&quot;
+    },
+    &quot;Personnel&quot;: {
+        &quot;name&quot;: &quot;Employee&quot;,
+        &quot;type&quot;: &quot;RESOURCE&quot;
+    }
+}" data-copy-feedback="Copied!" role="button" aria-label="Copy"><svg class="gdoc-icon copy"><use xlink:href="#gdoc_copy"></use></svg><svg class="gdoc-icon check hidden"><use xlink:href="#gdoc_check"></use></svg></span><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">"Case_ID"</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Case ID"</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"CASE_ID"</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">"Time"</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Date"</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"TIMESTAMP"</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">"Action"</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Activity"</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"ACTIVITY"</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">"Personnel"</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Employee"</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"RESOURCE"</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+    </div>
+  
+</div>
