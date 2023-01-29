@@ -4,7 +4,7 @@ title: "Upload Event Log"
 
 The first step is to upload the event log files via the API. Currently, the supported formats are standard XES files and CSV files.
 
-You can use any tool or program to access the PrCore API. The following example assumes you are using [VisualPM](https://github.com/VisualPM) and presents the process for uploading files in a sequence diagram.
+We can use any tool or program to access the PrCore API. The following example assumes we are using [VisualPM](https://github.com/VisualPM) and presents the process for uploading files in a sequence diagram.
 
 {{< mermaid class="text-center" >}}
 sequenceDiagram
@@ -60,6 +60,8 @@ Based on the event log file, the events attributes will be different, so here is
 
 ## Columns configuration
 
+Since we have the first 20 events data, we can display them in a table, and let the user to rename the columns and define the type.
+
 ### Request
 
 {{< columns-request >}}
@@ -106,7 +108,7 @@ Based on the event log file, the events attributes will be different, so here is
 
 ## Outcome and treatment Definition
 
-After the previous step, you got unique activities list, and supported outcome and treatment types from backend, then you can define what is the positive outcome and what is the treatment.
+After the previous step, we got unique activities list, and supported outcome and treatment types from backend, then we can define what is the positive outcome and what is the treatment.
 
 Following outcome types has these predefined evaluation methods:
 
