@@ -1,18 +1,9 @@
 ---
 properties:
-  - name: original-name-of-the-column
-    type: dict(str, str)
+  - name: column-name
+    type: str
     description: |
-      With the following format:
-      
-      ```json
-      {
-          "name": "new-name-of-the-column",
-          "type": "new-type-of-the-column"
-      }
-      ```
-
-      The `type` property can be chosen from the following list:
+      The value can be chosen from the following list:
 
       1. Special types:
           - `CASE_ID`
@@ -30,5 +21,4 @@ properties:
           - `COST`
           - `START_TIMESTAMP`
           - `END_TIMESTAMP`
-
     required: true

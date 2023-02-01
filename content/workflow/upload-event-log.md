@@ -91,22 +91,10 @@ Since we have the first 20 events data, we can display them in a table, and let 
 
 ```json
 {
-    "Case_ID": {
-        "name": "Case ID",
-        "type": "CASE_ID"
-    },
-    "Time": {
-        "name": "Date",
-        "type": "TIMESTAMP"
-    },
-    "Action": {
-        "name": "Activity",
-        "type": "ACTIVITY"
-    },
-    "Personnel": {
-        "name": "Employee",
-        "type": "RESOURCE"
-    }
+    "Case_ID": "CASE_ID",
+    "Time": "TIMESTAMP",
+    "Action": "ACTIVITY",
+    "Personnel": "RESOURCE"
 }
 ```
 
