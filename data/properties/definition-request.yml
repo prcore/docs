@@ -1,0 +1,14 @@
+---
+properties:
+  - name: event_log_id
+    type: int
+    description: The ID of the event log to which the definition belongs.
+    required: true
+  - name: positive_outcome
+    type: list(list(dict(str, Union[str, int])))
+    description: The definition of the positive outcome.
+    required: true
+  - name: treatment
+    type: list(list(dict(str, Union[str, int])))
+    description: The definition of the treatment.
+    required: true

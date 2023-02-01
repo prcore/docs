@@ -1,6 +1,11 @@
 ---
 title: "Upload Event Log"
+toc: true
 ---
+
+{{< toc format=html >}}
+
+## Introduction
 
 The first step is to upload the event log files via the API. Currently, the supported formats are standard XES files and CSV files.
 
@@ -24,7 +29,15 @@ Next, the details of each step will be explained.
 
 ### Request
 
-{{< uploading-request >}}
+#### General information
+
+| Method | Endpoint | Request body type | Description |
+| ------ | -------- | ----------------- | ----------- |
+| POST | `/event_log` | `form-data` | Upload event log |
+
+#### Request body porperties
+
+{{< propertylist name=uploading-request >}}
 
 ### Response
 
@@ -64,7 +77,38 @@ Since we have the first 20 events data, we can display them in a table, and let 
 
 ### Request
 
-{{< columns-request >}}
+#### General information
+
+| Method | Endpoint | Request body type | Description |
+| ------ | -------- | ----------------- | ----------- |
+| PUT | `/event_log/{event_log_id}` | `json` | Columns configuration |
+
+#### Request body porperties
+
+{{< propertylist name=columns-request >}}
+
+#### Request body example
+
+```json
+{
+    "Case_ID": {
+        "name": "Case ID",
+        "type": "CASE_ID"
+    },
+    "Time": {
+        "name": "Date",
+        "type": "TIMESTAMP"
+    },
+    "Action": {
+        "name": "Activity",
+        "type": "ACTIVITY"
+    },
+    "Personnel": {
+        "name": "Employee",
+        "type": "RESOURCE"
+    }
+}
+```
 
 ### Response
 
@@ -74,11 +118,11 @@ Since we have the first 20 events data, we can display them in a table, and let 
 {
     "message": "Columns configuration updated successfully",
     "event_log_id": 123456,
-    "activities": [
-        "A",
-        "B",
-        "C"
-    ],
+    "activities_count": {
+        "A": 53,
+        "B": 20,
+        "C": 12
+    },
     "outcome_types": [
         "TEXT",
         "NUMBER",
@@ -110,6 +154,19 @@ Since we have the first 20 events data, we can display them in a table, and let 
 
 After the previous step, we got unique activities list, and supported outcome and treatment types from backend, then we can define what is the positive outcome and what is the treatment.
 
+### Request
+
+#### General information
+
+| Method | Endpoint | Request body type | Description |
+| ------ | -------- | ----------------- | ----------- |
+| POST | `/project` | `json` | Outcome and treatment definition, resulting a created project |
+
+#### Request body porperties
+
+{{< propertylist name=definition-request >}}
+
+{{< hint type=note icon=gdoc_info_outline >}}
 Following outcome types has these predefined evaluation methods:
 
 - `TEXT` (`ACTIVITY`)
@@ -117,7 +174,7 @@ Following outcome types has these predefined evaluation methods:
     - `NOT_EQUAL`
     - `CONTAINS`
     - `NOT_CONTAINS`
-- `NUMBER` (`TIMESTAMP`, `DURATION`, `COST`)
+- `NUMBER` (`TIMESTAMP`, `DURATION`, `COST`, `START_TIMESTAMP`, `END_TIMESTAMP`)
     - `EQUAL`
     - `NOT_EQUAL`
     - `GREATER_THAN`
@@ -145,13 +202,10 @@ Following treatment types has these predefined evaluation methods:
 - `BOOLEAN`
     - `EQUAL`
     - `NOT_EQUAL`
+{{< /hint >}}
 
-### Request
+#### Request body example
 
-{{< tabs "definition-request-tab-id" >}}
-{{< tab "Endpoint" >}} **POST** `/project` {{< /tab >}}
-{{< tab "Request body type" >}} json {{< /tab >}}
-{{< tab "Example" >}}
 This is an example of the request body. The `positive_outcome` is an array of arrays. Each array is a condition. The conditions are connected with `OR` operator. The conditions in each array are connected with `AND` operator. This example means that the positive outcome is when the activity is `A` and the duration is less than 100, or the activity is `B`.
 
 The `treament` definition is similar to the `positive_outcome` definition.
@@ -191,10 +245,6 @@ The `treament` definition is similar to the `positive_outcome` definition.
     ]
 }
 ```
-{{< /tab >}}
-{{< /tabs >}}
-
-
 
 ### Response
 
