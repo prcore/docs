@@ -3,22 +3,34 @@ properties:
   - name: column-name
     type: str
     description: |
-      The value can be chosen from the following list:
+        The definition can be used to define the type of the column, and it can be chosen from the following list:
 
-      1. Special types:
-          - `CASE_ID`
-      2. Basic types:
-          - `TEXT`
-          - `NUMBER`
-          - `BOOLEAN`
-          - `TIMESTAMP`
-          - `CATEGORICAL`
-      3. Common types:
-          - `ACTIVITY`
-          - `RESOURCE`
-      4. Optional types:
-          - `DURATION`
-          - `COST`
-          - `START_TIMESTAMP`
-          - `END_TIMESTAMP`
+        1. Special definition:
+            - `CASE_ID`
+        2. Basic definitions:
+            - `TEXT`
+            - `NUMBER`
+            - `BOOLEAN`
+            - `DATETIME`
+        3. Common definitions:
+            - `ACTIVITY` (sepcial definition of `TEXT`)
+            - `TIMESTAMP` (sepcial definition of `DATETIME`)
+            - `RESOURCE` (sepcial definition of `TEXT`)
+        4. Optional definitions:
+            - `DURATION` (sepcial definition of `NUMBER`)
+            - `COST` (sepcial definition of `NUMBER`)
+            - `START_TIMESTAMP` (sepcial definition of `DATETIME`)
+            - `END_TIMESTAMP` (sepcial definition of `DATETIME`)
+
+        Only one definition can be chosen for one column. If the definition is not chosen, the default definition is `TEXT`.
+
+        These definitions are required for columns of the dataset:
+
+        1. `CASE_ID`
+        2. `TIMESTAMP` (OR `START_TIMESTAMP` and `END_TIMESTAMP`)
+        3. `ACTIVITY`
+
+        If one of the `START_TIMESTAMP` and `END_TIMESTAMP` is defined, the other one must be defined as well.
+
+        Here we don't differentiate the `Case attribute` and `Event attribute`, because the PrCore doesn't need this information when processing the [outcome and treatment definition](#outcome-and-treatment-definition).
     required: true
