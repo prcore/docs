@@ -7,16 +7,16 @@ properties:
 
         1. Special types of definition:
             - `CASE_ID`
-        2. Basic types of definitions:
+        2. Basic types of definition:
             - `TEXT`
             - `NUMBER`
             - `BOOLEAN`
             - `DATETIME`
-        3. Common types of definitions:
+        3. Common types of definition:
             - `ACTIVITY` (sepcial definition of `TEXT`)
             - `TIMESTAMP` (sepcial definition of `DATETIME`)
             - `RESOURCE` (sepcial definition of `TEXT`)
-        4. Optional types of definitions:
+        4. Optional types of definition:
             - `DURATION` (sepcial definition of `NUMBER`)
             - `COST` (sepcial definition of `NUMBER`)
             - `START_TIMESTAMP` (sepcial definition of `DATETIME`)
