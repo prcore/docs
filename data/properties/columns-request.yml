@@ -5,18 +5,18 @@ properties:
     description: |
         The definition can be used to define the type of the column, and it can be chosen from the following list:
 
-        1. Special definition:
+        1. Special types of definition:
             - `CASE_ID`
-        2. Basic definitions:
+        2. Basic types of definitions:
             - `TEXT`
             - `NUMBER`
             - `BOOLEAN`
             - `DATETIME`
-        3. Common definitions:
+        3. Common types of definitions:
             - `ACTIVITY` (sepcial definition of `TEXT`)
             - `TIMESTAMP` (sepcial definition of `DATETIME`)
             - `RESOURCE` (sepcial definition of `TEXT`)
-        4. Optional definitions:
+        4. Optional types of definitions:
             - `DURATION` (sepcial definition of `NUMBER`)
             - `COST` (sepcial definition of `NUMBER`)
             - `START_TIMESTAMP` (sepcial definition of `DATETIME`)
