@@ -12,6 +12,7 @@ properties:
             - `NUMBER`
             - `BOOLEAN`
             - `DATETIME`
+            - `TRANSITION`
         3. Common types of definition:
             - `ACTIVITY` (sepcial definition of `TEXT`)
             - `TIMESTAMP` (sepcial definition of `DATETIME`)

@@ -49,16 +49,13 @@ Based on the event log file, the events attributes will be different, so here is
 
 The first row of `events_head` is the column names, the second row is the inferred column definitions (some elements can be null), and the following rows are the events data.
 
-{{< tabs "uploading-response-tab-id" >}}
-{{< tab "Success" >}}
-
 ```json
 {
     "message": "Event log uploaded successfully",
     "event_log_id": 123456,
-    "events_head": [
-        ["Case_ID", "Time", "Action", "Personnel"],
-        ["CASE_ID", "TIMESTAMP", "ACTIVITY", null],
+    "columns_header": ["Case_ID", "Time", "Action", "Personnel"],
+    "columns_inferred_definition": ["CASE_ID", "TIMESTAMP", "ACTIVITY", null],
+    "columns_data": [
         ["1", "2019-01-01 00:00:00", "A", "1"],
         ["1", "2019-01-01 00:00:00", "B", "1"],
         ["1", "2019-01-01 00:00:00", "C", "2"],
@@ -67,16 +64,6 @@ The first row of `events_head` is the column names, the second row is the inferr
     ]
 }
 ```
-{{< /tab >}}
-{{< tab "Error" >}}
-```json
-{
-    "message": "Event log upload failed",
-    "error": "Error message"
-}
-```
-{{< /tab >}}
-{{< /tabs >}}
 
 ---
 

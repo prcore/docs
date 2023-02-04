@@ -4,3 +4,8 @@ properties:
     type: string($binary)
     description: The file of the event log
     required: true
+  - name: seperator
+    type: str
+    description: The seperator of the CSV event log
+    required: false
+    defaultValue: ','
