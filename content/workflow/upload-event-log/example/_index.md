@@ -40,6 +40,16 @@ Following we will show you how to use the API by using the [Postman](https://www
 - [Download the example event log file (CSV)](/download/bpic2012-CSV.zip) and [download the example event log file (XES)](/download/bpic2012-XES.zip), both are from BPI Challenge 2012
 - Extract the event log files
 
+## Set the variables
+
+After importing the collection and environment, you need to set the variables.
+
+First, click the `PrCore` collection, and then click the `Variables` tab.
+
+![](images/set-path.png)
+
+Then, set the `server` as `prcore.chaos.run`.
+
 ## Upload event log
 
 There is a request in the collection called `Upload event log`. This request will upload the event log file to the PrCore server, and the event log ID will be returned.
