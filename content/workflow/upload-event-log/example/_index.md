@@ -48,7 +48,7 @@ First, click the `PrCore` collection, and then click the `Variables` tab.
 
 ![](images/set-path.png)
 
-Then, set the `server` as `prcore.chaos.run`.
+Then, set the `server` as `https://prcore.chaos.run`.
 
 ## Upload event log
 
