@@ -1,0 +1,279 @@
+{
+	"info": {
+		"_postman_id": "51250379-0a3d-41a7-89f1-2bbd30914b87",
+		"name": "PrCore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21095091"
+	},
+	"item": [
+		{
+			"name": "CSV",
+			"item": [
+				{
+					"name": "Upload event log",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"event_log_id\", jsonData.event_log_id);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/zhaosi/Documents/SE/4/Thesis/Application/jupyter/log.csv"
+								},
+								{
+									"key": "seperator",
+									"value": ",",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/event_log",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"event_log"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set columns definition",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Case ID\": \"CASE_ID\",\n    \"start_time\": \"START_TIMESTAMP\",\n    \"end_time\": \"END_TIMESTAMP\",\n    \"AMOUNT_REQ\": \"NUMBER\",\n    \"REG_DATE\": \"DATETIME\",\n    \"Activity\": \"ACTIVITY\",\n    \"Resource\": \"TEXT\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/event_log/{{event_log_id}}",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"event_log",
+								"{{event_log_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a project",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"event_log_id\": {{event_log_id}},\n    \"positive_outcome\": [\n        [\n            {\n                \"column\": \"Activity\",\n                \"operator\": \"EQUAL\",\n                \"value\": \"A_APPROVED\"\n            }\n        ]\n    ],\n    \"treatment\": [\n        [\n            {\n                \"column\": \"Activity\",\n                \"operator\": \"EQUAL\",\n                \"value\": \"O_SENT_BACK\"\n            }\n        ]\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/project",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"project"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "XES",
+			"item": [
+				{
+					"name": "Upload event log",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"event_log_id\", jsonData.event_log_id);",
+									"postman.setEnvironmentVariable(\"columns_header\", jsonData.columns_header);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/zhaosi/Documents/SE/4/Thesis/Application/jupyter/bpic2012.xes"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/event_log",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"event_log"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set columns definition Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"org:resource\": \"RESOURCE\",\n    \"lifecycle:transition\": \"TRANSITION\",\n    \"concept:name\": \"ACTIVITY\",\n    \"time:timestamp\": \"TIMESTAMP\",\n    \"case:REG_DATE\": \"DATETIME\",\n    \"case:concept:name\": \"CASE_ID\",\n    \"case:AMOUNT_REQ\": \"NUMBER\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/event_log/{{event_log_id}}",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"event_log",
+								"{{event_log_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Hello world",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}",
+					"host": [
+						"{{server}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get existing event logs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/event_log/all",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"event_log",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get existing projects",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/project/all",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"project",
+						"all"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "UaJW0QvkMA1cVnOXB89E0NbLf3JRRoHwv2wWmaY5v=QYpaxr1UD9/FupeZ85sa2r",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "server",
+			"value": "localhost:8000",
+			"type": "string"
+		}
+	]
+}
