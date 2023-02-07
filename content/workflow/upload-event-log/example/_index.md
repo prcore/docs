@@ -38,7 +38,6 @@ Following we will show you how to use the API by using the [Postman](https://www
 - [Download the example collection](/download/postman_collection.json) and import it to Postman
 - [Download the example environment](/download/postman_environment.json) and import it to Postman
 - [Download the example event log file (CSV)](/download/bpic2012-CSV.zip) and [download the example event log file (XES)](/download/bpic2012-XES.zip), both are from BPI Challenge 2012
-- Extract the event log files
 
 ## Set the variables
 
@@ -54,7 +53,11 @@ Then, set the `server` as `https://prcore.chaos.run`.
 
 There is a request in the collection called `Upload event log`. This request will upload the event log file to the PrCore server, and the event log ID will be returned.
 
-Navigate to the `Body` tab, select a file from the `file` field, and click `Send`.
+Navigate to the `Body` tab, select a file from the `file` field, and click `Send`. 
+
+{{< hint type=note icon=gdoc_info_outline >}}
+The file must be a CSV or XES file, or zip file containing one CSV or XES file. We recommend using the zip file, since it is much smaller and faster to upload.
+{{< /hint >}}
 
 ![](images/upload-file.png)
 
