@@ -7,12 +7,12 @@ properties:
 
         1. Special types of definition:
             - `CASE_ID`
+            - `TRANSITION`
         2. Basic types of definition:
             - `TEXT`
             - `NUMBER`
             - `BOOLEAN`
             - `DATETIME`
-            - `TRANSITION`
         3. Common types of definition:
             - `ACTIVITY` (sepcial definition of `TEXT`)
             - `TIMESTAMP` (sepcial definition of `DATETIME`)
