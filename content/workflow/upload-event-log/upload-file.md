@@ -1,6 +1,5 @@
 ---
 title: "Upload file"
-toc: true
 weight: 10
 ---
 

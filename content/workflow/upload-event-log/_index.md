@@ -1,5 +1,6 @@
 ---
 title: "Upload Event Log"
+weight: 10
 ---
 
 The first step is to upload the event log files via the API. Currently, the supported formats are standard XES files and CSV files.
@@ -15,3 +16,7 @@ sequenceDiagram
     VisualPM->>PrCore: Submit outcome definition and treatment definition
     PrCore->>VisualPM: Event log confirmed, a new project created
 {{< /mermaid >}}
+
+Please see the following sections for more details:
+
+{{< toc-tree >}}

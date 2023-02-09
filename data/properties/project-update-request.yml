@@ -1,0 +1,10 @@
+---
+properties:
+  - name: name
+    type: str
+    description: The name of the project.
+    required: true
+  - name: description
+    type: str
+    description: The description of the project.
+    required: false

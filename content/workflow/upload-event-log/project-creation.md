@@ -47,6 +47,60 @@ Following column definitions supports these predefined evaluation operators for 
     - `LATER_THAN`
     - `LATER_THAN_OR_EQUAL`
 
+For each types of the definition, the corresponding values are described as below:
+
+{{< tabs "definition-tab" >}}
+{{< tab "TEXT" >}}
+Thae value should be a string.
+{{< /tab >}}
+{{< tab "NUMBER" >}}
+The value should be a number, or a number string.
+
+Examples:
+
+- `1`
+- `2.2`
+- `"1"`
+- `"2.2"`
+{{< /tab >}}
+{{< tab "BOOLEAN" >}}
+The value is not required, and it will be ignored.
+{{< /tab >}}
+{{< tab "DATETIME" >}}
+The value should be a valid date time string, which conforms to the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard.
+
+Examples: 
+
+- `"2012-04-23T18:25:43.511Z"`
+- `"2013-10-21T13:28:06.419Z"`
+{{< /tab >}}
+{{< tab "DURATION" >}}
+The default unit is `second`, and the value should be a integer, or a integer string.
+
+If you want to use other unit, you can use the following format: `value unit`.
+
+Supported units and their abbreviations are:
+
+- `month`: `months`, `month`, `mo`, `m`
+- `week`: `weeks`, `week`, `wk`, `w`
+- `day`: `days`, `day`, `d`
+- `hour`: `hours`, `hour`, `hr`, `h`
+- `minute`: `minutes`, `minute`, `min`, `m`
+- `second`: `seconds`, `second`, `sec`, `s`
+
+Examples:
+
+- `22`
+- `"123"`
+- `"1 month"`
+- `"2 weeks"`
+- `"1 d"`
+- `"2 hours"`
+- `"3 min"`
+- `"4 sec"`
+{{< /tab >}}
+{{< /tabs >}}
+
 For example, if you want to define the outcome as `Offer sent` activity happened, you can select `Action` column (the name is from your original event log), and select `EQUAL` as the operator, and choose `Offer sent` as the value. Since `Action` is defined as `ACTIVITY` in the previous step, PrCore will know it is an activity column, and based on the convention, the `ACTIVITY` (as `TEXT`) supports the `EQUAL` operator, so it is valid.
 
 {{< hint type=note icon=gdoc_info_outline title="Special case" >}}
@@ -124,47 +178,85 @@ The `treament` definition is similar to the `positive_outcome` definition.
 
 ## Response
 
-In the response, a `project_id` will be returned, which can be used to get the project information later.
+In the response, a `project` object will be returned, which can be used later.
 
-{{< hint type=important icon=gdoc_info_outline >}}
-Project details will also be returned in the response, when new API details is provided in future.
-
-Like this:
-
-```
+```json
 {
     "message": "Project created successfully",
-    "event_log_id": 123456,
-    "project_id": 654321,
     "project": {
-        "id": 654321,
-        ...
-        ...
+        "id": 1,
+        "created_at": "2023-02-08T07:40:35.510479+00:00",
+        "updated_at": null,
+        "name": "bpic2012-CSV.zip",
+        "description": null,
+        "status": "PREPROCESSING",
+        "event_log": {
+            "id": 1,
+            "created_at": "2023-02-08T07:40:27.601771+00:00",
+            "updated_at": "2023-02-08T07:40:31.332790+00:00",
+            "file_name": "bpic2012-CSV.zip",
+            "definition": {
+                "id": 1,
+                "created_at": "2023-02-08T07:40:31.314273+00:00",
+                "updated_at": "2023-02-08T07:40:35.489616+00:00",
+                "columns_definition": {
+                    "Case ID": "CASE_ID",
+                    "Activity": "ACTIVITY",
+                    "REG_DATE": "DATETIME",
+                    "Resource": "TEXT",
+                    "end_time": "END_TIMESTAMP",
+                    "AMOUNT_REQ": "NUMBER",
+                    "start_time": "START_TIMESTAMP"
+                },
+                "outcome_definition": [
+                    [
+                        {
+                            "column": "Activity",
+                            "operator": "EQUAL",
+                            "value": "A_APPROVED"
+                        }
+                    ]
+                ],
+                "treatment_definition": [
+                    [
+                        {
+                            "column": "Activity",
+                            "operator": "EQUAL",
+                            "value": "O_SENT_BACK"
+                        }
+                    ]
+                ]
+            }
+        },
+        "plugins": [
+            {
+                "id": 1,
+                "created_at": "2023-02-08T07:40:35.510479+00:00",
+                "updated_at": null,
+                "name": "KNN next activity prediction",
+                "prescription_type": "NEXT_ACTIVITY",
+                "description": "This plugin predicts the next activity based on the KNN algorithm.",
+                "status": "WAITING"
+            },
+            {
+                "id": 2,
+                "created_at": "2023-02-08T07:40:35.510479+00:00",
+                "updated_at": null,
+                "name": "Random forest negative outcome probability",
+                "prescription_type": "ALARM",
+                "description": "This plugin provides the probability of negative outcome.",
+                "status": "WAITING"
+            },
+            {
+                "id": 3,
+                "created_at": "2023-02-08T07:40:35.510479+00:00",
+                "updated_at": null,
+                "name": "CasualLift",
+                "prescription_type": "TREATMENT_EFFECT",
+                "description": "This plugin uses Uplift Modeling package 'CasualLift' to predict the positive outcome probability if the treatment is applied, the positive outcome probability if the treatment is not applied, and the treatment effect (CATE), and suggested treatment based on the user's treatment definition.",
+                "status": "WAITING"
+            }
+        ]
     }
 }
 ```
-
-So you may want to use the `project.id` instead of `project_id` in the future.
-
-Please not that the `project` in the response is the current newly created project status, the information may be changed if you get the project information later, as the project is still under training.
-{{< /hint >}}
-
-{{< tabs "definition-tab-id" >}}
-{{< tab "Success" >}}
-```json
-{
-    "message": "Project created successfully",
-    "event_log_id": 123456,
-    "project_id": 654321
-}
-```
-{{< /tab >}}
-{{< tab "Error" >}}
-```json
-{
-    "message": "Project creation failed",
-    "error": "Error message"
-}
-```
-{{< /tab >}}
-{{< /tabs >}}
