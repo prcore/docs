@@ -11,7 +11,7 @@ You should only call this endpoint when the project's status is `TRAINED`  or `S
 
 | Method | Endpoint | Request body type | Description |
 | ------ | -------- | ----------------- | ----------- |
-| PUT | `/project/{project_id}/simulate/stop` | `none` | Stop the simulation of the project |
+| PUT | `/project/{project_id}/simulate/start` | `none` | Stop the simulation of the project |
 
 ## Response
 
