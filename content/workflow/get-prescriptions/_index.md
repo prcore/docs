@@ -10,7 +10,7 @@ The status of the project should be `STREAMING` or `SIMULATING`, otherwise the S
 {{< /hint >}}
 
 {{< hint type=warning icon=gdoc_info_outline >}}
-If you are trying to read results from a project that is already being read by another client, the SSE endpoint will return `400` error. Since in design, the SSE endpoint is only for one client to read the results, you should not try to read the results from the same project from multiple clients.
+If you are trying to read results from a project that is already being read by another client, the SSE endpoint will return `400` error. Since in design, the SSE endpoint is only for one client to read the results, you should not try to read the results from the same project with multiple clients.
 {{< /hint >}}
 
 {{< include file="/static/download/sse-client.py" language="python" >}}

@@ -1,5 +1,5 @@
 ---
-title: Advance Usage
+title: Advanced Usage
 weight: -10
 ---
 
