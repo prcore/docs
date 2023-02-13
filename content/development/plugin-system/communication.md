@@ -145,7 +145,8 @@ The core will send this request to the plugin to start the preparation. Before t
 
 ```json
 {
-    "project_id": 123
+    "project_id": 123,
+    "model_name": "random-string.pkl"
 }
 ```
 
@@ -183,6 +184,7 @@ The core will send the streaming data to the plugin. The data will be in the fol
 ```json
 {
     "project_id": 123,
+    "event_id": 123,
     "data": [
         {
             "CASE_ID": "123",
@@ -210,7 +212,8 @@ The plugin will process the data and send the results back to the core. The resu
 ```json
 {
     "project_id": 123,
-    "plugin_id": 345,
+    "plugin_key": "plugin-1",
+    "event_id": 123,
     "data": {
         "datetime": "2023-01-01 00:02:00",
         "type": "NEXT_ACTIVITY",

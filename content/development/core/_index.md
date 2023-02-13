@@ -51,9 +51,11 @@ classDiagram
 
     class Case{
         id: int
+        created_at: datetime
+        updated_at: datetime
         project_id: int
         case_id: str
-        status: str
+        completed: bool
         events: list[Event]
     }
 
@@ -61,7 +63,9 @@ classDiagram
         id: int
         created_at: datetime
         updated_at: datetime
+        project_id: int
         attributes: dict[str, str | bool | int | float | None]
+        prescriptions: dict[str, Any]
         prescribed: bool
         sent: bool
         case: Case
