@@ -1,6 +1,6 @@
 ---
 title: "Change Outcome And Treatment Definition"
-weight: 30
+weight: 20
 ---
 
 {{< hint type=note icon=gdoc_info_outline >}}

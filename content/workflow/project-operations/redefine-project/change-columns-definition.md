@@ -1,6 +1,6 @@
 ---
 title: "Change Columns Definition"
-weight: 20
+weight: 10
 ---
 
 {{< hint type=note icon=gdoc_info_outline >}}
