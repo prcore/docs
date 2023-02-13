@@ -30,10 +30,17 @@ The data of our `event` is in the `event.data` list.
 for event in client.events():
     if event.event == "ping":
       continue
+
     print(f"Received message: {event.event}")
     print(f"ID: {event.id}")
-    print(f"Data type: {type(json.loads(event.data))}")
-    print(f"Length: {len(json.loads(event.data))}")
+
+    event_data = json.loads(event.data)
+    print(f"Data type: {type(event_data)}")
+    print(f"Length: {len(event_data)}")
+    print(f"Prescriptions length of the first item: {len(event_data[0]['prescriptions'])}")
+
+    pprint.pprint(event_data[0], width=120)
+
     print("-" * 24)
 
 print("Done!")
