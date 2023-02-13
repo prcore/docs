@@ -51,3 +51,5 @@ The `case_completed` is a boolean value that indicates whether the case is compl
     }
 ]
 ```
+
+For SSE, you can check [here](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) for more information.
