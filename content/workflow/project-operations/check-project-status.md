@@ -23,28 +23,25 @@ Here is an example of the response.
 
 ```json
 {
-    "message": "Project created successfully",
+    "message": "Project retrieved successfully",
     "project": {
-        "id": 1,
-        "created_at": "2023-02-08T07:40:35.510479+00:00",
-        "updated_at": null,
         "name": "bpic2012-CSV.zip",
         "description": null,
-        "status": "PREPROCESSING",
+        "status": "TRAINED",
+        "id": 15,
+        "created_at": "2023-02-13T16:15:38.512450+00:00",
+        "updated_at": "2023-02-13T17:53:58.279245+00:00",
         "event_log": {
-            "id": 1,
-            "created_at": "2023-02-08T07:40:27.601771+00:00",
-            "updated_at": "2023-02-08T07:40:31.332790+00:00",
             "file_name": "bpic2012-CSV.zip",
+            "id": 16,
+            "created_at": "2023-02-13T16:15:34.480730+00:00",
+            "updated_at": "2023-02-13T16:15:39.727857+00:00",
             "definition": {
-                "id": 1,
-                "created_at": "2023-02-08T07:40:31.314273+00:00",
-                "updated_at": "2023-02-08T07:40:35.489616+00:00",
                 "columns_definition": {
                     "Case ID": "CASE_ID",
                     "Activity": "ACTIVITY",
                     "REG_DATE": "DATETIME",
-                    "Resource": "TEXT",
+                    "Resource": "RESOURCE",
                     "end_time": "END_TIMESTAMP",
                     "AMOUNT_REQ": "NUMBER",
                     "start_time": "START_TIMESTAMP"
@@ -66,36 +63,27 @@ Here is an example of the response.
                             "value": "O_SENT_BACK"
                         }
                     ]
-                ]
+                ],
+                "fast_mode": true,
+                "start_transition": "START",
+                "end_transition": "COMPLETE",
+                "id": 15,
+                "created_at": "2023-02-13T16:15:36.605755+00:00",
+                "updated_at": "2023-02-13T16:15:38.490833+00:00"
             }
         },
         "plugins": [
             {
-                "id": 1,
-                "created_at": "2023-02-08T07:40:35.510479+00:00",
-                "updated_at": null,
                 "name": "KNN next activity prediction",
                 "prescription_type": "NEXT_ACTIVITY",
                 "description": "This plugin predicts the next activity based on the KNN algorithm.",
-                "status": "WAITING"
-            },
-            {
-                "id": 2,
-                "created_at": "2023-02-08T07:40:35.510479+00:00",
-                "updated_at": null,
-                "name": "Random forest negative outcome probability",
-                "prescription_type": "ALARM",
-                "description": "This plugin provides the probability of negative outcome.",
-                "status": "WAITING"
-            },
-            {
-                "id": 3,
-                "created_at": "2023-02-08T07:40:35.510479+00:00",
-                "updated_at": null,
-                "name": "CasualLift",
-                "prescription_type": "TREATMENT_EFFECT",
-                "description": "This plugin uses Uplift Modeling package 'CasualLift' to predict the positive outcome probability if the treatment is applied, the positive outcome probability if the treatment is not applied, and the treatment effect (CATE), and suggested treatment based on the user's treatment definition.",
-                "status": "WAITING"
+                "parameters": {
+                    "n_neighbors": "3"
+                },
+                "status": "TRAINED",
+                "id": 12,
+                "created_at": "2023-02-13T16:15:58.792633+00:00",
+                "updated_at": "2023-02-13T17:53:58.295495+00:00"
             }
         ]
     }

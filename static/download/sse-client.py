@@ -28,6 +28,8 @@ The data of our `event` is in the `event.data` list.
 """
 
 for event in client.events():
+    if event.event == "ping":
+      continue
     print(f"Received message: {event.event}")
     print(f"ID: {event.id}")
     print(f"Data type: {type(json.loads(event.data))}")
