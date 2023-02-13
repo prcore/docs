@@ -220,7 +220,7 @@ The plugin will process the data and send the results back to the core. The resu
         "output": "ACTIVITY_4",
         "plugin": {
             "name": "plugin_1",
-            "description": "plugin_1",
+            "model": 3,
             "accuracy": 0.7,
             "precision": 0.7,
             "recall": 0.7,
@@ -229,6 +229,8 @@ The plugin will process the data and send the results back to the core. The resu
     }
 }
 ```
+
+Based on the different plugins, the `model` field may be different. For example, the `model` field may be the name of the model file, or the length of the prefix during the training phase of that specific model.
 
 ## Error reporting
 
