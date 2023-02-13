@@ -10,12 +10,12 @@ The status of the project should be `STREAMING` or `SIMULATING`, otherwise the S
 {{< /hint >}}
 
 {{< hint type=warning icon=gdoc_info_outline >}}
-If you are trying to read results from a project that is already being read by another client, the SSE endpoint will return `400` error. Since in design, the SSE endpoint is only for one client to read the results, you should not try to read the results from the same project with multiple clients.
+If you try to read results from a project that is already being read by another client, the SSE endpoint will return a `400` error. Since it is designed to read results from only one client, you should not try to read results from the **same project** with multiple clients.
 {{< /hint >}}
 
 ## Example client script
 
-Below is an example script that connects to the PrCore SSE endpoint and prints the prescriptions. You can modify this script to fit your needs. Please note that you should to change the `PROJECT_ID` value to your project ID.
+Below is an example script that connects to the PrCore SSE endpoint and prints the prescriptions. You can modify this script to suit your needs. Note that you should change the `PROJECT_ID` value to your project ID.
 
 {{< include file="/static/download/sse-client.py" language="python" >}}
 
@@ -29,9 +29,11 @@ python3 -m venv venv
 
 ## Example prescriptions
 
-Below is an example of the `event.data` object that is received from the SSE endpoint.
+Below is an example of the `event.data' object received from the SSE endpoint.
 
-The `case_completed` is a boolean value that indicates whether the case is completed. If the case is completed, then the `prescriptions` array will be empty.
+The `case_completed` is a boolean value indicating whether the case is complete. If the case is completed, then the `prescriptions` array will be empty.
+
+Note that this is a list, which means it can contain multiple events, especially when you're connecting to the SSE endpoint for the first time, as there may be some events already in the queue.
 
 ```json
 [
