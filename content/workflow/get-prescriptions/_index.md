@@ -3,7 +3,7 @@ title: "Get Prescriptions"
 weight: 40
 ---
 
-PrCore use [SSE](https://en.wikipedia.org/wiki/Server-sent_events) to stream prescriptions to the client. The SSE endpoint is `/project/{project_id}/streaming/result`. Below is an example script that connects to the SSE endpoint and prints the prescriptions. You can modify this script to fit your needs. Please note that you should to change the `PROJECT_ID` value to your project ID.
+PrCore use [SSE](https://en.wikipedia.org/wiki/Server-sent_events) to stream prescriptions to the client. The SSE endpoint is `/project/{project_id}/streaming/result`.
 
 {{< hint type=note icon=gdoc_info_outline >}}
 The status of the project should be `STREAMING` or `SIMULATING`, otherwise the SSE endpoint will return `400` error.
@@ -13,7 +13,21 @@ The status of the project should be `STREAMING` or `SIMULATING`, otherwise the S
 If you are trying to read results from a project that is already being read by another client, the SSE endpoint will return `400` error. Since in design, the SSE endpoint is only for one client to read the results, you should not try to read the results from the same project with multiple clients.
 {{< /hint >}}
 
+## Example client script
+
+Below is an example script that connects to the PrCore SSE endpoint and prints the prescriptions. You can modify this script to fit your needs. Please note that you should to change the `PROJECT_ID` value to your project ID.
+
 {{< include file="/static/download/sse-client.py" language="python" >}}
+
+To run this script, please install the `sseclient` package first.
+
+```bash
+python3 -m venv venv
+./venv/bin/python -m pip install sseclient requests
+./venv/bin/python sse-client.py
+```
+
+## Example prescriptions
 
 Below is an example of the `event.data` object that is received from the SSE endpoint.
 

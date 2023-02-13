@@ -3,7 +3,7 @@ import pprint
 import requests
 import sseclient
 
-BASE_URL = "https://prcore.chaos.run" 
+BASE_URL = "http://localhost:8000" 
 PROJECT_ID = 1
 URL = f"{BASE_URL}/project/{PROJECT_ID}/streaming/result"
 HEADERS = {
