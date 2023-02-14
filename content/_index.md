@@ -10,6 +10,6 @@ geekdocAnchor: false
 
 <!-- markdownlint-restore -->
 
-PrCore is a backend application for prescriptive process monitoring. It takes historical event log files and provides prescriptions for ongoing cases based on the received event streaming data. It is flexible in that it can be applied to various domains' event logs. Additionally, its prescribing and predicting algorithms can be easily modified, replaced, or added, thanks to its plugin mechanism.
+PrCore is a backend application used for prescriptive process monitoring. It takes historical event log files and provides ongoing case prescriptions based on the received event streaming data. It is flexible and can be applied to event logs in various domains. Its prescribing and predicting algorithms can be easily modified, replaced, or added due to its plugin mechanism.
 
 {{< button size="large" relref="usage/getting-started/" >}}Getting Started{{< /button >}}

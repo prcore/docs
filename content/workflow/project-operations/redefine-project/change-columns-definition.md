@@ -29,7 +29,7 @@ Here we need use the `event_log_id` to get the definition of the columns.
 
 | Method | Endpoint | Description |
 | ------ | -------- | ----------- |
-| GET | `/event_log/definition/{event_log_id}` | Get columns definition |
+| GET | `/event_log/{event_log_id}/definition` | Get columns definition |
 
 ### Response
 
@@ -63,7 +63,7 @@ The request body is a JSON object, the key is the column name, and the value is 
 
 | Method | Endpoint | Request body type | Description |
 | ------ | -------- | ----------------- | ----------- |
-| PUT | `/event_log/{event_log_id}` | `json` | Columns configuration |
+| PUT | `/event_log/{event_log_id}/definition` | `json` | Columns configuration |
 
 ```json
 {
