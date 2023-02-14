@@ -64,4 +64,6 @@ First, click the `PrCore` collection, and then click the `Variables` tab.
 
 Then, set the `server` as `https://prcore.chaos.run`.
 
-{{< toc-tree >}}
+Also, when we using this collection, we need to set the environment to `PrCore`, which is the environment we imported before.
+
+![](images/set-env.png)
