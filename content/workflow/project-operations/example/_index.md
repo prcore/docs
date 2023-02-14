@@ -11,4 +11,4 @@ Once you have created a project, you can track the project's status by using the
 
 ![](images/postman-list.png)
 
-Please folow the testing order shown in the figure, then you can observe the changes of the project's status.
+Please follow the testing order shown in the figure, then you can observe the changes of the project's status.
