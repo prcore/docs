@@ -7,7 +7,7 @@ After the simulation is stopped, you can clear the simulated data by calling the
 
 ## Request
 
-You should only call this endpoint when the project's status is `TRAINED`, `STEAMING`, or `SIMULATING`.
+You should only call this endpoint when the project's status is `TRAINED`, `STREAMING`, or `SIMULATING`.
 
 If there is a simulation in progress, it will be stopped automatically.
 
@@ -19,6 +19,7 @@ If there is a simulation in progress, it will be stopped automatically.
 
 ```json
 {
-    "message": "Project simulation data cleared successfully"
+    "message": "Project simulation data cleared successfully",
+    "project_id": 123
 }
 ```

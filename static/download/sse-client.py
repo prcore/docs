@@ -4,7 +4,7 @@ import requests
 import sseclient
 
 BASE_URL = "http://localhost:8000" 
-PROJECT_ID = 1
+PROJECT_ID = 10
 URL = f"{BASE_URL}/project/{PROJECT_ID}/streaming/result"
 HEADERS = {
   "Authorization": "Bearer UaJW0QvkMA1cVnOXB89E0NbLf3JRRoHwv2wWmaY5v=QYpaxr1UD9/FupeZ85sa2r"
@@ -27,20 +27,30 @@ not the `event` in the business processing perspective.
 The data of our `event` is in the `event.data` list.
 """
 
-for event in client.events():
-    if event.event == "ping":
-      continue
+try:
+  for event in client.events():
+      if event.event == "ping":
+        continue
 
-    print(f"Received message: {event.event}")
-    print(f"ID: {event.id}")
+      event_data = json.loads(event.data)
+      first_event = event_data[0]
+      prescriptions = first_event["prescriptions"]
+      prescriptions_with_output = [prescriptions[p] for p in prescriptions if prescriptions[p]["output"]]
 
-    event_data = json.loads(event.data)
-    print(f"Data type: {type(event_data)}")
-    print(f"Length: {len(event_data)}")
-    print(f"Prescriptions length of the first item: {len(event_data[0]['prescriptions'])}")
+      if not prescriptions_with_output:
+        continue
 
-    pprint.pprint(event_data[0], width=120)
+      print(f"Received message: {event.event}")
+      print(f"ID: {event.id}")
 
-    print("-" * 24)
+
+      print(f"Data type: {type(event_data)}")
+      print(f"Length: {len(event_data)}")
+
+      pprint.pprint(prescriptions_with_output, width=120)
+
+      print("-" * 24)
+except KeyboardInterrupt:
+  print("Interrupted by user")
 
 print("Done!")

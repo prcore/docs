@@ -17,6 +17,7 @@ You should only call this endpoint when the project's status is `TRAINED`  or `S
 
 ```json
 {
-    "message": "Project simulation started successfully"
+    "message": "Project simulation started successfully",
+    "project_id": 123
 }
 ```
