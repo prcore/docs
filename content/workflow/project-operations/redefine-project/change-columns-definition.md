@@ -63,7 +63,7 @@ The request body is a JSON object, the key is the column name, and the value is 
 
 | Method | Endpoint | Request body type | Description |
 | ------ | -------- | ----------------- | ----------- |
-| PUT | `/event_log/{event_log_id}/definition` | `json` | Columns configuration |
+| PUT | `/event_log/{event_log_id}` | `json` | Columns configuration |
 
 ```json
 {
