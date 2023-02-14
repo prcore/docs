@@ -7,7 +7,245 @@
 	},
 	"item": [
 		{
-			"name": "CSV",
+			"name": "Upload Event Log",
+			"item": [
+				{
+					"name": "CSV",
+					"item": [
+						{
+							"name": "Upload event log",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"event_log_id\", jsonData.event_log_id);",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/home/zhaosi/Sites/PrCore/static/download/bpic2012-CSV.zip"
+										},
+										{
+											"key": "seperator",
+											"value": ",",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/event_log",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"event_log"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Set columns definition",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Case ID\": \"CASE_ID\",\n    \"start_time\": \"START_TIMESTAMP\",\n    \"end_time\": \"END_TIMESTAMP\",\n    \"AMOUNT_REQ\": \"NUMBER\",\n    \"REG_DATE\": \"DATETIME\",\n    \"Activity\": \"ACTIVITY\",\n    \"Resource\": \"RESOURCE\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/event_log/{{event_log_id}}",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"event_log",
+										"{{event_log_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a project",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"project_id\", jsonData.project.id);",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"event_log_id\": {{event_log_id}},\n    \"positive_outcome\": [\n        [\n            {\n                \"column\": \"Activity\",\n                \"operator\": \"EQUAL\",\n                \"value\": \"A_APPROVED\"\n            }\n        ]\n    ],\n    \"treatment\": [\n        [\n            {\n                \"column\": \"Activity\",\n                \"operator\": \"EQUAL\",\n                \"value\": \"O_SENT_BACK\"\n            }\n        ]\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/project",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"project"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "XES",
+					"item": [
+						{
+							"name": "Upload event log",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"event_log_id\", jsonData.event_log_id);",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/home/zhaosi/Sites/PrCore/static/download/bpic2012-XES.zip"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/event_log",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"event_log"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Set columns definition Copy",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"org:resource\": \"RESOURCE\",\n    \"lifecycle:transition\": \"TRANSITION\",\n    \"concept:name\": \"ACTIVITY\",\n    \"time:timestamp\": \"TIMESTAMP\",\n    \"case:REG_DATE\": \"DATETIME\",\n    \"case:concept:name\": \"CASE_ID\",\n    \"case:AMOUNT_REQ\": \"NUMBER\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/event_log/{{event_log_id}}",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"event_log",
+										"{{event_log_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a project",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"project_id\", jsonData.project.id);",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"event_log_id\": {{event_log_id}},\n    \"positive_outcome\": [\n        [\n            {\n                \"column\": \"concept:name\",\n                \"operator\": \"EQUAL\",\n                \"value\": \"A_APPROVED\"\n            }\n        ]\n    ],\n    \"treatment\": [\n        [\n            {\n                \"column\": \"concept:name\",\n                \"operator\": \"EQUAL\",\n                \"value\": \"O_SENT_BACK\"\n            }\n        ]\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/project",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"project"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Project Operations",
 			"item": [
 				{
 					"name": "Upload event log",
@@ -33,7 +271,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "/home/zhaosi/Documents/SE/4/Thesis/Application/jupyter/log.csv"
+									"src": "/home/zhaosi/Sites/PrCore/static/download/bpic2012-CSV.zip"
 								},
 								{
 									"key": "seperator",
@@ -61,7 +299,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"Case ID\": \"CASE_ID\",\n    \"start_time\": \"START_TIMESTAMP\",\n    \"end_time\": \"END_TIMESTAMP\",\n    \"AMOUNT_REQ\": \"NUMBER\",\n    \"REG_DATE\": \"DATETIME\",\n    \"Activity\": \"ACTIVITY\",\n    \"Resource\": \"TEXT\"\n}",
+							"raw": "{\n    \"Case ID\": \"CASE_ID\",\n    \"start_time\": \"START_TIMESTAMP\",\n    \"end_time\": \"END_TIMESTAMP\",\n    \"AMOUNT_REQ\": \"NUMBER\",\n    \"REG_DATE\": \"DATETIME\",\n    \"Activity\": \"ACTIVITY\",\n    \"Resource\": \"RESOURCE\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -83,6 +321,19 @@
 				},
 				{
 					"name": "Create a project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"project_id\", jsonData.project.id);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -106,67 +357,52 @@
 						}
 					},
 					"response": []
-				}
-			]
-		},
-		{
-			"name": "XES",
-			"item": [
+				},
 				{
-					"name": "Upload event log",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"postman.setEnvironmentVariable(\"event_log_id\", jsonData.event_log_id);",
-									"postman.setEnvironmentVariable(\"columns_header\", jsonData.columns_header);",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
+					"name": "Get the project",
 					"request": {
-						"method": "POST",
+						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "file",
-									"type": "file",
-									"src": "/home/zhaosi/Documents/SE/4/Thesis/Application/jupyter/bpic2012.xes"
-								},
-								{
-									"key": "",
-									"value": "",
-									"type": "text",
-									"disabled": true
-								}
-							]
-						},
 						"url": {
-							"raw": "{{server}}/event_log",
+							"raw": "{{server}}/project/{{project_id}}",
 							"host": [
 								"{{server}}"
 							],
 							"path": [
-								"event_log"
+								"project",
+								"{{project_id}}"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Set columns definition Copy",
+					"name": "Get old definition",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/event_log/{{event_log_id}}/definition",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"event_log",
+								"{{event_log_id}}",
+								"definition"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Redo columns definition",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"org:resource\": \"RESOURCE\",\n    \"lifecycle:transition\": \"TRANSITION\",\n    \"concept:name\": \"ACTIVITY\",\n    \"time:timestamp\": \"TIMESTAMP\",\n    \"case:REG_DATE\": \"DATETIME\",\n    \"case:concept:name\": \"CASE_ID\",\n    \"case:AMOUNT_REQ\": \"NUMBER\"\n}",
+							"raw": "{\n    \"Case ID\": \"CASE_ID\",\n    \"start_time\": \"START_TIMESTAMP\",\n    \"end_time\": \"END_TIMESTAMP\",\n    \"AMOUNT_REQ\": \"NUMBER\",\n    \"REG_DATE\": \"DATETIME\",\n    \"Activity\": \"ACTIVITY\",\n    \"Resource\": \"RESOURCE\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -185,58 +421,393 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get the project again",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/project/{{project_id}}",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"project",
+								"{{project_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change project definition",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"project_id\", jsonData.project.id);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"event_log_id\": {{event_log_id}},\n    \"positive_outcome\": [\n        [\n            {\n                \"column\": \"Activity\",\n                \"operator\": \"EQUAL\",\n                \"value\": \"A_APPROVED\"\n            }\n        ]\n    ],\n    \"treatment\": [\n        [\n            {\n                \"column\": \"Activity\",\n                \"operator\": \"EQUAL\",\n                \"value\": \"O_SENT_BACK\"\n            }\n        ]\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/project/{{project_id}}/definition",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"project",
+								"{{project_id}}",
+								"definition"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Revisit the project",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/project/{{project_id}}",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"project",
+								"{{project_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rename or add description",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"New name\",\n    \"description\": \"This is a custom description\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/project/{{project_id}}",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"project",
+								"{{project_id}}"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
 		{
-			"name": "Hello world",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{server}}",
-					"host": [
-						"{{server}}"
-					]
+			"name": "Simulate Streaming",
+			"item": [
+				{
+					"name": "Upload event log",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"event_log_id\", jsonData.event_log_id);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/zhaosi/Sites/PrCore/static/download/bpic2012-CSV.zip"
+								},
+								{
+									"key": "seperator",
+									"value": ",",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/event_log",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"event_log"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set columns definition",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Case ID\": \"CASE_ID\",\n    \"start_time\": \"START_TIMESTAMP\",\n    \"end_time\": \"END_TIMESTAMP\",\n    \"AMOUNT_REQ\": \"NUMBER\",\n    \"REG_DATE\": \"DATETIME\",\n    \"Activity\": \"ACTIVITY\",\n    \"Resource\": \"RESOURCE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/event_log/{{event_log_id}}",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"event_log",
+								"{{event_log_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"project_id\", jsonData.project.id);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"event_log_id\": {{event_log_id}},\n    \"positive_outcome\": [\n        [\n            {\n                \"column\": \"Activity\",\n                \"operator\": \"EQUAL\",\n                \"value\": \"A_APPROVED\"\n            }\n        ]\n    ],\n    \"treatment\": [\n        [\n            {\n                \"column\": \"Activity\",\n                \"operator\": \"EQUAL\",\n                \"value\": \"O_SENT_BACK\"\n            }\n        ]\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/project",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"project"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Start simulation",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/project/{{project_id}}/simulate/start",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"project",
+								"{{project_id}}",
+								"simulate",
+								"start"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stop simulation",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/project/{{project_id}}/simulate/stop",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"project",
+								"{{project_id}}",
+								"simulate",
+								"stop"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clear simulation",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/project/{{project_id}}/simulate/clear",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"project",
+								"{{project_id}}",
+								"simulate",
+								"clear"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Get existing event logs",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{server}}/event_log/all",
-					"host": [
-						"{{server}}"
-					],
-					"path": [
-						"event_log",
-						"all"
-					]
+			"name": "Advanced Usage",
+			"item": [
+				{
+					"name": "Post new event",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Case ID\": \"173688\",\n    \"start_time\": \"2011-09-30T22:38:44.546\",\n    \"end_time\": \"2011-09-30T22:38:44.546\",\n    \"AMOUNT_REQ\": \"20000\",\n    \"REG_DATE\": \"2011-09-30T22:38:44.546Z\",\n    \"Activity\": \"A_SUBMITTED\",\n    \"Resource\": \"112\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/event/{{project_id}}",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"event",
+								"{{project_id}}"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Get existing projects",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{server}}/project/all",
-					"host": [
-						"{{server}}"
-					],
-					"path": [
-						"project",
-						"all"
-					]
+			"name": "Test Getters",
+			"item": [
+				{
+					"name": "Hello world",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}",
+							"host": [
+								"{{server}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get existing event logs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/event_log/all",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"event_log",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get existing projects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/project/all",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"project",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get existing plugin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/plugin/all",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"plugin",
+								"all"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		}
 	],
 	"auth": {
