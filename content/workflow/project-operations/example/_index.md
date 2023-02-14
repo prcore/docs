@@ -9,4 +9,6 @@ Here you can use the lastest version of the Postman collection to test the API, 
 
 Once you have created a project, you can track the project's status by using the `Get the project` request in the collection.
 
+![](images/postman-list.png)
 
+Please folow the testing order shown in the figure, then you can observe the changes of the project's status.

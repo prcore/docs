@@ -21,3 +21,7 @@ You should only call this endpoint when the project's status is `TRAINED`  or `S
     "project_id": 123
 }
 ```
+
+## Note
+
+After the simulation is started, you can subscribe to the prescription results by calling the endpoint introduced in [Get Prescriptions](/workflow/get-prescriptions/)
