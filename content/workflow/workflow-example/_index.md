@@ -11,7 +11,7 @@ Before you start, make sure you have the following packages installed:
 
 ```bash
 python3 -m venv venv
-./venv/bin/pip install requests sseclient
+./venv/bin/pip install requests sseclient-py
 ```
 
 ## Example script

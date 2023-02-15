@@ -23,7 +23,7 @@ To run this script, please install the `sseclient` package first.
 
 ```bash
 python3 -m venv venv
-./venv/bin/python -m pip install sseclient requests
+./venv/bin/python -m pip install requests sseclient-py
 ./venv/bin/python sse-client.py
 ```
 
