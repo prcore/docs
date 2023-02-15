@@ -24,6 +24,14 @@ Please change the `EVENT_LOG_FILE` to get the correct path to your local event l
 
 {{< include file="/static/download/workflow-example.py" language="python" >}}
 
+## Running the script
+
+To run the script, simply execute the following command:
+
+```bash
+./venv/bin/python workflow-example.py
+```
+
 ## Example output
 
 Here is an snippet of the output of the script:
