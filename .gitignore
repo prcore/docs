@@ -1,5 +1,5 @@
 public/
 deploy.sh
 venv/
-workflow-example-local.py
-
+workflow-example-local*
+sse-client-local*

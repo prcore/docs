@@ -32,7 +32,8 @@ classDiagram
         treatment_definition: list[list[dict[str, datetime | float | int | str]]]
         fast_mode: bool
         start_transition: str
-        end_transition: str
+        complete_transition: str
+        abort_transition: str
     }
 
     class Project {
