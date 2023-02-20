@@ -22,6 +22,10 @@ According to the script, uploaded event log should be [this one](/download/bpic2
 
 Please change the `EVENT_LOG_FILE` to get the correct path to your local event log file.
 
+{{< hint type=warning icon=gdoc_info_outline >}}
+The `outcome` and `treatment` of the project defined in exmaple script is only for demonstration purposes. They don't represent the actual outcome and treatment of the domain, so you can modify them to fit your needs.
+{{< /hint >}}
+
 {{< include file="/static/download/workflow-example.py" language="python" >}}
 
 ## Running the script
@@ -182,3 +186,12 @@ Interrupted by user
 
 Done!
 ```
+
+## Other examples
+
+The example above is tested with the BPI Challenge 2012 dataset.
+
+The program is also tested with the following datasets:
+
+- [BPI Challenge 2017](/download/bpic2017-XES.zip): [workflow-example-bpic2017.py](/download/workflow-example-bpic2017.py)
+- [BPI Challenge 2011](/download/bpic2011-XES.zip): [workflow-example-bpic2011.py](/download/workflow-example-bpic2011.py)
