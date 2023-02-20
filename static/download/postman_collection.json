@@ -643,6 +643,24 @@
 					"response": []
 				},
 				{
+					"name": "Get the project",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/project/{{project_id}}",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"project",
+								"{{project_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Start simulation",
 					"request": {
 						"method": "PUT",
@@ -802,6 +820,375 @@
 							"path": [
 								"plugin",
 								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BPIC 2017",
+			"item": [
+				{
+					"name": "Upload event log",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"event_log_id\", jsonData.event_log_id);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/zhaosi/Sites/PrCore/static/download/bpic2017-XES.zip"
+								},
+								{
+									"key": "seperator",
+									"value": ",",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/event_log",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"event_log"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set columns definition",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"concept:name\": \"ACTIVITY\",\n    \"lifecycle:transition\": \"TRANSITION\",\n    \"time:timestamp\": \"TIMESTAMP\",\n    \"case:concept:name\": \"CASE_ID\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/event_log/{{event_log_id}}",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"event_log",
+								"{{event_log_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"project_id\", jsonData.project.id);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"event_log_id\": {{event_log_id}},\n    \"positive_outcome\": [\n        [\n            {\n                \"column\": \"concept:name\",\n                \"operator\": \"EQUAL\",\n                \"value\": \"O_Accepted\"\n            }\n        ]\n    ],\n    \"treatment\": [\n        [\n            {\n                \"column\": \"concept:name\",\n                \"operator\": \"EQUAL\",\n                \"value\": \"O_Returned\"\n            }\n        ]\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/project",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"project"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the project",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/project/{{project_id}}",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"project",
+								"{{project_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Start simulation",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/project/{{project_id}}/simulate/start",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"project",
+								"{{project_id}}",
+								"simulate",
+								"start"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BPIC 2011",
+			"item": [
+				{
+					"name": "Upload event log",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"event_log_id\", jsonData.event_log_id);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/zhaosi/Sites/PrCore/static/download/bpic2011-XES.zip"
+								},
+								{
+									"key": "seperator",
+									"value": ",",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/event_log",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"event_log"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set columns definition",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Activity code\": \"ACTIVITY\",\n    \"time:timestamp\": \"TIMESTAMP\",\n    \"lifecycle:transition\": \"TRANSITION\",\n    \"case:concept:name\": \"CASE_ID\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/event_log/{{event_log_id}}",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"event_log",
+								"{{event_log_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"project_id\", jsonData.project.id);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"event_log_id\": {{event_log_id}},\n    \"positive_outcome\": [\n        [\n            {\n                \"column\": \"Activity code\",\n                \"operator\": \"EQUAL\",\n                \"value\": \"370606\"\n            }\n        ]\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/project",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"project"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the project",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/project/{{project_id}}",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"project",
+								"{{project_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change project definition",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"project_id\", jsonData.project.id);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"event_log_id\": {{event_log_id}},\n    \"positive_outcome\": [\n        [\n            {\n                \"column\": \"Activity code\",\n                \"operator\": \"EQUAL\",\n                \"value\": \"370606\"\n            }\n        ]\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/project/{{project_id}}/definition",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"project",
+								"{{project_id}}",
+								"definition"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the project",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/project/{{project_id}}",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"project",
+								"{{project_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Start simulation",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/project/{{project_id}}/simulate/start",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"project",
+								"{{project_id}}",
+								"simulate",
+								"start"
 							]
 						}
 					},
