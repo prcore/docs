@@ -30,4 +30,6 @@ graph TB
     Result --> End
 {{< /mermaid >}}
 
+Please refer to the following sections for more details:
+
 {{< toc-tree >}}
