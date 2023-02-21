@@ -8,7 +8,7 @@ This section describes the workflow of using the PrCore API.
 Below is a flowchart of the workflow. The workflow can be divided into 3 main parts: uploading and defining the log file, analyzing the log file, and prescribing the case.
 
 {{< mermaid class="text-center" >}}
-graph TB
+flowchart TB
     Start([Start]) --> Upload[/Receive log file/]
     Upload --> Parse[Parse file]
     Parse --> IsValidFile{Valid file?}
