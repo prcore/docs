@@ -5,4 +5,24 @@ weight: -15
 
 This section describes the workflow of using the PrCore API.
 
+{{< mermaid class="text-center" >}}
+graph TB
+    Start([Start]) --> Upload[/Receive log file/]
+    Upload --> Parse{Parse file}
+    Parse --> |Valid| Brief[/Return basic info/]
+    Parse --> |Invalid| End([End])
+    Brief --> ColumnsDefintion[/Receive columns definition/]
+    ColumnsDefintion --> Analyze{Analyze file}
+    Analyze --> |Valid definition| AnalyzeResult[/Return analysis and options/]
+    Analyze --> |Invalid definition| End
+    AnalyzeResult --> ProjectDefintion[/Receive outcome & treatment definition/]
+    ProjectDefintion --> Preprocess{Preprocess data}
+    Preprocess --> |Valid definition| Train[Train models]
+    Preprocess --> |Invalid definition| End
+    Train --> Streaming[/Receive streaming data/]
+    Streaming --> Prescribe[Prescribe the case]
+    Prescribe --> Result[/Return prescriptions/]
+    Result --> End
+{{< /mermaid >}}
+
 {{< toc-tree >}}
