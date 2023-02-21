@@ -16,7 +16,7 @@ graph TB
     Analyze --> |Valid definition| AnalyzeResult[/Return analysis and options/]
     Analyze --> |Invalid definition| End
     AnalyzeResult --> ProjectDefintion[/Receive outcome & treatment definition/]
-    ProjectDefintion --> Preprocess{Preprocess data}
+    ProjectDefintion --> Preprocess{Preprocess}
     Preprocess --> |Valid definition| Train[Train models]
     Preprocess --> |Invalid definition| End
     Train --> Streaming[/Receive streaming data/]
