@@ -1,5 +1,6 @@
 ---
 title: "Simulate Streaming"
+geekdocCollapseSection: true
 weight: 30
 ---
 

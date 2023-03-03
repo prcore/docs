@@ -1,5 +1,6 @@
 ---
 title: "Upload Event Log"
+geekdocCollapseSection: true
 weight: 10
 ---
 

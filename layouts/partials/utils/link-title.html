@@ -1,0 +1,13 @@
+{{ $title := "" }}
+
+{{ if and .Params.icon .Title }}
+  {{ $title = printf "%s %s" .Params.icon .Title }}
+{{ else if .Title }}
+  {{ $title = .Title }}
+{{ else if and .IsSection .File }}
+  {{ $title = path.Base .File.Dir | humanize | title }}
+{{ else if and .IsPage .File }}
+  {{ $title = .File.BaseFileName | humanize | title }}
+{{ end }}
+
+{{ return $title }}

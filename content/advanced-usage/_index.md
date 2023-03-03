@@ -1,5 +1,6 @@
 ---
 title: Advanced Usage
+icon: "🎯"
 weight: -10
 ---
 

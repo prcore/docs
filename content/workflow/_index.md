@@ -1,5 +1,6 @@
 ---
 title: "Workflow"
+icon: "⚙️"
 weight: -15
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: "Project Operations"
+geekdocCollapseSection: true
 weight: 20
 ---
 

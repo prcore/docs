@@ -1,0 +1,6 @@
+---
+main:
+  - name: Getting Started
+    ref: "/getting-started/"
+    external: true
+    icon: "gdoc_notification"

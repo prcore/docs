@@ -1,5 +1,6 @@
 ---
 title: "Plugin System"
+geekdocCollapseSection: true
 weight: 10
 ---
 
