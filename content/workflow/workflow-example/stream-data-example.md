@@ -5,6 +5,15 @@ weight: 20
 
 Here you can find a Python script that automatically handles the uploading of data, defining the project, triggering the simulation, and getting the results.
 
+{{< mermaid class="text-center" >}}
+flowchart TB
+    upload(Upload the event log file) --> set(Set the columns definition)
+    set --> create(Create the project)
+    create --> get(Get the project status)
+    get --> start(Start the simulation)
+    start --> read(Read the simulation result)
+{{< /mermaid >}}
+
 ## Prerequisites
 
 Before you start, make sure you have the following packages installed:

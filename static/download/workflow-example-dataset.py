@@ -76,13 +76,6 @@ def create_project(event_log_id) -> Response:
     return response
 
 
-def get_project(project_id) -> Response:
-    # Get the project definition
-    url = f"{BASE_URL}/project/{project_id}"
-    response = requests.get(url, headers=HEADERS)
-    return response
-
-
 def get_result(project_id, result_key) -> Response:
     # Get the result of the project
     url = f"{BASE_URL}/project/{project_id}/result/{result_key}"

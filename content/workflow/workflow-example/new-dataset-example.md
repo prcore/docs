@@ -5,6 +5,13 @@ weight: 10
 
 Here you can find a Python script that automatically handles the uploading of training data and test data files, defining the project, and getting the results.
 
+{{< mermaid class="text-center" >}}
+flowchart TB
+    upload(Upload the event log file and test log) --> set(Set the columns definition)
+    set --> create(Create the project)
+    create --> get(Get the result)
+{{< /mermaid >}}
+
 ## Prerequisites
 
 Before you start, make sure you have the following packages installed:
