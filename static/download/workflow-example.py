@@ -101,7 +101,7 @@ def stop_simulation(project_id) -> Response:
 
 def printing_streaming_response(project_id):
     # Get a streaming response for the given event feed using sseclient.
-    response = requests.get(f"{BASE_URL}/project/{project_id}/streaming/result", stream=True, headers=HEADERS)
+    response = requests.get(f"{BASE_URL}/project/{project_id}/stream/result", stream=True, headers=HEADERS)
     client = sseclient.SSEClient(response)
 
     print("Waiting for events...")

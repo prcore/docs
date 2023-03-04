@@ -5,7 +5,7 @@ import sseclient
 
 BASE_URL = "https://prcore.chaos.run" 
 PROJECT_ID = 1
-URL = f"{BASE_URL}/project/{PROJECT_ID}/streaming/result"
+URL = f"{BASE_URL}/project/{PROJECT_ID}/stream/result"
 HEADERS = {
   "Authorization": "Bearer UaJW0QvkMA1cVnOXB89E0NbLf3JRRoHwv2wWmaY5v=QYpaxr1UD9/FupeZ85sa2r"
 }

@@ -35,6 +35,7 @@ If the result is not ready, the `cases` field will be `null`.
     "cases_count": null,
     "columns": null,
     "columns_definition": null,
+    "case_attributes": null,
     "cases": null
 }
 ```
@@ -78,6 +79,10 @@ Below is an example of a complete result:
         "AMOUNT_REQ": "NUMBER",
         "start_time": "START_TIMESTAMP"
     },
+    "case_attributes": [
+        "AMOUNT_REQ",
+        "REG_DATE"
+    ],
     "cases": {
         "173688": {
             "prescriptions": [
