@@ -1,6 +1,10 @@
 ---
 title: "Get Streaming Result"
 weight: 20
+resources:
+  - name: "postman"
+    src: "images/streaming-collection.png"
+    title: ""
 ---
 
 PrCore use [SSE](https://en.wikipedia.org/wiki/Server-sent_events) to stream prescriptions to the client. The SSE endpoint is `/project/{project_id}/streaming/result`.
@@ -74,4 +78,4 @@ For SSE, you can check [here](https://developer.mozilla.org/en-US/docs/Web/API/S
 
 If your Postman is v10 or above, you can use the following collection to test the SSE endpoint. Since Postman has updated the way to test SSE, you can check [here](https://blog.postman.com/support-for-server-sent-events/) for more information.
 
-![](../images/streaming-collection.png)
+{{< img name="postman" size="small" lazy=false >}}
