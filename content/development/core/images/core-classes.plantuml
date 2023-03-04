@@ -17,6 +17,7 @@ class Definition {
     created_at: datetime
     updated_at: datetime
     columns_definition: dict[str, str]
+    case_attributes: list[str]
     outcome_definition: list[list[dict[str, datetime | float | int | str]]]
     treatment_definition: list[list[dict[str, datetime | float | int | str]]]
     fast_mode: bool

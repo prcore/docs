@@ -33,20 +33,76 @@ Here we need use the `event_log_id` to get the definition of the columns.
 
 ### Response
 
-Please note that there is no `columns_inferred_definition` in the response, instead, there is a `columns_old_definition` which is the old definition of the columns.
+Please note that **there is no `columns_inferred_definition` in the response, instead, there is a `columns_old_definition` which is the old definition** of the columns.
 
 ```json
 {
-    "message": "Columns definition retrieved successfully",
-    "event_log_id": 123456,
-    "columns_header": ["Case_ID", "Time", "Action", "Personnel"],
-    "columns_old_definition": ["CASE_ID", "TIMESTAMP", "ACTIVITY", "RESOURCE"],
+    "message": "Event log definition retrieved successfully",
+    "event_log_id": 21,
+    "columns_header": [
+        "Case ID",
+        "Activity",
+        "REG_DATE",
+        "Resource",
+        "end_time",
+        "AMOUNT_REQ",
+        "start_time"
+    ],
+    "columns_old_definition": [
+        "CASE_ID",
+        "ACTIVITY",
+        "DATETIME",
+        "RESOURCE",
+        "END_TIMESTAMP",
+        "NUMBER",
+        "START_TIMESTAMP"
+    ],
     "columns_data": [
-        ["1", "2019-01-01 00:00:00", "A", "1"],
-        ["1", "2019-01-01 00:00:00", "B", "1"],
-        ["1", "2019-01-01 00:00:00", "C", "2"],
-        ["1", "2019-01-01 00:00:00", "C", "2"],
-        ["1", "2019-01-01 00:00:00", "C", "2"]
+        [
+            "173688",
+            "2011-09-30T22:38:44.546",
+            "2011-09-30T22:38:44.546",
+            "20000",
+            "2011-09-30T22:38:44.546Z",
+            "A_SUBMITTED",
+            "112"
+        ],
+        [
+            "173688",
+            "2011-09-30T22:38:44.880",
+            "2011-09-30T22:38:44.880",
+            "20000",
+            "2011-09-30T22:38:44.546Z",
+            "A_PARTLYSUBMITTED",
+            "112"
+        ],
+        [
+            "173688",
+            "2011-09-30T22:39:37.906",
+            "2011-09-30T22:39:37.906",
+            "20000",
+            "2011-09-30T22:38:44.546Z",
+            "A_PREACCEPTED",
+            "112"
+        ],
+        [
+            "173688",
+            "2011-10-01T09:36:46.437",
+            "2011-10-01T09:45:13.917",
+            "20000",
+            "2011-09-30T22:38:44.546Z",
+            "W_Completeren aanvraag",
+            "nan"
+        ],
+        [
+            "173688",
+            "2011-10-01T09:42:43.308",
+            "2011-10-01T09:42:43.308",
+            "20000",
+            "2011-09-30T22:38:44.546Z",
+            "A_ACCEPTED",
+            "10862"
+        ]
     ]
 }
 ```
@@ -67,10 +123,16 @@ The request body is a JSON object, the key is the column name, and the value is 
 
 ```json
 {
-    "Case_ID": "CASE_ID",
-    "Time": "TIMESTAMP",
-    "Action": "ACTIVITY",
-    "Personnel": "RESOURCE"
+    "columns_definition": {
+        "Case ID": "CASE_ID",
+        "start_time": "START_TIMESTAMP",
+        "end_time": "END_TIMESTAMP",
+        "AMOUNT_REQ": "NUMBER",
+        "REG_DATE": "DATETIME",
+        "Activity": "ACTIVITY",
+        "Resource": "RESOURCE"
+    },
+    "case_attributes": ["Case ID", "AMOUNT_REQ"]
 }
 ```
 
@@ -80,29 +142,58 @@ If the request is successful, the response will return the unique activities cou
 
 ```json
 {
-    "message": "Columns configuration updated successfully",
-    "event_log_id": 123456,
+    "message": "Event log updated",
+    "event_log_id": 21,
     "received_definition": {
-        "Case_ID": "CASE_ID",
-        "Time": "TIMESTAMP",
-        "Action": "ACTIVITY",
-        "Personnel": "RESOURCE"
+        "Case ID": "CASE_ID",
+        "Activity": "ACTIVITY",
+        "REG_DATE": "DATETIME",
+        "Resource": "RESOURCE",
+        "end_time": "END_TIMESTAMP",
+        "AMOUNT_REQ": "NUMBER",
+        "start_time": "START_TIMESTAMP"
     },
     "activities_count": {
-        "A": 53,
-        "B": 20,
-        "C": 12
+        "W_Completeren aanvraag": 23967,
+        "W_Nabellen offertes": 22977,
+        "A_SUBMITTED": 13087,
+        "A_PARTLYSUBMITTED": 13087,
+        "W_Nabellen incomplete dossiers": 11407,
+        "W_Valideren aanvraag": 7897,
+        "A_DECLINED": 7635,
+        "A_PREACCEPTED": 7367,
+        "O_SENT": 7030,
+        "O_SELECTED": 7030,
+        "O_CREATED": 7030,
+        "W_Afhandelen leads": 5898,
+        "A_ACCEPTED": 5113,
+        "A_FINALIZED": 5015,
+        "O_CANCELLED": 3655,
+        "O_SENT_BACK": 3454,
+        "A_CANCELLED": 2807,
+        "A_REGISTERED": 2246,
+        "A_APPROVED": 2246,
+        "A_ACTIVATED": 2246,
+        "O_ACCEPTED": 2243,
+        "O_DECLINED": 802,
+        "W_Beoordelen fraude": 270
     },
-    "outcome_selections": [
-        "Time",
-        "Action",
-        "Personnel",
-        "DURATION",
+    "outcome_options": [
+        "Activity",
+        "REG_DATE",
+        "Resource",
+        "end_time",
+        "AMOUNT_REQ",
+        "start_time",
+        "DURATION"
     ],
-    "treatment_selections": [
-        "Time",
-        "Action",
-        "Personnel"
+    "treatment_options": [
+        "Activity",
+        "REG_DATE",
+        "Resource",
+        "end_time",
+        "AMOUNT_REQ",
+        "start_time"
     ]
 }
 ```

@@ -30,30 +30,18 @@ This endpoint is for updating the definition for outcome and treatment of the pr
     "positive_outcome": [
         [
             {
-                "column": "Action",
+                "column": "Activity",
                 "operator": "EQUAL",
-                "value": "A",
-            },
-            {
-                "column": "DUARTION",
-                "operator": "LESS_THAN",
-                "value": 100
-            }
-        ],
-        [
-            {
-                "column": "Personnel",
-                "operator": "EQUAL",
-                "value": "B"
+                "value": "A_APPROVED"
             }
         ]
     ],
     "treatment": [
         [
             {
-                "column": "Action",
+                "column": "Activity",
                 "operator": "EQUAL",
-                "value": "C"
+                "value": "O_SENT_BACK"
             }
         ]
     ]
@@ -66,32 +54,33 @@ In the response, a `project` object will be returned.
 
 ```json
 {
-    "message": "Project's outcome and treatment definition updated successfully",
+    "message": "Project definition updated successfully",
     "project": {
-        "id": 1,
-        "created_at": "2023-02-08T07:40:35.510479+00:00",
-        "updated_at": null,
         "name": "bpic2012-CSV.zip",
         "description": null,
         "status": "PREPROCESSING",
+        "id": 20,
+        "created_at": "2023-03-04T09:26:36.572249+00:00",
+        "updated_at": "2023-03-04T09:39:56.514738+00:00",
         "event_log": {
-            "id": 1,
-            "created_at": "2023-02-08T07:40:27.601771+00:00",
-            "updated_at": "2023-02-08T07:40:31.332790+00:00",
             "file_name": "bpic2012-CSV.zip",
+            "id": 21,
+            "created_at": "2023-03-04T08:56:29.577241+00:00",
+            "updated_at": "2023-03-04T09:39:48.660745+00:00",
             "definition": {
-                "id": 1,
-                "created_at": "2023-02-08T07:40:31.314273+00:00",
-                "updated_at": "2023-02-08T07:40:35.489616+00:00",
                 "columns_definition": {
                     "Case ID": "CASE_ID",
                     "Activity": "ACTIVITY",
                     "REG_DATE": "DATETIME",
-                    "Resource": "TEXT",
+                    "Resource": "RESOURCE",
                     "end_time": "END_TIMESTAMP",
                     "AMOUNT_REQ": "NUMBER",
                     "start_time": "START_TIMESTAMP"
                 },
+                "case_attributes": [
+                    "Case ID",
+                    "AMOUNT_REQ"
+                ],
                 "outcome_definition": [
                     [
                         {
@@ -109,10 +98,51 @@ In the response, a `project` object will be returned.
                             "value": "O_SENT_BACK"
                         }
                     ]
-                ]
+                ],
+                "fast_mode": true,
+                "start_transition": "START",
+                "complete_transition": "COMPLETE",
+                "abort_transition": "ATE_ABORT",
+                "id": 21,
+                "created_at": "2023-03-04T09:10:52.970059+00:00",
+                "updated_at": "2023-03-04T09:39:56.483444+00:00"
             }
         },
-        "plugins": []
-    }
+        "plugins": [
+            {
+                "name": "KNN next activity prediction",
+                "prescription_type": "NEXT_ACTIVITY",
+                "description": "This plugin predicts the next activity based on the KNN algorithm.",
+                "parameters": {
+                    "n_neighbors": "3"
+                },
+                "status": "WAITING",
+                "id": 49,
+                "created_at": "2023-03-04T09:26:51.747310+00:00",
+                "updated_at": "2023-03-04T09:39:56.469988+00:00"
+            },
+            {
+                "name": "Random forest negative outcome probability",
+                "prescription_type": "ALARM",
+                "description": "This plugin predicts the alarm probability based on the random forest algorithm.",
+                "parameters": {},
+                "status": "WAITING",
+                "id": 50,
+                "created_at": "2023-03-04T09:26:51.765416+00:00",
+                "updated_at": "2023-03-04T09:39:56.476862+00:00"
+            },
+            {
+                "name": "CasualLift treatment effect",
+                "prescription_type": "TREATMENT_EFFECT",
+                "description": "This plugin uses Uplift Modeling package CasualLift to get the CATE and probability of outcome if treatment is applied or not",
+                "parameters": {},
+                "status": "WAITING",
+                "id": 51,
+                "created_at": "2023-03-04T09:26:51.770798+00:00",
+                "updated_at": "2023-03-04T09:39:48.641647+00:00"
+            }
+        ]
+    },
+    "result_key": null
 }
 ```

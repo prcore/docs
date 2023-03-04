@@ -2,3 +2,7 @@
 a:visited {
     color: var(--link-color);
 }
+
+:root .gdoc-markdown .gdoc-hint a:visited, :root .gdoc-markdown .admonitionblock a:visited {
+    color: var(--hint-link-color);
+}

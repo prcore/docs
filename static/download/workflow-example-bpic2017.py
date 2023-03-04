@@ -26,7 +26,7 @@ def upload_file(file_path) -> Response:
     files = [
         ("file", ("bpic2012-CSV.zip", open(file_path, "rb"), "application/zip"))
     ]
-    response = requests.post(url, files=files, headers=HEADERS, data={"separator": ";"})
+    response = requests.post(url, files=files, headers=HEADERS, data={"separator": ","})
     return response
 
 
@@ -34,10 +34,12 @@ def set_columns_definition(event_log_id) -> Response:
     # Set the columns definition for the uploaded file.
     url = f"{BASE_URL}/event_log/{event_log_id}"
     data = {
-        "concept:name": "ACTIVITY",
-        "lifecycle:transition": "TRANSITION",
-        "time:timestamp": "TIMESTAMP",
-        "case:concept:name": "CASE_ID"
+        "columns_definition": {
+            "concept:name": "ACTIVITY",
+            "lifecycle:transition": "TRANSITION",
+            "time:timestamp": "TIMESTAMP",
+            "case:concept:name": "CASE_ID"
+        }
     }
     response = requests.put(url, json=data, headers=REQUEST_HEADERS)
     return response
@@ -102,7 +104,7 @@ def printing_streaming_response(project_id):
     print("Waiting for events...")
 
     for event in client.events():
-        if event.event == "ping":
+        if event.event != "message":
             continue
 
         event_data = json.loads(event.data)

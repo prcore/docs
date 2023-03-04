@@ -1,8 +1,17 @@
 ---
 properties:
-  - name: column-name
-    type: str
+  - name: columns_definition
+    type: json
     description: |
+        The format of this json object is as follows:
+
+        ```json
+        {
+            "column_name_1": "definition_1",
+            "column_name_2": "definition_2",
+        }
+        ```
+
         The definition can be used to define the type of the column, and it can be chosen from the following list:
 
         1. Special types of definition:
@@ -13,6 +22,7 @@ properties:
             - `NUMBER`
             - `BOOLEAN`
             - `DATETIME`
+            - `CATEGORICAL`
         3. Common types of definition:
             - `ACTIVITY` (sepcial definition of `TEXT`)
             - `TIMESTAMP` (sepcial definition of `DATETIME`)
@@ -32,6 +42,27 @@ properties:
         3. `ACTIVITY`
 
         If one of the `START_TIMESTAMP` and `END_TIMESTAMP` is defined, the other one must be defined as well.
-
-        Here we don't differentiate the `Case attribute` and `Event attribute`, because the PrCore doesn't need this information when processing the [outcome and treatment definition](#outcome-and-treatment-definition).
     required: true
+  - name: case_attributes
+    type: list(string)
+    description: |
+        The list of case attributes.
+
+        ```
+        [
+            "column_name_1",
+            "column_name_2"
+        ]
+        ```
+  - name: fast_mode
+    type: boolean
+    defaultValue: true
+  - name: start_transition
+    type: string
+    defaultValue: "START"
+  - name: complete_transition
+    type: string
+    defaultValue: "COMPLETE"
+  - name: abort_transition
+    type: string
+    defaultValue: "ABORT_ATE"

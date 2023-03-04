@@ -1,4 +1,5 @@
 public/
 deploy.sh
 venv/
+sse-client-local*
 workflow-example-local*

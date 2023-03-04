@@ -46,12 +46,18 @@ Following column definitions supports these predefined evaluation operators for 
     - `EARLIER_THAN_OR_EQUAL`
     - `LATER_THAN`
     - `LATER_THAN_OR_EQUAL`
+- `CATEGORICAL`
+    - `IS`  
 
 For each types of the definition, the corresponding values are described as below:
 
 {{< tabs "definition-tab" >}}
 {{< tab "TEXT" >}}
-Thae value should be a string.
+The value should be a string.
+
+Examples:
+
+- `"A"`
 {{< /tab >}}
 {{< tab "NUMBER" >}}
 The value should be a number, or a number string.
@@ -64,7 +70,9 @@ Examples:
 - `"2.2"`
 {{< /tab >}}
 {{< tab "BOOLEAN" >}}
-The value is not required, and it will be ignored.
+The value is not required.
+
+If you provide a value, it will be ignored, since the operator is `IS_TRUE` or `IS_FALSE`.
 {{< /tab >}}
 {{< tab "DATETIME" >}}
 The value should be a valid date time string, which conforms to the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard.
@@ -73,6 +81,11 @@ Examples:
 
 - `"2012-04-23T18:25:43.511Z"`
 - `"2013-10-21T13:28:06.419Z"`
+{{< /tab >}}
+{{< tab "CATEGORICAL" >}}
+The value should be a string.
+
+So instead of `0`, you should use `"0"`, and instead of `1`, you should use `"1"`.
 {{< /tab >}}
 {{< tab "DURATION" >}}
 The default unit is `second`, and the value should be a integer, or a integer string.
@@ -101,12 +114,11 @@ Examples:
 {{< /tab >}}
 {{< /tabs >}}
 
-For example, if you want to define the outcome as `Offer sent` activity happened, you can select `Action` column (the name is from your original event log), and select `EQUAL` as the operator, and choose `Offer sent` as the value. Since `Action` is defined as `ACTIVITY` in the previous step, PrCore will know it is an activity column, and based on the convention, the `ACTIVITY` (as `TEXT`) supports the `EQUAL` operator, so it is valid.
-
-{{< hint type=note icon=gdoc_info_outline title="Special case" >}}
-1. When the column field is filled with `DURATION` (uppercase), then the program will calculate the duration of each case if there is no duration data defined in the original event log.
-2. When the definition of the selected column is `BOOLEAN`, then the value field can be ignored if the operator is `IS_TRUE` or `IS_FALSE`.
+{{< hint type=note icon=gdoc_info_outline >}}
+When the column field is filled with `DURATION` (uppercase), then the program will calculate the duration of each case if there is no duration data defined in the original event log.
 {{< /hint >}}
+
+For example, if you want to define the outcome as `Offer sent` activity happened, you can select `Action` column (the name is from your original event log), and select `EQUAL` as the operator, and choose `Offer sent` as the value. Since `Action` is defined as `ACTIVITY` in the previous step, PrCore will know it is an activity column, and based on the convention, the `ACTIVITY` (as `TEXT`) supports the `EQUAL` operator, so it is valid.
 
 ```
 "positive_outcome": [
@@ -184,30 +196,31 @@ In the response, a `project` object will be returned, which can be used later.
 {
     "message": "Project created successfully",
     "project": {
-        "id": 1,
-        "created_at": "2023-02-08T07:40:35.510479+00:00",
-        "updated_at": null,
         "name": "bpic2012-CSV.zip",
         "description": null,
         "status": "PREPROCESSING",
+        "id": 20,
+        "created_at": "2023-03-04T09:26:36.572249+00:00",
+        "updated_at": null,
         "event_log": {
-            "id": 1,
-            "created_at": "2023-02-08T07:40:27.601771+00:00",
-            "updated_at": "2023-02-08T07:40:31.332790+00:00",
             "file_name": "bpic2012-CSV.zip",
+            "id": 21,
+            "created_at": "2023-03-04T08:56:29.577241+00:00",
+            "updated_at": "2023-03-04T09:10:52.987641+00:00",
             "definition": {
-                "id": 1,
-                "created_at": "2023-02-08T07:40:31.314273+00:00",
-                "updated_at": "2023-02-08T07:40:35.489616+00:00",
                 "columns_definition": {
                     "Case ID": "CASE_ID",
                     "Activity": "ACTIVITY",
                     "REG_DATE": "DATETIME",
-                    "Resource": "TEXT",
+                    "Resource": "RESOURCE",
                     "end_time": "END_TIMESTAMP",
                     "AMOUNT_REQ": "NUMBER",
                     "start_time": "START_TIMESTAMP"
                 },
+                "case_attributes": [
+                    "Case ID",
+                    "AMOUNT_REQ"
+                ],
                 "outcome_definition": [
                     [
                         {
@@ -225,38 +238,18 @@ In the response, a `project` object will be returned, which can be used later.
                             "value": "O_SENT_BACK"
                         }
                     ]
-                ]
+                ],
+                "fast_mode": true,
+                "start_transition": "START",
+                "complete_transition": "COMPLETE",
+                "abort_transition": "ATE_ABORT",
+                "id": 21,
+                "created_at": "2023-03-04T09:10:52.970059+00:00",
+                "updated_at": "2023-03-04T09:26:36.564989+00:00"
             }
         },
-        "plugins": [
-            {
-                "id": 1,
-                "created_at": "2023-02-08T07:40:35.510479+00:00",
-                "updated_at": null,
-                "name": "KNN next activity prediction",
-                "prescription_type": "NEXT_ACTIVITY",
-                "description": "This plugin predicts the next activity based on the KNN algorithm.",
-                "status": "WAITING"
-            },
-            {
-                "id": 2,
-                "created_at": "2023-02-08T07:40:35.510479+00:00",
-                "updated_at": null,
-                "name": "Random forest negative outcome probability",
-                "prescription_type": "ALARM",
-                "description": "This plugin provides the probability of negative outcome.",
-                "status": "WAITING"
-            },
-            {
-                "id": 3,
-                "created_at": "2023-02-08T07:40:35.510479+00:00",
-                "updated_at": null,
-                "name": "CasualLift",
-                "prescription_type": "TREATMENT_EFFECT",
-                "description": "This plugin uses Uplift Modeling package 'CasualLift' to predict the positive outcome probability if the treatment is applied, the positive outcome probability if the treatment is not applied, and the treatment effect (CATE), and suggested treatment based on the user's treatment definition.",
-                "status": "WAITING"
-            }
-        ]
-    }
+        "plugins": []
+    },
+    "result_key": null
 }
 ```

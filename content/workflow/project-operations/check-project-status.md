@@ -28,14 +28,14 @@ Here is an example of the response.
         "name": "bpic2012-CSV.zip",
         "description": null,
         "status": "TRAINED",
-        "id": 15,
-        "created_at": "2023-02-13T16:15:38.512450+00:00",
-        "updated_at": "2023-02-13T17:53:58.279245+00:00",
+        "id": 20,
+        "created_at": "2023-03-04T09:26:36.572249+00:00",
+        "updated_at": "2023-03-04T09:27:17.961998+00:00",
         "event_log": {
             "file_name": "bpic2012-CSV.zip",
-            "id": 16,
-            "created_at": "2023-02-13T16:15:34.480730+00:00",
-            "updated_at": "2023-02-13T16:15:39.727857+00:00",
+            "id": 21,
+            "created_at": "2023-03-04T08:56:29.577241+00:00",
+            "updated_at": "2023-03-04T09:26:37.578501+00:00",
             "definition": {
                 "columns_definition": {
                     "Case ID": "CASE_ID",
@@ -46,6 +46,10 @@ Here is an example of the response.
                     "AMOUNT_REQ": "NUMBER",
                     "start_time": "START_TIMESTAMP"
                 },
+                "case_attributes": [
+                    "Case ID",
+                    "AMOUNT_REQ"
+                ],
                 "outcome_definition": [
                     [
                         {
@@ -66,13 +70,24 @@ Here is an example of the response.
                 ],
                 "fast_mode": true,
                 "start_transition": "START",
-                "end_transition": "COMPLETE",
-                "id": 15,
-                "created_at": "2023-02-13T16:15:36.605755+00:00",
-                "updated_at": "2023-02-13T16:15:38.490833+00:00"
+                "complete_transition": "COMPLETE",
+                "abort_transition": "ATE_ABORT",
+                "id": 21,
+                "created_at": "2023-03-04T09:10:52.970059+00:00",
+                "updated_at": "2023-03-04T09:26:36.564989+00:00"
             }
         },
         "plugins": [
+            {
+                "name": "CasualLift treatment effect",
+                "prescription_type": "TREATMENT_EFFECT",
+                "description": "This plugin uses Uplift Modeling package CasualLift to get the CATE and probability of outcome if treatment is applied or not",
+                "parameters": {},
+                "status": "TRAINED",
+                "id": 51,
+                "created_at": "2023-03-04T09:26:51.770798+00:00",
+                "updated_at": "2023-03-04T09:26:53.239740+00:00"
+            },
             {
                 "name": "KNN next activity prediction",
                 "prescription_type": "NEXT_ACTIVITY",
@@ -81,9 +96,19 @@ Here is an example of the response.
                     "n_neighbors": "3"
                 },
                 "status": "TRAINED",
-                "id": 12,
-                "created_at": "2023-02-13T16:15:58.792633+00:00",
-                "updated_at": "2023-02-13T17:53:58.295495+00:00"
+                "id": 49,
+                "created_at": "2023-03-04T09:26:51.747310+00:00",
+                "updated_at": "2023-03-04T09:27:03.028610+00:00"
+            },
+            {
+                "name": "Random forest negative outcome probability",
+                "prescription_type": "ALARM",
+                "description": "This plugin predicts the alarm probability based on the random forest algorithm.",
+                "parameters": {},
+                "status": "TRAINED",
+                "id": 50,
+                "created_at": "2023-03-04T09:26:51.765416+00:00",
+                "updated_at": "2023-03-04T09:27:17.957868+00:00"
             }
         ]
     }
@@ -129,3 +154,5 @@ The `prescription_type` field of the plugin indicates the type of the plugin. Th
 - `NEXT_ACTIVITY`: The plugin predicts the next activity.
 - `ALARM`: The plugin provides the probability of negative outcome.
 - `TREATMENT_EFFECT`: The plugin provides the treatment effect.
+
+If you're using your own plugins, it will return the type string you defined in the plugin.

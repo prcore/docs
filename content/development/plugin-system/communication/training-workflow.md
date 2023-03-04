@@ -25,7 +25,7 @@ The core will share the dataset information in the following format:
 {
     "project_id": 123,
     "plugin_id": 345,
-    "training_df_name": "radom-string.pkl"
+    "training_df_name": "radom-string"
 }
 ```
 

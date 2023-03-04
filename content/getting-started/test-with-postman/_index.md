@@ -3,7 +3,7 @@ title: "Test with Postman"
 weight: 40
 ---
 
-We provide a Postman collection to help you test the API. You can use the Postman collection to test the API without writing any code.
+We provide a Postman collection to help you test the API. You can use it without writing any code. Each folder in the collection contains requests from the beginning of the workflow to the current step.
 
 ## Postman Collection
 

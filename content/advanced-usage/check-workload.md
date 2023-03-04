@@ -1,6 +1,6 @@
 ---
 title: "Check RabbitMQ Workload"
-weight: 10
+weight: 40
 ---
 
 PrCore provides a web page of RabbitMQ management UI to check the pending messages in the queue. You can use this information to estimate the workload of the system.

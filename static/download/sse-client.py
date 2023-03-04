@@ -29,7 +29,7 @@ The data of our `event` is in the `event.data` list.
 
 try:
   for event in client.events():
-      if event.event == "ping":
+      if event.event != "message":
         continue
 
       event_data = json.loads(event.data)

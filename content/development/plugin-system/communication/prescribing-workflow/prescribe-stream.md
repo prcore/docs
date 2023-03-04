@@ -53,12 +53,12 @@ If you are under the normal streaming mode, you need to send the streaming data 
 {{< mermaid class="text-center" >}}
 sequenceDiagram
     loop
-        Core->>Plugin: PRESCRIPTION_REQUEST
-        Plugin-->>Core: PRESCRIPTION_RESULT
+        Core->>Plugin: STREAMING_PRESCRIPTION_REQUEST
+        Plugin-->>Core: STREAMING_PRESCRIPTION_RESULT
     end
 {{< /mermaid >}}
 
-### PRESCRIPTION_REQUEST
+### STREAMING_PRESCRIPTION_REQUEST
 
 The core will send the streaming data to the plugin. The data will be in the following format:
 
@@ -89,7 +89,7 @@ The core will send the streaming data to the plugin. The data will be in the fol
 
 The `model_name` is still sent to the plugin, because the plugin may need to load the model file into the memory if the system restarts.
 
-### PRESCRIPTION_RESULT
+### STREAMING_PRESCRIPTION_RESULT
 
 The plugin will process the data and send the results back to the core. The results will be in the following format:
 
