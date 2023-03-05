@@ -4,7 +4,7 @@ toc: true
 weight: 30
 ---
 
-After the previous step, we got unique activities count, and supported outcome and treatment selections from PrCore, then we can create a new project **by defining the outcome and treatment**.
+Following the aforementioned step of obtaining the unique activity count, along with the supported outcome and treatment options, the next course of action involves creating a new project while defining the desired outcome and treatment labels.
 
 ## Request
 

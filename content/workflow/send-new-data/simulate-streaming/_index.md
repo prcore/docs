@@ -8,6 +8,8 @@ Once a project's status is marked as `TRAINED`, it becomes capable of receiving 
 
 However, in the absence of such a system, PrCore offers the option to simulate stream data to the project. This obviates the need to set up a system for testing purposes. It is worth noting that PrCore uses 80% of the dataset to train and validate models, while the remaining 20% is reserved for simulating stream data.
 
+It should be noted that the percentage referred to in this context is calculated based on the number of cases, rather than the number of events. As such, there is no need to be concerned that the split dataset will contain any incomplete cases.
+
 For further information, please refer to the sections outlined in the following table of contents:
 
 {{< toc-tree >}}

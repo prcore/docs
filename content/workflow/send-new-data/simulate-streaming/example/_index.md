@@ -5,7 +5,7 @@ weight: 40
 draft: false
 ---
 
-Here you can use the lastest version of the Postman collection to test the API, as [Getting Started](/usage/getting-started/#example-datasets) describes.
+In order to test the API, users may utilize the latest version of the Postman collection, which can be found in the [Test with Postman](/getting-started/test-with-postman/) section.
 
 Once the project's status is `TRAINED`, you can simulate streaming data to the project.
 

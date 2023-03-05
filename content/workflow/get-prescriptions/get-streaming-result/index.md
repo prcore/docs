@@ -4,22 +4,79 @@ weight: 20
 resources:
   - name: "postman"
     src: "images/streaming-collection.png"
-    title: ""
+    title: "Postman Collection"
+  - name: "result"
+    src: "images/streaming-results.gif"
+    title: "Streaming Results"
 ---
 
-PrCore use [SSE](https://en.wikipedia.org/wiki/Server-sent_events) to stream prescriptions to the client. The SSE endpoint is `/project/{project_id}/streaming/result`.
+PrCore employs [SSE](https://en.wikipedia.org/wiki/Server-sent_events) to stream prescriptions to the client in a timely manner. For SSE, you can check [here](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) for more information.
 
 {{< hint type=note icon=gdoc_info_outline >}}
 The status of the project should be `STREAMING` or `SIMULATING`, otherwise the SSE endpoint will return `400` error.
 {{< /hint >}}
 
 {{< hint type=warning icon=gdoc_info_outline >}}
-If you try to read results from a project that is already being read by another client, the SSE endpoint will return a `400` error. Since it is designed to read results from only one client, you should not try to read results from the **same project** with multiple clients.
+If the user attempts to read results from a project that is already being read by another client, the SSE endpoint will return a `400` error. As it is specifically designed to read results from only one client at a time, it is not advisable to attempt to read results from the **same project** using multiple clients.
 {{< /hint >}}
+
+## Request
+
+Please note that the SSE endpoint is not a REST endpoint. It is a persistent connection endpoint. You should use a client that supports SSE to connect to the endpoint.
+
+| Method | Endpoint | Request body type | Description |
+| ------ | -------- | ----------------- | ----------- |
+| GET | `/project/{project_id}/stream/result` | `none` | Get event stream of the prescriptions |
+
+## Response
+
+A message will be sent to the client every time a new prescription is available. The message will be in the following format:
+
+```
+event: message
+id: 1234
+data: []
+```
+
+The `data` field is a list containing prescriptions. The format of the prescription is described in the [following](#example-prescriptions) section.
+
+Also, when connection is established, the client will receive a message with the following format:
+
+```
+event: notification
+id: 0
+data: CONNECTED
+```
+
+After the simulation is stopped, the client will receive a message with the following format:
+
+```
+event: notification
+id: 54321
+data: FINISHED
+```
+
+The program will also send `ping` messages to the client every 15 seconds:
+
+```
+event: ping
+id: 12345
+data: 2023-03-05 06:04:54.698763
+```
+
+## Test with Postman
+
+If the user's Postman version is v10 or higher, they may utilize the following collection to test the SSE endpoint. Since Postman has altered the method for testing SSE, additional information on this topic can be found [here](https://blog.postman.com/support-for-server-sent-events/).
+
+{{< img name="postman" size="small" lazy=false >}}
+
+Below is a GIF that shows the prescriptions SSE endpoint being tested with Postman:
+
+{{< img name="result" size="large" lazy=false >}}
 
 ## Example client script
 
-Below is an example script that connects to the PrCore SSE endpoint and prints the prescriptions. You can modify this script to suit your needs. Note that you should change the `PROJECT_ID` value to your project ID.
+Here is a sample script that connects to the PrCore SSE endpoint and outputs the prescriptions. This script can be customized to meet the user's specific requirements. It is important to note that the `PROJECT_ID` value should be replaced with the actual project ID.
 
 {{< include file="/static/download/sse-client.py" language="python" >}}
 
@@ -31,13 +88,14 @@ python3 -m venv ./venv
 ./venv/bin/python sse-client.py
 ```
 
+
 ## Example prescriptions
 
-Below is an example of the `event.data' object received from the SSE endpoint.
+The following is an example of the `event.data` object that is received from the SSE endpoint.
 
-The `case_completed` is a boolean value indicating whether the case is complete. If the case is completed, then the `prescriptions` array will be empty.
+The `case_completed` attribute is a boolean value that indicates whether or not the case has been completed. If the case is complete, the `prescriptions` array will be empty.
 
-Note that this is a list, which means it can contain multiple events, especially when you're connecting to the SSE endpoint for the first time, as there may be some events already in the queue.
+It is worth noting that event.data is a list, which implies that it may contain multiple events, particularly when the user is connecting to the SSE endpoint for the first time, as there may be some events already in the queue.
 
 ```json
 [
@@ -71,11 +129,3 @@ Note that this is a list, which means it can contain multiple events, especially
     }
 ]
 ```
-
-For SSE, you can check [here](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) for more information.
-
-## Test with Postman
-
-If your Postman is v10 or above, you can use the following collection to test the SSE endpoint. Since Postman has updated the way to test SSE, you can check [here](https://blog.postman.com/support-for-server-sent-events/) for more information.
-
-{{< img name="postman" size="small" lazy=false >}}

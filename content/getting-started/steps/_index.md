@@ -32,7 +32,7 @@ flowchart LR
 
 ### Stream new events data
 
-You also can let your system stream the new events data to the system. The system will process the new events data and provide prescription results after the data is processed.
+You also can let your business management system stream the new events data to PrCore. PrCore will process the new events data and provide prescription results after the data is processed.
 
 
 {{< mermaid class="text-center" >}}

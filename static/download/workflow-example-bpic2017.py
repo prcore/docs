@@ -24,9 +24,9 @@ def upload_file(file_path) -> Response:
     # Upload a file to the server.
     url = f"{BASE_URL}/event_log"
     files = [
-        ("file", ("bpic2012-CSV.zip", open(file_path, "rb"), "application/zip"))
+        ("file", ("bpic2017-XES.zip", open(file_path, "rb"), "application/zip"))
     ]
-    response = requests.post(url, files=files, headers=HEADERS, data={"separator": ","})
+    response = requests.post(url, files=files, headers=HEADERS)
     return response
 
 
@@ -82,14 +82,14 @@ def get_project(project_id) -> Response:
 
 def start_simulation(project_id) -> Response:
     # Start the simulation
-    url = f"{BASE_URL}/project/{project_id}/simulate/start"
+    url = f"{BASE_URL}/project/{project_id}/stream/start/simulating"
     response = requests.put(url, headers=HEADERS)
     return response
 
 
 def stop_simulation(project_id) -> Response:
     # Stop the simulation
-    url = f"{BASE_URL}/project/{project_id}/simulate/stop"
+    url = f"{BASE_URL}/project/{project_id}/stream/stop"
     response = requests.put(url, headers=HEADERS)
     response.raise_for_status()
     print("The simulation has been stopped!")

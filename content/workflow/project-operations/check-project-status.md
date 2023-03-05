@@ -3,7 +3,7 @@ title: "Check Project Status"
 weight: 10
 ---
 
-After the project is created, PrCore will start to pre-process the data\, and after the pre-processing is done, PrCore will send the dataset to its plugins for training models. The whole process will take some time. We can check the project status to see the progress.
+Upon project creation, PrCore will commence the pre-processing of data. Once pre-processing is completed, PrCore will proceed to send the dataset to its plugins to train models. Given the complexity of this task, the entire process is likely to take a while. The user can keep track of the progress by checking the project status.
 
 ## Request
 

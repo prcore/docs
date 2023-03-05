@@ -5,9 +5,9 @@ weight: 50
 draft: false
 ---
 
-Here you can use the lastest version of the Postman collection to test the API, as [Getting Started](/usage/getting-started/#example-datasets) describes.
+In order to test the API, users may utilize the latest version of the Postman collection, which can be found in the [Test with Postman](/getting-started/test-with-postman/) section.
 
-Once you have created a project, you can track the project's status by using the `Get the project` request in the collection.
+After successfully creating a project, it is possible to track the status of said project by utilizing the `Get the project` request in the aforementioned collection.
 
 ![](images/postman-list.png)
 

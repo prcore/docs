@@ -10,9 +10,9 @@ If you don't need to change the columns definition, you can skip this step.
 If you think the columns definition is not suitable for your project, you can change it. The procedure is very similar with the `columns-definition` step in the [Upload Event Log](/workflow/upload-event-log/columns-definition/) section.
 
 {{< hint type=warning icon=gdoc_info_outline >}}
-1. You can only change the columns definition after the previous training is finished.
-2. After the change of the columns definition, the outcome and treatment definition will be removed. You need to set the outcome and treatment definition again.
-3. After the change of the columns definition, the project status will be changed to `WAITING`. It will be expecting new outcome and treatment definition. After the all definitions are submiited, it will restart the pre-processing and training tasks all over again. If there is a running simulation of streaming datas, it will be also turned off automatically. The project will not accept streaming data until the new training is finished.
+1. It is only possible to change the column definitions after the previous training has been completed.
+2. Once the column definitions have been altered, the outcome and treatment definitions will be removed, requiring the user to redefine them once again.
+3. Following the change of column definitions, the project status will be updated to `WAITING`, as it will be awaiting the new outcome and treatment definitions. Upon receiving all of the required definitions, the pre-processing and training tasks will recommence from the beginning. If there is an ongoing simulation of streaming data, it will automatically be terminated, and the project will not accept any streaming data until the new training has been completed.
 {{< /hint >}}
 
 ---

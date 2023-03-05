@@ -4,7 +4,7 @@ geekdocCollapseSection: true
 weight: 20
 ---
 
-After the previous step, we got a created project, and we can do some operations on the project.
+Upon completion of the preceding step, a new project is created, enabling the user to perform various operations on said project.
 
 Please see the following sections for more details:
 

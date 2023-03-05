@@ -3,15 +3,15 @@ title: "Start Simulation"
 weight: 10
 ---
 
-PrCore provides endpoints to automatically activate the project, and simulate streaming data to the project.
+If the user prefers to manually stream data to PrCore or utilize a program to do so, they may consult the [Stream Data](/workflow/send-new-data/) section. Alternatively, if the user wishes to test the streaming feature prior to conducting any manual streaming, they may utilize the following endpoint to simulate streaming data.
 
 ## Request
 
-You should only call this endpoint when the project's status is `TRAINED`  or `STREAMING`.
+You should only call this endpoint when the project's status is `TRAINED`.
 
 | Method | Endpoint | Request body type | Description |
 | ------ | -------- | ----------------- | ----------- |
-| PUT | `/project/{project_id}/simulate/start` | `none` | Stop the simulation of the project |
+| PUT | `/project/{project_id}/stream/start/simulating` | `none` | Start the simulation of the project |
 
 ## Response
 
@@ -24,11 +24,11 @@ You should only call this endpoint when the project's status is `TRAINED`  or `S
 
 ## Tips
 
-After the simulation is started, you can subscribe to the prescription results by calling the endpoint introduced in [Get Prescriptions](/workflow/get-prescriptions/) section.
+To retrieve the results of the simulation, users can subscribe to the prescription results by calling the endpoint introduced in the [Get Streaming Result](/workflow/get-prescriptions/get-streaming-result/) section.
 
-The simulation will be stopped when:
+It should be noted that the simulation will come to a stop under the following conditions:
 
-1. All simulation data is consumed.
-2. The results have not been consumed for 5 minutes.
-3. If the reading result connection is closed, the simulation will be stopped in 1 minute. If the connection is re-established in the timeframe, the simulation will not be interrupted.
-4. The simulation is stopped by calling the [Stop Simulation](/workflow/send-new-data/simulate-streaming/stop-simulation/) endpoint.
+1. All simulation data has been consumed.
+2. Results have not been consumed within a 5-minute window.
+3. If the reading result connection is closed, the simulation will be stopped in 1 minute. However, if the connection is re-established within this timeframe, the simulation will continue uninterrupted.
+4. The simulation is stopped by calling the [Stop Streaming](/workflow/send-new-data/simulate-streaming/stop-streaming/) endpoint.

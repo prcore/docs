@@ -20,15 +20,15 @@ File upload is a `multipart/form-data` request, and the file should be attached 
 {{< propertylist name=uploading-request >}}
 
 {{< hint type=note icon=gdoc_info_outline >}}
-As you can see, the `test` field is optional. It represents a test dataset file. **The test file should only contain ongoing cases.** If the test file is uploaded, after you [created the project](../project-creation/) you will also receive a `result_key`, which can be used to [get the test results](../../get-prescriptions/get-dataset-result/).
+Notably, it is important to recognize that the `test` field is an optional attribute which represents a test dataset file. However, it should be noted that the test file should only include ongoing cases.
+
+Should the user choose to upload the test file after [created the project](../project-creation/), they will receive a `result_key` which can then be utilized to [retrieve the test results](/workflow/get-prescriptions/get-dataset-result/).
 {{< /hint >}}
 
 
 ## Response
 
-Based on the event log file, the events attributes will be different, so here is just an example. The response will return the first 5 events data with headers and inferred definitions attached.
-
-The first row of `events_head` is the column names, the second row is the inferred column definitions (some elements can be null), and the following rows are the events data.
+Since the event log file can have varying event attributes, the following is just an example. Once the API processes the request, the response will include the first 5 events data along with their respective headers and inferred definitions.
 
 ```json
 {

@@ -43,9 +43,9 @@ Theses attributes `fast_mode`, `start_transition`, `complete_transition`, `abort
 
 ## Response
 
-If the request is successful, the response will return the unique activities count, supported outcome options, and supported treatment options.
+Upon a successful request, the API response will provide three distinct pieces of information: the count of unique activities, the available outcome options, and the available treatment options.
 
-The `outcome_options` and `treatment_options` can be used to select which columns will be used to generate the outcome and treatment columns when [creating the project](../project-creation/).
+It should be noted that the `outcome_options` and `treatment_options` can be utilized to select the specific columns that will generate the outcome and treatment labels when [creating the project](../project-creation/).
 
 ```json
 {

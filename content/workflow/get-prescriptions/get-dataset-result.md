@@ -3,9 +3,9 @@ title: "Get Dataset Result"
 weight: 10
 ---
 
-When you [upload a new dataset](/workflow/send-new-data/upload-new-dataset/), you will receive a `result_key` in the response.
+Upon successfully [upload a new dataset](/workflow/send-new-data/upload-new-dataset/), the API response will include a `result_key`. In the event that a new test dataset was already uploaded during project creation, a `result_key` would have been provided in the response as well.
 
-You can use the `result_key` to get the result of the dataset.
+The `result_key` can be utilized to retrieve the dataset result.
 
 ## Request
 

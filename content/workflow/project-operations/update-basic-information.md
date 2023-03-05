@@ -3,7 +3,7 @@ title: "Update Basic Information"
 weight: 40
 ---
 
-This step is optional. If you would like to update the basic information of the project, you can do so.
+This step is entirely optional. However, if the user wishes to update the fundamental information of the project, they can do so at any point in time.
 
 ## Request
 

@@ -50,9 +50,22 @@ classDiagram
         status: str
         selected_plugins: list[str]
         event_log: EventLog
-        cases: list[Case]
-        events: list[Event]
         plugins: list[Plugin]
+    }
+
+    class Plugin {
+        id: int
+        created_at: datetime
+        updated_at: datetime
+        project_id: int
+        key: str
+        name: str
+        prescription_type: str
+        description: str
+        parameters: dict[str, str | bool | int | float]
+        status: str
+        model_name: str
+        project: Project
     }
 
     class Case{
@@ -77,22 +90,10 @@ classDiagram
         case: Case
     }
 
-    class Plugin {
-        id: int
-        key: str
-        name: str
-        prescription_type: str
-        description: str
-        parameters: dict[str, str | bool | int | float]
-        status: str
-        model_name: str
-        project: Project
-    }
-
     EventLog "1" -- "1" Definition
     Project "1" -- "1" EventLog
+    Project "1" -- "n" Plugin
     Project "1" -- "n" Case
     Project "1" -- "n" Event
     Case "1" -- "n" Event
-    Project "1" -- "n" Plugin
 {{< /mermaid >}}
