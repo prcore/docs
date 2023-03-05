@@ -33,14 +33,16 @@ flowchart TB
     Prepare --> IsValidDataset{Valid dataset?}
     IsValidDataset --> |Valid dataset| Prescribe[Prescribe cases]
     IsValidDataset --> |Invalid dataset| End
+    Prescribe --> Result[/Return prescriptions/]
+    Result --> End
     Train --> Streaming[/Receive streaming data/]
     Streaming --> Check[Check streaming data]
     Check --> IsValidData{Valid data?}
     IsValidData --> |Valid data| SaveToDB[Save to database]
-    SaveToDB --> Prescribe
     IsValidData --> |Invalid data| End
-    Prescribe --> Result[/Return prescriptions/]
-    Result --> End
+    SaveToDB --> PrescribeStreaming[Prescribe streaming data]
+    PrescribeStreaming --> ResultStream[/Return prescriptions stream/]
+    ResultStream --> End
 {{< /mermaid >}}
 
 Throughout the entire workflow, the system validates the data and definitions provided by the user to ensure the quality and accuracy of the results.

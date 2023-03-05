@@ -72,7 +72,7 @@ If the user's Postman version is v10 or higher, they may utilize the following c
 
 Below is a GIF that shows the prescriptions SSE endpoint being tested with Postman:
 
-{{< img name="result" size="large" lazy=false >}}
+{{< img name="result" size="origin" lazy=false >}}
 
 ## Example client script
 

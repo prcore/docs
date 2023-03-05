@@ -5,11 +5,11 @@ weight: 20
 
 The system is structured using several core classes, as depicted in the diagram. The EventLog class represents the event log file and contains details such as the file name, saved name, and associated Definition object. The Definition class contains definitions necessary for system training, such as column definitions, case attributes, outcome definitions, and treatment definitions, among others.
 
-The Project class represents a project that uses the PrCore system for prescriptive process monitoring. It contains details such as the project name, description, and associated EventLog object, as well as a list of associated Case and Event objects and a list of associated Plugin objects.
+The Project class represents a project that uses the PrCore system for prescriptive process monitoring. It contains details such as the project name, description, and associated EventLog object, as well as a list of associated Plugin objects.
+
+The Plugin class represents a plugin in the system and contains details such as the plugin name, description, and status.
 
 The Event and Case classes used to represent events and cases in the stream data. By utilizing these classes for storing stream data, the PrCore system can provide timely and prescribing recommendations for ongoing cases, allowing users to make informed decisions about their processes.
-
-The Plugin class represents a plugin in the system and contains details such as the plugin name, description, and associated Project object.
 
 Overall, the system design is highly structured and organized, with each class containing details essential for efficient prescriptive process monitoring.
 
