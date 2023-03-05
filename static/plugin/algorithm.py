@@ -9,7 +9,7 @@ from plugins.common.algorithm import Algorithm
 logger = logging.getLogger(__name__)
 
 
-class KNNAlgorithm(Algorithm):
+class FooBarAlgorithm(Algorithm):
     def __init__(self, basic_info: Dict[str, Any], project_id: int, plugin_id: Optional[int] = None,
                  df: Optional[DataFrame] = None, model_name: str = None, treatment_definition: list = None):
         super().__init__(basic_info, project_id, plugin_id, df, model_name, treatment_definition)
