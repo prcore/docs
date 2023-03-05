@@ -345,7 +345,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"event_log_id\": {{event_log_id}},\n    \"positive_outcome\": [\n        [\n            {\n                \"column\": \"Activity\",\n                \"operator\": \"EQUAL\",\n                \"value\": \"A_APPROVED\"\n            }\n        ]\n    ],\n    \"treatment\": [\n        [\n            {\n                \"column\": \"Activity\",\n                \"operator\": \"EQUAL\",\n                \"value\": \"O_SENT_BACK\"\n            }\n        ]\n    ]\n}",
+							"raw": "{\n    \"event_log_id\": {{event_log_id}},\n    \"positive_outcome\": [\n        [\n            {\n                \"column\": \"DURATION\",\n                \"operator\": \"LESS_THAN_OR_EQUAL\",\n                \"value\": \"2 weeks\"\n            }\n        ]\n    ],\n    \"treatment\": [\n        [\n            {\n                \"column\": \"start_time\",\n                \"operator\": \"EARLIER_THAN\",\n                \"value\": \"2013-01-06T00:43\"\n            }\n        ]\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
