@@ -1,4 +1,4 @@
-image: klakegg/hugo:0.101.0-ext-ubuntu-ci
+image: klakegg/hugo:0.111.1-ext-ubuntu-ci
 
 variables:
   HUGO_ENV: production
