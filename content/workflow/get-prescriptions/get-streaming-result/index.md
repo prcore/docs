@@ -69,7 +69,7 @@ If the user's Postman version is v10 or higher, they may utilize the following c
 
 Below is a GIF that shows the prescriptions SSE endpoint being tested with Postman:
 
-![Streaming Results](./streaming-results.gif)
+{{< sse-gif >}}
 
 ## Example client script
 
