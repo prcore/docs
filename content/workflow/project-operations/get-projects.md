@@ -1,5 +1,5 @@
 ---
-title: "Get all projects"
+title: "Get Projects"
 weight: 50
 ---
 
