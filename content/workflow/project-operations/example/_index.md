@@ -1,7 +1,7 @@
 ---
 title: "Example"
 toc: true
-weight: 50
+weight: 60
 draft: false
 ---
 

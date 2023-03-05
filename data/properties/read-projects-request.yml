@@ -1,0 +1,12 @@
+---
+properties:
+  - name: page
+    type: int
+    description: The page number
+    required: false
+    defaultValue: 1
+  - name: size
+    type: int
+    description: The items size of the page
+    required: false
+    defaultValue: 50
