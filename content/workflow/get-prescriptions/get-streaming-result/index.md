@@ -5,9 +5,6 @@ resources:
   - name: "postman"
     src: "images/streaming-collection.png"
     title: "Postman Collection"
-  - name: "result"
-    src: "images/streaming-results.gif"
-    title: "Streaming Results"
 ---
 
 PrCore employs [SSE](https://en.wikipedia.org/wiki/Server-sent_events) to stream prescriptions to the client in a timely manner. For SSE, you can check [here](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) for more information.
@@ -72,7 +69,7 @@ If the user's Postman version is v10 or higher, they may utilize the following c
 
 Below is a GIF that shows the prescriptions SSE endpoint being tested with Postman:
 
-{{< img name="result" size="origin" lazy=false >}}
+![Streaming Results](./streaming-results.gif)
 
 ## Example client script
 
@@ -87,7 +84,6 @@ python3 -m venv ./venv
 ./venv/bin/python -m pip install requests sseclient-py
 ./venv/bin/python sse-client.py
 ```
-
 
 ## Example prescriptions
 
