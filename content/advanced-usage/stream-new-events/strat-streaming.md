@@ -26,6 +26,6 @@ Please note that the simulation and streaming modes are mutually exclusive. If y
 }
 ```
 
-After the streaming mode is enabled, you can start posting new data to the project by calling the [Stream Data](/workflow/send-new-data/stream-data/) endpoint.
+After the streaming mode is enabled, you can start posting new data to the project by calling the [Stream Data](/advanced-usage/stream-new-events/stream-data/) endpoint.
 
-If you want to stop the streaming mode, you can call the [Stop Streaming](/workflow/send-new-data/stop-streaming/) endpoint.
+If you want to stop the streaming mode, you can call the [Stop Streaming](/workflow/send-new-data/simulate-streaming/stop-streaming/) endpoint.
