@@ -65,7 +65,7 @@ data: 2023-03-05 06:04:54.698763
 
 If the user's Postman version is v10 or higher, they may utilize the following collection to test the SSE endpoint. Since Postman has altered the method for testing SSE, additional information on this topic can be found [here](https://blog.postman.com/support-for-server-sent-events/).
 
-{{< img name="postman" size="small" lazy=false >}}
+{{< stream-postman >}}
 
 Below is a GIF that shows the prescriptions SSE endpoint being tested with Postman:
 
