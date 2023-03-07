@@ -146,6 +146,14 @@ Regarding treatment, for example, if you want to define the treatment as `Change
 
 PrCore will use this information to check whether a case has the treatment, for the use of some casuality-based algorithms. Also, it will return the treatment information in the prescription result.
 
+{{< hint type=important icon=gdoc_info_outline >}}
+If the outcome/treatment label in a dataset contains only one class (i.e., all cases are either negative or positive), certain algorithms may not be compatible as they expect training data with two classes (1 and 0).
+
+When utilizing the definition, PrCore will search for any event in a case that satisfies the condition. If a case meets the criteria, it will be counted as having a positive outcome/undergoing treatment. This means that certain definitions may result in all cases being classified as positive/negative.
+
+If a dataset only contains one class for outcome or treatment, certain plugins may be marked as "ERROR" and will be ignored during the prescribing process. However, other plugins will continue to function normally, allowing the user to still obtain some results.
+{{< /hint >}}
+
 ### Request body example
 
 This is an example of the request body. The `positive_outcome` is an array of arrays. Each array is a condition. The conditions are connected with `OR` operator. The conditions in each array are connected with `AND` operator. This example means that the positive outcome is when the activity is `A` and the duration is less than 100, or the activity is `B`.
