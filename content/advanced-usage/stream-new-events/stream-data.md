@@ -3,7 +3,7 @@ title: "Stream Data"
 weight: 20
 ---
 
-It is recommended to call this endpoint by integrating it with your business process monitoring system's event stream. This way, you can ensure that the data is up to date.
+To ensure that the prescriptions are up to date and can be utilized by the process work in a timely manner, you also have the option to integrate this endpoint with your business process monitoring system's event stream. By doing so, you can call the endpoint and maintain a seamless flow of information between the two systems.
 
 ## Request
 

@@ -4,7 +4,7 @@ geekdocCollapseSection: true
 weight: 20
 ---
 
-Based on the uploaded file, PrCore will generate datasets for training, testing, and simulation. After the project has been created or pre-processed, these datasets can be downloaded by the user.
+PrCore generates datasets for training, testing, and simulation based on the uploaded file. Once the project has been created or pre-processed, the user can download these datasets. These datasets can also help developers to comprehend the datasets at different stages.
 
 ## Original Dataset
 

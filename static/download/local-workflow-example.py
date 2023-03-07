@@ -8,7 +8,7 @@ from time import sleep
 # Change this to your own event log file
 EVENT_LOG_FILE = "/home/zhaosi/Sites/PrCore/static/download/bpic2012-CSV.zip"
 
-BASE_URL = "http://localhost:8000"
+BASE_URL = "https://prcore.chaos.run"
 API_TOKEN = "UaJW0QvkMA1cVnOXB89E0NbLf3JRRoHwv2wWmaY5v=QYpaxr1UD9/FupeZ85sa2r"
 HEADERS = {
     "Authorization": f"Bearer {API_TOKEN}"
