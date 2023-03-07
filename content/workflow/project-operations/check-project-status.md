@@ -31,6 +31,7 @@ Here is an example of the response.
         "id": 20,
         "created_at": "2023-03-04T09:26:36.572249+00:00",
         "updated_at": "2023-03-04T09:27:17.961998+00:00",
+        "error": null,
         "event_log": {
             "file_name": "bpic2012-CSV.zip",
             "id": 21,
@@ -134,7 +135,7 @@ The `status` field of the project indicates the overall status of the project. T
 - `ACTIVATING`: The project is activating. After all the plugins are activated, the project status will be changed to `STREAMING`.
 - `STREAMING`: The project is expecting new streaming events. This status is only used for the projects that are expecting external streaming events. For the projects that are simulating the streaming events, the project status will be `SIMULATING`.
 - `SIMULATING`: The project is simulating the streaming events, and the simulation is not finished yet.
-- If the status is not empty and not one of the above, it means the project is in an error state, and the content will be the error message.
+- `ERROR`: The project is in an error state. The error message will be in the `error` field.
 
 #### Plugin status
 
@@ -145,7 +146,7 @@ The `status` field of the plugin indicates the status of the plugin. The `status
 - `TRAINED`: The plugin has trained the model and is ready to be used.
 - `ACTIVATING`: The plugin is activating, and after the activation, the plugin status will be changed to `STREAMING`.
 - `STREAMING`: The plugin is expecting new streaming events.
-- If the status is not empty and not one of the above, it means the plugin is in an error state, and the content will be the error message.
+- `ERROR`: The plugin is in an error state. The error message will be in the `error` field.
 
 #### Prescription type
 

@@ -31,6 +31,7 @@ The response body of this endpoint contains several fields. The `items` field is
             "id": 8,
             "created_at": "2023-03-05T15:48:04.759588+00:00",
             "updated_at": "2023-03-05T15:49:00.177047+00:00",
+            "error": null,
             "event_log": {
                 "file_name": "bpic2012-CSV.zip",
                 "id": 9,
@@ -88,7 +89,8 @@ The response body of this endpoint contains several fields. The `items` field is
                     "status": "STREAMING",
                     "id": 14,
                     "created_at": "2023-03-05T15:48:19.810563+00:00",
-                    "updated_at": "2023-03-05T15:49:00.329850+00:00"
+                    "updated_at": "2023-03-05T15:49:00.329850+00:00",
+                    "error": null
                 },
                 {
                     "name": "Random forest negative outcome probability",
@@ -98,7 +100,8 @@ The response body of this endpoint contains several fields. The `items` field is
                     "status": "STREAMING",
                     "id": 15,
                     "created_at": "2023-03-05T15:48:19.826009+00:00",
-                    "updated_at": "2023-03-05T15:49:00.442122+00:00"
+                    "updated_at": "2023-03-05T15:49:00.442122+00:00",
+                    "error": null
                 },
                 {
                     "name": "CasualLift treatment effect",
@@ -108,7 +111,8 @@ The response body of this endpoint contains several fields. The `items` field is
                     "status": "STREAMING",
                     "id": 16,
                     "created_at": "2023-03-05T15:48:19.831114+00:00",
-                    "updated_at": "2023-03-05T15:49:00.217228+00:00"
+                    "updated_at": "2023-03-05T15:49:00.217228+00:00",
+                    "error": null
                 }
             ]
         }

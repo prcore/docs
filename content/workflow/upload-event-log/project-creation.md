@@ -202,6 +202,7 @@ In the response, a `project` object will be returned, which can be used later.
         "id": 20,
         "created_at": "2023-03-04T09:26:36.572249+00:00",
         "updated_at": null,
+        "error": null,
         "event_log": {
             "file_name": "bpic2012-CSV.zip",
             "id": 21,

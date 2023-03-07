@@ -8,7 +8,7 @@ from time import sleep
 # Change this to your own event log file
 EVENT_LOG_FILE = "/home/zhaosi/Sites/PrCore/static/download/bpic2012-CSV.zip"
 
-BASE_URL = "https://prcore.chaos.run" 
+BASE_URL = "http://localhost:8000"
 API_TOKEN = "UaJW0QvkMA1cVnOXB89E0NbLf3JRRoHwv2wWmaY5v=QYpaxr1UD9/FupeZ85sa2r"
 HEADERS = {
     "Authorization": f"Bearer {API_TOKEN}"
@@ -171,7 +171,7 @@ def main():
                 print(f"Now the project status is {project_status}. It's plugins have status {plugin_statuses}. Waiting for 5 seconds...")
             else:
                 print(f"Now the project status is {project_status}. Waiting for 5 seconds...")
-            sleep(0.1)
+            sleep(1)
         print("The project has been trained!\n")
 
         # Start the simulation

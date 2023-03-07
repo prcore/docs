@@ -48,6 +48,7 @@ classDiagram
         name: str
         description: str
         status: str
+        error: str
         selected_plugins: list[str]
         event_log: EventLog
         plugins: list[Plugin]
@@ -64,6 +65,7 @@ classDiagram
         description: str
         parameters: dict[str, str | bool | int | float]
         status: str
+        error: str
         model_name: str
         project: Project
     }
