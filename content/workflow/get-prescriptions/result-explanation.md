@@ -69,6 +69,7 @@ The output is an object with the following fields:
 - `proba_if_treated`: The probability of a positive outcome if the case is treated.
 - `proba_if_untreated`: The probability of a positive outcome if the case is not treated.
 - `cate`: The Conditional Average Treatment Effect (CATE) score of the case.
+- `treatment`: The treatment definition of the case. This is directly from the user's previously inputted treatment definition.
 
 ```json
 {
