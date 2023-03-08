@@ -89,7 +89,7 @@ The `predict` function should return a dictionary with the following schema:
 
 The `date`, `type`, `output`, `plugin`, and `name` is required. You can add other fields to `plugin` if you want. It is recommended to add some metrics fields to `plugin` to help users to understand the performance of the plugin.
 
-It is important to still return a dictionary even if the prediction is not available. In this case, you can set the `output` to `null`.
+It is important to still return a dictionary even if the prediction is not available. In this case, you can set the `output` field to `null`, or you can use the `get_null_output` function to get a null output.
 
 ## predict_df
 
