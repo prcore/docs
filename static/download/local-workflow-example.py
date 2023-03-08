@@ -8,7 +8,7 @@ from time import sleep
 # Change this to your own event log file
 EVENT_LOG_FILE = "/home/zhaosi/Sites/PrCore/static/download/bpic2012-CSV.zip"
 
-BASE_URL = "http://localhost:8000"
+BASE_URL = "https://prcore.chaos.run"
 API_TOKEN = "UaJW0QvkMA1cVnOXB89E0NbLf3JRRoHwv2wWmaY5v=QYpaxr1UD9/FupeZ85sa2r"
 HEADERS = {
     "Authorization": f"Bearer {API_TOKEN}"
@@ -56,18 +56,18 @@ def create_project(event_log_id) -> Response:
         "positive_outcome": [
             [
                 {
-                    "column": "DURATION",
-                    "operator": "LESS_THAN_OR_EQUAL",
-                    "value": "2 weeks"
+                    "column": "Activity",
+                    "operator": "EQUAL",
+                    "value": "A_APPROVED"
                 }
             ]
         ],
         "treatment": [
             [
                 {
-                    "column": "Resource",
+                    "column": "Activity",
                     "operator": "EQUAL",
-                    "value": "112"
+                    "value": "O_SENT_BACK"
                 }
             ]
         ]

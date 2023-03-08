@@ -1,7 +1,7 @@
 ---
 title: Changelog
 icon: "📝"
-geekdocCollapseSection: false
+geekdocCollapseSection: true
 weight: 0
 ---
 
