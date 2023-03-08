@@ -13,7 +13,7 @@ As PrCore requires identification of a timestamp for each event, it will utilize
 
 ## Identify the timestamp for each event
 
-Initially, PrCore will check if all rows in the event log lack a `start_transition`. If they do not contain a `start_transition`, PrCore will use the timestamp of the row that has a `complete_transition` as the timestamp for each event. Alternatively, if there is no `complete_transition` present in the event log, PrCore will use the `complete_transition` to identify the timestamp for each event.
+Initially, PrCore will check if all rows in the event log lack a `start_transition`. If they do not contain a `start_transition`, PrCore will use the timestamp of the row that has a `complete_transition` as the timestamp for each event. Alternatively, if there is no `complete_transition` present in the event log, PrCore will use the `start_transition` to identify the timestamp for each event.
 
 If both `start_transition` and `complete_transition` are absent in the event log, PrCore will preserve the timestamp of the row as is, and therefore, all rows will remain unmerged.
 
