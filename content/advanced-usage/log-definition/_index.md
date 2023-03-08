@@ -27,7 +27,7 @@ This mode is enabled by default, and it is recommended to use this mode if you a
 
 If both `start_transition` and `complete_transition` are present in the event log, PrCore will use the `start_transition` to identify the start timestamp for each event, and use the `complete_transition` to identify the end timestamp for each event. As such, two timestamps will be obtained for each event.
 
-It is important to note that the non-fast mode may take a long time to process based on the size of the event log. If the event log is too large, PrCore may not allow you to set the `fast_mode` to `false`. In this instance, it is recommended to preprocess the event log to obtain the timestamp for each event before the uploading, or, simply use the fast mode.
+It is important to note that the non-fast mode may take a long time to process based on the size of the event log. If the event log is too large, PrCore may not allow you to set the `fast_mode` to `false`. In this instance, it is recommended to preprocess the event log to obtain the timestamp for each event and convert the file to CSV before the uploading, or, simply use the fast mode.
 
 ## Redefine the transition
 
