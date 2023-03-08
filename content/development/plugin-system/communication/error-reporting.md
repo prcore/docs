@@ -4,7 +4,7 @@ weight: 40
 ---
 
 
-If the plugin encounters an error, it will send the error message to the core. The core will then mark the plugin's status as the error message. If all plugins are in the error status, the core will mark the project as the error status.
+If the plugin encounters an error, it will send the error message to the core. The core will then mark the plugin's status as the error message. If all plugins are in the error status, the core will mark the project as `ERROR`, and attach the error message to the plugin. This means this plugin will not be used anymore, unless the user changes some project defintions.
 
 {{< mermaid class="text-center" >}}
 sequenceDiagram
