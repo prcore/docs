@@ -304,7 +304,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"columns_definition\": {\n        \"Case ID\": \"CASE_ID\",\n        \"start_time\": \"START_TIMESTAMP\",\n        \"end_time\": \"END_TIMESTAMP\",\n        \"AMOUNT_REQ\": \"NUMBER\",\n        \"REG_DATE\": \"DATETIME\",\n        \"Activity\": \"ACTIVITY\",\n        \"Resource\": \"RESOURCE\"\n    },\n    \"case_attributes\": [\"Case ID\", \"AMOUNT_REQ\"]\n}",
+							"raw": "{\n    \"columns_definition\": {\n        \"Case ID\": \"CASE_ID\",\n        \"start_time\": \"START_TIMESTAMP\",\n        \"end_time\": \"END_TIMESTAMP\",\n        \"AMOUNT_REQ\": \"NUMBER\",\n        \"REG_DATE\": \"DATETIME\",\n        \"Activity\": \"ACTIVITY\",\n        \"Resource\": \"RESOURCE\"\n    },\n    \"case_attributes\": [\"REG_DATE\", \"AMOUNT_REQ\"]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -345,7 +345,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"event_log_id\": {{event_log_id}},\n    \"positive_outcome\": [\n        [\n            {\n                \"column\": \"DURATION\",\n                \"operator\": \"LESS_THAN_OR_EQUAL\",\n                \"value\": \"2 weeks\"\n            }\n        ]\n    ],\n    \"treatment\": [\n        [\n            {\n                \"column\": \"start_time\",\n                \"operator\": \"EARLIER_THAN\",\n                \"value\": \"2013-01-06T00:43\"\n            }\n        ]\n    ]\n}",
+							"raw": "{\n    \"event_log_id\": {{event_log_id}},\n    \"positive_outcome\": [\n        [\n            {\n                \"column\": \"DURATION\",\n                \"operator\": \"LESS_THAN_OR_EQUAL\",\n                \"value\": \"2 weeks\"\n            }\n        ],\n        [\n            {\n                \"column\": \"REG_DATE\",\n                \"operator\": \"EARLIER_THAN_OR_EQUAL\",\n                \"value\": \"2023-03-07T20:50:00Z\"\n            }\n        ]\n    ],\n    \"treatment\": [\n        [\n            {\n                \"column\": \"Resource\",\n                \"operator\": \"EQUAL\",\n                \"value\": \"112\"\n            }\n        ]\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -408,7 +408,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"columns_definition\": {\n        \"Case ID\": \"CASE_ID\",\n        \"start_time\": \"START_TIMESTAMP\",\n        \"end_time\": \"END_TIMESTAMP\",\n        \"AMOUNT_REQ\": \"NUMBER\",\n        \"REG_DATE\": \"DATETIME\",\n        \"Activity\": \"ACTIVITY\",\n        \"Resource\": \"RESOURCE\"\n    },\n    \"case_attributes\": [\"Case ID\", \"AMOUNT_REQ\"]\n}",
+							"raw": "{\n    \"columns_definition\": {\n        \"Case ID\": \"CASE_ID\",\n        \"start_time\": \"START_TIMESTAMP\",\n        \"end_time\": \"END_TIMESTAMP\",\n        \"AMOUNT_REQ\": \"NUMBER\",\n        \"REG_DATE\": \"DATETIME\",\n        \"Activity\": \"ACTIVITY\",\n        \"Resource\": \"RESOURCE\"\n    },\n    \"case_attributes\": [\"REG_DATE\", \"AMOUNT_REQ\"]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -556,7 +556,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{server}}/project/all?page=1&size=5",
+							"raw": "{{server}}/project/all?page=1&size=100",
 							"host": [
 								"{{server}}"
 							],
@@ -571,7 +571,7 @@
 								},
 								{
 									"key": "size",
-									"value": "5"
+									"value": "100"
 								}
 							]
 						}
