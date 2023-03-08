@@ -14,17 +14,18 @@ class FooBarAlgorithm(Algorithm):
                  df: Optional[DataFrame] = None, model_name: str = None, treatment_definition: list = None):
         super().__init__(basic_info, project_id, plugin_id, df, model_name, treatment_definition)
 
-    def preprocess(self) -> bool:
+    def preprocess(self) -> str:
         # Pre-process the data
         pass
 
-    def train(self) -> bool:
+    def train(self) -> str:
         # Train the model
         pass
 
     def predict(self, prefix: List[dict]) -> dict:
+        # Predict the result by using the given prefix
         pass
 
     def predict_df(self, df: DataFrame) -> dict:
+        # Predict the result using a DataFrame
         pass
-

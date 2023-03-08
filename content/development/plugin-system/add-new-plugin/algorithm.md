@@ -13,9 +13,7 @@ Now we will explain in detail.
 
 The `preprocess` function is used to preprocess the training dataframe. PrCore will call this function when training data is available.
 
-You can use `self.get_df()` to get the original training dataframe.
-
-The columns of the dataframe are renamed by PrCore.
+You can use `self.get_df()` to get the original training dataframe. The columns of the dataframe are renamed by PrCore.
 
 The column name can be one of the following:
 
@@ -48,6 +46,8 @@ If you need to store any data for persistency, you can use `self.set_data_value(
 
 You can get the data by using `self.get_data()[key]`.
 
+The expected output is a string. An empty string means that the algorithm is ready to be trained. If the string is not empty, PrCore will show the error message to the user.
+
 ## train
 
 When `preprocess` is finished, PrCore will call the `train` function to train the algorithm. 
@@ -55,6 +55,8 @@ When `preprocess` is finished, PrCore will call the `train` function to train th
 Please store your trained model by utilizing `self.set_data_value(key, value)`. For example, you can store the trained model by using `self.set_data_value("model", model)`.
 
 PrCore will take care of persistency and load the data when needed. Follwing previous example, if you want to fetch the model, you can use `self.get_data()["model"]`.
+
+The expected output is a string. An empty string means that the algorithm is ready to be used. If the string is not empty, PrCore will show the error message to the user.
 
 ## predict
 
@@ -87,6 +89,8 @@ The `predict` function should return a dictionary with the following schema:
 
 The `date`, `type`, `output`, `plugin`, and `name` is required. You can add other fields to `plugin` if you want. It is recommended to add some metrics fields to `plugin` to help users to understand the performance of the plugin.
 
+It is important to still return a dictionary even if the prediction is not available. In this case, you can set the `output` to `null`.
+
 ## predict_df
 
 The `predict_df` function is used to predict a dataframe. The input is a dataframe with the same schema as the training dataframe. The output should be a dictionary, which contains the following schema:
@@ -117,3 +121,5 @@ The `predict_df` function is used to predict a dataframe. The input is a datafra
 ```
 
 The key of the dictionary is the case id. The value is the same as the `predict` function's output.
+
+It is important to still return a dictionary even if the prediction is not available. In this case, you can set the dictionary value to `{}` as an empty dictionary.
