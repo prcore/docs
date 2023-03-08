@@ -11,8 +11,8 @@ When a new project is created, firstly the core will start preprocessing of the 
 
 {{< mermaid class="text-center" >}}
 sequenceDiagram
-    VisualPM->>Core: Create project through API
-    Core-->>VisualPM: Project created
+    Consumer->>Core: Create project through API
+    Core-->>Consumer: Project created
     Core->>Plugin: TRAINING_DATA
     Plugin-->>Core: DATA_REPORT
 {{< /mermaid >}}

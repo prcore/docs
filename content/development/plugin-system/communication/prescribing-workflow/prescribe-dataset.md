@@ -7,7 +7,7 @@ If the user has uploaded a test dataset which only contains ongoing cases, this 
 
 {{< mermaid class="text-center" >}}
 sequenceDiagram
-    Frontend-)Core: Upload test dataset
+    Consumer-)Core: Upload test dataset
     Core->>Plugin: DATASET_PRESCRIPTION_REQUEST
     Plugin-->>Core: DATASET_PRESCRIPTION_RESULT
 {{< /mermaid >}}

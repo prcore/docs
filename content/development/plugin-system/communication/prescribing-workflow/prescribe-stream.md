@@ -15,7 +15,7 @@ The simulation is used to test the project. The core will send a request to the 
 
 {{< mermaid class="text-center" >}}
 sequenceDiagram
-    VisualPM-)Core: Start simulation or turn on streaming mode through API
+    Consumer-)Core: Start simulation or turn on streaming mode through API
     Core->>Plugin: STREAMING_PREPARE
     Plugin-->>Core: STREAMING_READY
 {{< /mermaid >}}
@@ -122,7 +122,7 @@ External users can stop the streaming or simulation by sending a request to the 
 
 {{< mermaid class="text-center" >}}
 sequenceDiagram
-    VisualPM-)Core: Stop simulation or turn off streaming mode through API
+    Consumer-)Core: Stop simulation or turn off streaming mode through API
     Core-)Plugin: STREAMING_STOP
 {{< /mermaid >}}
 
