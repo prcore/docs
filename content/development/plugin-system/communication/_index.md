@@ -4,8 +4,10 @@ geekdocCollapseSection: true
 weight: 10
 ---
 
-In this section, we will delve into the communication process between the core and the plugins. PrCore acts as the intermediary, handling all communication between the two, so there is no need for concern on your end if you're trying to add a new plugin. Nevertheless, understanding the underlying mechanism is beneficial.
+This section will describe how is the communication between the core and the plugins.
 
-It's worth noting that the communication occurs through the RabbitMQ message broker exclusively.
+PrCore will take care of all the communication between the core and the plugins, so you don't need to worry about it. But it is still good to know how it works.
+
+All communication between the core and the plugins is done via the RabbitMQ message broker.
 
 {{< toc-tree >}}
