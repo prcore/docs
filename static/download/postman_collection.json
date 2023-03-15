@@ -184,7 +184,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"columns_definition\": {\n        \"org:resource\": \"RESOURCE\",\n        \"lifecycle:transition\": \"TRANSITION\",\n        \"concept:name\": \"ACTIVITY\",\n        \"time:timestamp\": \"TIMESTAMP\",\n        \"case:REG_DATE\": \"DATETIME\",\n        \"case:concept:name\": \"CASE_ID\",\n        \"case:AMOUNT_REQ\": \"NUMBER\"\n    },\n    \"case_attributes\": [\"case:REG_DATE\", \"case:AMOUNT_REQ\"]\n}",
+									"raw": "{\n    \"columns_definition\": {\n        \"org:resource\": \"RESOURCE\",\n        \"lifecycle:transition\": \"TRANSITION\",\n        \"concept:name\": \"ACTIVITY\",\n        \"time:timestamp\": \"TIMESTAMP\",\n        \"case:REG_DATE\": \"DATETIME\",\n        \"case:concept:name\": \"CASE_ID\",\n        \"case:AMOUNT_REQ\": \"NUMBER\"\n    },\n    \"case_attributes\": [\"case:REG_DATE\", \"case:AMOUNT_REQ\"],\n    \"fast_mode\": false\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1072,7 +1072,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"event_log_id\": {{event_log_id}},\n    \"positive_outcome\": [\n        [\n            {\n                \"column\": \"Activity\",\n                \"operator\": \"EQUAL\",\n                \"value\": \"A_APPROVED\"\n            }\n        ]\n    ],\n    \"treatment\": [\n        [\n            {\n                \"column\": \"Activity\",\n                \"operator\": \"EQUAL\",\n                \"value\": \"O_SENT_BACK\"\n            }\n        ]\n    ]\n}",
+									"raw": "{\n    \"event_log_id\": {{event_log_id}},\n    \"positive_outcome\": [\n        [\n            {\n                \"column\": \"Activity\",\n                \"operator\": \"EQUAL\",\n                \"value\": \"A_APPROVED\"\n            }\n        ]\n    ],\n    \"treatment\": [\n        [\n            {\n                \"column\": \"Activity\",\n                \"operator\": \"EQUAL\",\n                \"value\": \"O_SENT_BACK\"\n            }\n        ]\n    ],\n    \"additional_info\": {\n        \"plugin-causallift-resource-allocation\": {\n            \"available_resources\": [\"Resource_A\", \"Resource_B\", \"Resource_C\", \"Resource_D\", \"Resource_E\", \"Resource_F\", \"Resource_G\", \"Resource_H\", \"Resource_I\", \"Resource_J\", \"Resource_K\", \"Resource_L\", \"Resource_M\", \"Resource_N\", \"Resource_O\", \"Resource_P\", \"Resource_Q\", \"Resource_R\", \"Resource_S\", \"Resource_T\", \"Resource_U\", \"Resource_V\", \"Resource_W\", \"Resource_X\", \"Resource_Y\", \"Resource_Z\"],\n            \"treatment_duration\": \"1h\"\n        }\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1276,7 +1276,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"event_log_id\": {{event_log_id}},\n    \"positive_outcome\": [\n        [\n            {\n                \"column\": \"Activity\",\n                \"operator\": \"EQUAL\",\n                \"value\": \"A_APPROVED\"\n            }\n        ]\n    ],\n    \"treatment\": [\n        [\n            {\n                \"column\": \"Activity\",\n                \"operator\": \"EQUAL\",\n                \"value\": \"O_SENT_BACK\"\n            }\n        ]\n    ]\n}",
+									"raw": "{\n    \"event_log_id\": {{event_log_id}},\n    \"positive_outcome\": [\n        [\n            {\n                \"column\": \"Activity\",\n                \"operator\": \"EQUAL\",\n                \"value\": \"A_APPROVED\"\n            }\n        ]\n    ],\n    \"treatment\": [\n        [\n            {\n                \"column\": \"Activity\",\n                \"operator\": \"EQUAL\",\n                \"value\": \"O_SENT_BACK\"\n            }\n        ]\n    ],\n    \"additional_info\": {\n        \"plugin-causallift-resource-allocation\": {\n            \"available_resources\": [\"Resource_A\", \"Resource_B\", \"Resource_C\", \"Resource_D\", \"Resource_E\", \"Resource_F\", \"Resource_G\", \"Resource_H\", \"Resource_I\", \"Resource_J\", \"Resource_K\", \"Resource_L\", \"Resource_M\", \"Resource_N\", \"Resource_O\", \"Resource_P\", \"Resource_Q\", \"Resource_R\", \"Resource_S\", \"Resource_T\", \"Resource_U\", \"Resource_V\", \"Resource_W\", \"Resource_X\", \"Resource_Y\", \"Resource_Z\"],\n            \"treatment_duration\": \"1h\"\n        }\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1957,6 +1957,67 @@
 										"{{project_id}}",
 										"dataset",
 										"processed"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Plugin Operations",
+					"item": [
+						{
+							"name": "Check available plugins",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/plugin/available",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"plugin",
+										"available"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Disable plugin",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/plugin/1/disable",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"plugin",
+										"1",
+										"disable"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Enable plugin",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/plugin/1/enable",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"plugin",
+										"1",
+										"enable"
 									]
 								}
 							},
