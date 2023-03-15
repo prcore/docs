@@ -12,3 +12,13 @@ properties:
     type: list(list(dict(str, Union[str, int])))
     description: The definition of the treatment.
     required: true
+  - name: parameters
+    type: dict(str, dict[str, Any])
+    description: Custom parameters for plugins
+    required: false
+    defaultValue: {}
+  - name: additional_info
+    type: dict(str, dict[str, Any])
+    description: Custom additional info for plugins
+    required: false
+    defaultValue: {}

@@ -12,8 +12,9 @@ The prescription is a JSON object with the following fields:
 - `date`: The timestamp of the prescription.
 - `type`: The type of the prescription. Can be one of the following:
     - `NEXT_ACTIVITY`: Predicts the next activity of a case.
-    - `ALARM`: Predicts the probability of a negative outcome.
-    - `TREATMENT_EFFECT`: Predicts the treatment effect of a case.
+    - `ALARM`: Provides the probability of a negative outcome.
+    - `TREATMENT_EFFECT`: Provides the treatment effect of a case.
+    - `RESOURCE_ALLOCATION`: Provides the resource allocation recommendation of a case.
     - Others, depending on the plugins installed.
 - `output` field is different for each plugin, and can be `null` if the plugin is not able to make a prediction.
 - `plugin` is an object with the following fields:
@@ -92,6 +93,29 @@ The output is an object with the following fields:
     "plugin": {
         "name": "CasualLift treatment effect",
         "model": "count-encoding"
+    }
+}
+```
+
+## RESOURCE_ALLOCATION
+
+The output is an object with the following fields:
+
+- `resource`: The allocated resource.
+- `allocated_until`: The timestamp until which the resource will be released.
+
+```json
+{
+    "date": "2023-03-15T12:49:17.742267",
+    "type": "RESOURCE_ALLOCATION",
+    "output": {
+        "cate": 0.6478,
+        "resource": "Resource_B",
+        "allocated_until": "2023-03-15T13:49:17.742254"
+    },
+    "plugin": {
+        "name": "CasualLift resource allocation",
+        "model": "SIMPLE_INDEX-length-3"
     }
 }
 ```
