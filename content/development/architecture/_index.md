@@ -7,8 +7,10 @@ The core functionality of the application encompasses several tasks, including p
 
 {{< mermaid class="text-center" >}}
 flowchart LR
-    database[(Database)] --- core(Core)
-    core --- message_broker((Message<br/>broker))
+    api[API] --- core
+    database[(Database)] --- core((Core<br/>Application))
+    core --- message_broker(Message<br/>broker)
+    processor(Dataset processor) --- message_broker
     message_broker --- plugin1(Plugin 1)
     message_broker --- plugin2(Plugin 2)
     message_broker --- plugin3(Plugin 3)
