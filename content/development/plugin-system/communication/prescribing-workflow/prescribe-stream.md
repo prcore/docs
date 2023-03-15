@@ -27,7 +27,8 @@ The core will send this request to the plugin to start the preparation. Before t
 ```json
 {
     "project_id": 123,
-    "model_name": "random-string.pkl"
+    "model_name": "random-string.pkl",
+    "additional_info": {}
 }
 ```
 
@@ -83,7 +84,8 @@ The core will send the streaming data to the plugin. The data will be in the fol
             "ACTIVITY": "ACTIVITY_3",
             "TIMESTAMP": "2023-01-01 00:01:00"
         }
-    ]
+    ],
+    "additional_info": {}
 }
 ```
 

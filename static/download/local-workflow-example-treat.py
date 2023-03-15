@@ -6,9 +6,9 @@ from requests import Response
 from time import sleep
 
 # Change this to your own event log file
-EVENT_LOG_FILE = "/home/zhaosi/Sites/PrCore/static/download/bpic2012-CSV.zip"
+EVENT_LOG_FILE = "/home/zhaosi/new.csv"
 
-BASE_URL = "https://prcore.chaos.run"
+BASE_URL = "http://localhost:8000"
 API_TOKEN = "UaJW0QvkMA1cVnOXB89E0NbLf3JRRoHwv2wWmaY5v=QYpaxr1UD9/FupeZ85sa2r"
 HEADERS = {
     "Authorization": f"Bearer {API_TOKEN}"
@@ -24,9 +24,9 @@ def upload_file(file_path) -> Response:
     # Upload a file to the server.
     url = f"{BASE_URL}/event_log"
     files = [
-        ("file", ("bpic2012-CSV.zip", open(file_path, "rb"), "application/zip"))
+        ("file", ("new.csv", open(file_path, "rb"), "application/zip"))
     ]
-    response = requests.post(url, files=files, headers=HEADERS, data={"separator": ","})
+    response = requests.post(url, files=files, headers=HEADERS, data={"separator": ";"})
     return response
 
 
@@ -41,8 +41,10 @@ def set_columns_definition(event_log_id) -> Response:
             "AMOUNT_REQ": "NUMBER",
             "REG_DATE": "DATETIME",
             "Activity": "ACTIVITY",
-            "Resource": "RESOURCE"
-        }
+            "Resource": "RESOURCE",
+            "treatment": "TEXT"
+        },
+        "case_attributes": ["Case ID", "AMOUNT_REQ"]
     }
     response = requests.put(url, json=data, headers=REQUEST_HEADERS)
     return response
@@ -58,25 +60,19 @@ def create_project(event_log_id) -> Response:
                 {
                     "column": "Activity",
                     "operator": "EQUAL",
-                    "value": "A_APPROVED"
+                    "value": "A_ACTIVATED"
                 }
             ]
         ],
         "treatment": [
             [
                 {
-                    "column": "Activity",
+                    "column": "treatment",
                     "operator": "EQUAL",
-                    "value": "O_SENT_BACK"
+                    "value": "treat"
                 }
             ]
-        ],
-        "additional_info": {
-            "plugin-causallift-resource-allocation": {
-                "available_resources": ["Resource_A", "Resource_B", "Resource_C", "Resource_D", "Resource_E", "Resource_F", "Resource_G", "Resource_H", "Resource_I", "Resource_J", "Resource_K", "Resource_L", "Resource_M", "Resource_N", "Resource_O", "Resource_P", "Resource_Q", "Resource_R", "Resource_S", "Resource_T", "Resource_U", "Resource_V", "Resource_W", "Resource_X", "Resource_Y", "Resource_Z"],
-                "treatment_duration": "1h"
-            }
-        }
+        ]
     }
     response = requests.post(url, json=data, headers=REQUEST_HEADERS)
     return response

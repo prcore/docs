@@ -22,7 +22,8 @@ The core will send uploaded dataset to plugin. The data will be in the following
     "project_id": 123,
     "result_key": "random-string",
     "model_name": "random-string.pkl",
-    "ongoing_df_name": "random-string"
+    "ongoing_df_name": "random-string",
+    "additional_info": {}
 ```
 
 The `model_name` is still sent to the plugin, because the plugin may need to load the model file into the memory if the system restarts.

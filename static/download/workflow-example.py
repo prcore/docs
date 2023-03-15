@@ -70,7 +70,13 @@ def create_project(event_log_id) -> Response:
                     "value": "O_SENT_BACK"
                 }
             ]
-        ]
+        ],
+        "additional_info": {
+            "plugin-causallift-resource-allocation": {
+                "available_resources": ["Resource_A", "Resource_B", "Resource_C", "Resource_D", "Resource_E", "Resource_F", "Resource_G", "Resource_H", "Resource_I", "Resource_J", "Resource_K", "Resource_L", "Resource_M", "Resource_N", "Resource_O", "Resource_P", "Resource_Q", "Resource_R", "Resource_S", "Resource_T", "Resource_U", "Resource_V", "Resource_W", "Resource_X", "Resource_Y", "Resource_Z"],
+                "treatment_duration": "1h"
+            }
+        }
     }
     response = requests.post(url, json=data, headers=REQUEST_HEADERS)
     return response
@@ -154,6 +160,7 @@ def main():
 
         # Get the project status
         print("Getting the project status...")
+        i = 1
         while True:
             response = get_project(project_id)
             project_status = response.json()["project"]["status"]
@@ -162,10 +169,11 @@ def main():
             plugins = response.json()["project"]["plugins"]
             if plugins:
                 plugin_statuses = ", ".join([plugin["status"] for plugin in plugins])
-                print(f"Now the project status is {project_status}. It's plugins have status {plugin_statuses}. Waiting for 5 seconds...")
+                print(f"[{i:03d}] Now the project status is {project_status}, and its plugins have statuses {plugin_statuses}")
             else:
-                print(f"Now the project status is {project_status}. Waiting for 5 seconds...")
-            sleep(5)
+                print(f"[{i:03d}] Now the project status is {project_status}")
+            sleep(1)
+            i += 1
         print("The project has been trained!\n")
 
         # Start the simulation

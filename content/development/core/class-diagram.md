@@ -33,12 +33,12 @@ classDiagram
         updated_at: datetime
         columns_definition: dict[str, str]
         case_attributes: list[str]
-        outcome_definition: list[list[dict[str, datetime | float | int | str]]]
-        treatment_definition: list[list[dict[str, datetime | float | int | str]]]
         fast_mode: bool
         start_transition: str
         complete_transition: str
         abort_transition: str
+        outcome_definition: list[list[dict[str, str]]]
+        treatment_definition: list[list[dict[str, str]]]
     }
 
     class Project {
@@ -60,12 +60,14 @@ classDiagram
         updated_at: datetime
         project_id: int
         key: str
-        name: str
         prescription_type: str
+        name: str
         description: str
         parameters: dict[str, str | bool | int | float]
+        additional_info: dict[str, Any]
         status: str
         error: str
+        disabled: bool
         model_name: str
         project: Project
     }
@@ -94,8 +96,8 @@ classDiagram
 
     EventLog "1" -- "1" Definition
     Project "1" -- "1" EventLog
-    Project "1" -- "n" Plugin
-    Project "1" -- "n" Case
-    Project "1" -- "n" Event
-    Case "1" -- "n" Event
+    Project "1" -- "*" Plugin
+    Project "1" -- "*" Case
+    Project "1" -- "*" Event
+    Case "1" -- "*" Event
 {{< /mermaid >}}

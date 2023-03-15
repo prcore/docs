@@ -18,11 +18,12 @@ class Definition {
     updated_at: datetime
     columns_definition: dict[str, str]
     case_attributes: list[str]
-    outcome_definition: list[list[dict[str, datetime | float | int | str]]]
-    treatment_definition: list[list[dict[str, datetime | float | int | str]]]
     fast_mode: bool
     start_transition: str
     end_transition: str
+    abort_transition: str
+    outcome_definition: list[list[dict[str, str]]]
+    treatment_definition: list[list[dict[str, str]]]
 }
 
 class Project {
@@ -58,12 +59,14 @@ class Event{
 class Plugin {
     id: int
     key: str
-    name: str
     prescription_type: str
+    name: str
     description: str
     parameters: dict[str, str | bool | int | float]
+    additional_info: dict[str, Any]
     status: str
     error: str
+    disabled: bool
     model_name: str
     project: Project
 }

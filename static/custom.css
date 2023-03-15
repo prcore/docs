@@ -6,3 +6,9 @@ a:visited {
 :root .gdoc-markdown .gdoc-hint a:visited, :root .gdoc-markdown .admonitionblock a:visited {
     color: var(--hint-link-color);
 }
+
+.gdoc-brand__img {
+    margin-right: 0.8rem;
+    width: 3rem;
+    height: 3rem;
+}

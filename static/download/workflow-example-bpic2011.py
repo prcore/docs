@@ -142,6 +142,7 @@ def main():
 
         # Get the project status
         print("Getting the project status...")
+        i = 1
         while True:
             response = get_project(project_id)
             project_status = response.json()["project"]["status"]
@@ -150,10 +151,11 @@ def main():
             plugins = response.json()["project"]["plugins"]
             if plugins:
                 plugin_statuses = ", ".join([plugin["status"] for plugin in plugins])
-                print(f"Now the project status is {project_status}. It's plugins have status {plugin_statuses}. Waiting for 5 seconds...")
+                print(f"[{i:03d}] Now the project status is {project_status}, and its plugins have statuses {plugin_statuses}")
             else:
-                print(f"Now the project status is {project_status}. Waiting for 5 seconds...")
-            sleep(5)
+                print(f"[{i:03d}] Now the project status is {project_status}")
+            sleep(1)
+            i += 1
         print("The project has been trained!\n")
 
         # Start the simulation
