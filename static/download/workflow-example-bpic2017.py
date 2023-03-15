@@ -67,7 +67,13 @@ def create_project(event_log_id) -> Response:
                     "value": "O_Returned"
                 }
             ]
-        ]
+        ],
+        "additional_info": {
+            "plugin-causallift-resource-allocation": {
+                "available_resources": ["Resource_A", "Resource_B", "Resource_C", "Resource_D", "Resource_E", "Resource_F", "Resource_G", "Resource_H", "Resource_I", "Resource_J", "Resource_K", "Resource_L", "Resource_M", "Resource_N", "Resource_O", "Resource_P", "Resource_Q", "Resource_R", "Resource_S", "Resource_T", "Resource_U", "Resource_V", "Resource_W", "Resource_X", "Resource_Y", "Resource_Z"],
+                "treatment_duration": "1h"
+            }
+        }
     }
     response = requests.post(url, json=data, headers=REQUEST_HEADERS)
     return response
