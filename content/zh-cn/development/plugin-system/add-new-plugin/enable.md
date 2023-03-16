@@ -1,5 +1,5 @@
 ---
-title: "Enable"
+title: "启用新插件"
 weight: 40
 ---
 

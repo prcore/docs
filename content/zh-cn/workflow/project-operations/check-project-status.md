@@ -1,5 +1,5 @@
 ---
-title: "Check Project Status"
+title: "检查项目状态"
 weight: 10
 ---
 

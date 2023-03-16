@@ -1,5 +1,5 @@
 ---
-title: "Check RabbitMQ Workload"
+title: "检查 RabbitMQ 负载"
 weight: 40
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "Get Streaming Result"
+title: "流数据结果"
 weight: 20
 resources:
   - name: "postman"

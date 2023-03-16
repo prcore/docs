@@ -1,5 +1,5 @@
 ---
-title: "Get Projects"
+title: "获取所有项目"
 weight: 50
 ---
 

@@ -1,10 +1,14 @@
 ---
 more:
-  - name: Releases
+  - name:
+      en: Releases
+      zh-cn: 已发布版本
     ref: "https://github.com/prcore/prcore/releases"
     external: true
     icon: "gdoc_download"
-  - name: "View Source"
+  - name:
+      en: "View Source"
+      zh-cn: 源代码
     ref: "https://github.com/prcore/prcore"
     external: true
     icon: "gdoc_github"

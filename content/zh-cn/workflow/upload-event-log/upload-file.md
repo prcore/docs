@@ -1,5 +1,5 @@
 ---
-title: "Upload file"
+title: "上传文件"
 weight: 10
 ---
 

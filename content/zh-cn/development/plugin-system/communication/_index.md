@@ -1,7 +1,7 @@
 ---
-title: "Communication"
+title: "数据交换"
 geekdocCollapseSection: true
-weight: 10
+weight: 20
 ---
 
 This section will describe how is the communication between the core and the plugins.

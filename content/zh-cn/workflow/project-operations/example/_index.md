@@ -1,7 +1,7 @@
 ---
-title: "Example"
+title: "示例"
 toc: true
-weight: 60
+weight: 70
 draft: false
 ---
 

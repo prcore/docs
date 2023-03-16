@@ -1,5 +1,5 @@
 ---
-title: "Get Prescriptions"
+title: "获得建议结果"
 geekdocCollapseSection: true
 weight: 40
 ---

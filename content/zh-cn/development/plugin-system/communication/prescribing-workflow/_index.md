@@ -1,5 +1,5 @@
 ---
-title: "Prescribing workflow"
+title: "预测工作流"
 geekdocCollapseSection: true
 weight: 30
 ---

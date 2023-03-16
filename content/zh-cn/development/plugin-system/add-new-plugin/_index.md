@@ -1,5 +1,5 @@
 ---
-title: "Add a New Plugin"
+title: "添加新插件"
 geekdocCollapseSection: true
 weight: 10
 ---

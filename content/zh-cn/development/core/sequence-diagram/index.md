@@ -1,5 +1,5 @@
 ---
-title: "Sequence Diagram"
+title: "序列图"
 weight: 30
 resources:
   - name: "diagram"

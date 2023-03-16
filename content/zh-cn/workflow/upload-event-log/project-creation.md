@@ -1,5 +1,5 @@
 ---
-title: "Create Project"
+title: "创建项目"
 toc: true
 weight: 30
 ---

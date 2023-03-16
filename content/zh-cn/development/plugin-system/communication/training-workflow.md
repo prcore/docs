@@ -1,5 +1,5 @@
 ---
-title: "Training workflow"
+title: "训练工作流"
 weight: 20
 ---
 

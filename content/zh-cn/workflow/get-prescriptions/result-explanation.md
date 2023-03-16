@@ -1,5 +1,5 @@
 ---
-title: "Result Explanation"
+title: "结果解释"
 weight: 30
 ---
 

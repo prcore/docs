@@ -1,5 +1,5 @@
 ---
-title: "Clear Streamed Data"
+title: "清除流数据"
 weight: 30
 ---
 

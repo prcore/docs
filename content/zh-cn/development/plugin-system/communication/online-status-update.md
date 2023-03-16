@@ -1,5 +1,5 @@
 ---
-title: "Online status update"
+title: "在线状态汇报"
 weight: 10
 ---
 

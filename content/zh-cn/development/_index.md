@@ -1,5 +1,5 @@
 ---
-title: Development
+title: 开发
 icon: "💻"
 weight: -5
 ---

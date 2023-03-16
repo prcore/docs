@@ -1,5 +1,5 @@
 ---
-title: "Send New Data"
+title: "提供新数据"
 geekdocCollapseSection: true
 weight: 30
 ---

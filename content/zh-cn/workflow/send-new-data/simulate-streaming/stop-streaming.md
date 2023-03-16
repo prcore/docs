@@ -1,5 +1,5 @@
 ---
-title: "Stop Streaming"
+title: "停止接收流数据"
 weight: 20
 ---
 

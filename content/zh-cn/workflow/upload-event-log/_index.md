@@ -1,5 +1,5 @@
 ---
-title: "Upload Event Log"
+title: "上传事件日志"
 geekdocCollapseSection: true
 weight: 10
 ---

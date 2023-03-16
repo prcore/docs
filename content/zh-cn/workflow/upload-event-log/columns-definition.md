@@ -1,5 +1,5 @@
 ---
-title: "Columns Definition"
+title: "提供列定义"
 toc: true
 weight: 20
 ---

@@ -1,5 +1,5 @@
 ---
-title: "Update Basic Information"
+title: "修改基础信息"
 weight: 40
 ---
 

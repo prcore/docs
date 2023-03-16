@@ -1,5 +1,5 @@
 ---
-title: "Simulate Streaming"
+title: "通过模拟数据流"
 geekdocCollapseSection: true
 weight: 20
 ---

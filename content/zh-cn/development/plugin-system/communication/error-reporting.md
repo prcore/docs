@@ -1,5 +1,5 @@
 ---
-title: "Error reporting"
+title: "错误汇报"
 weight: 40
 ---
 

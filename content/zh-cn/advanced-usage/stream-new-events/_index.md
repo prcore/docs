@@ -1,5 +1,5 @@
 ---
-title: "Stream New Events"
+title: "发送新事件数据流"
 geekdocCollapseSection: true
 weight: 10
 ---

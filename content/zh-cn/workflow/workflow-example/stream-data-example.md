@@ -1,5 +1,5 @@
 ---
-title: "Stream Data Example"
+title: "流数据方式示例"
 weight: 20
 ---
 

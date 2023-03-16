@@ -1,5 +1,5 @@
 ---
-title: "Change Outcome And Treatment Definition"
+title: "更改结果和干预定义"
 weight: 20
 ---
 

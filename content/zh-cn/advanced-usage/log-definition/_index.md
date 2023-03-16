@@ -1,5 +1,5 @@
 ---
-title: "Log Definition"
+title: "关于日志定义"
 weight: 30
 ---
 

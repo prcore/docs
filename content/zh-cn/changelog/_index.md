@@ -1,5 +1,5 @@
 ---
-title: Changelog
+title: 更新日志
 icon: "📝"
 geekdocCollapseSection: true
 weight: 0

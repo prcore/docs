@@ -1,5 +1,5 @@
 ---
-title: "Class diagram"
+title: "类图"
 weight: 20
 ---
 

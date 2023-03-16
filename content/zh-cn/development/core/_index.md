@@ -1,7 +1,7 @@
 ---
-title: "Core"
+title: "核心应用"
 geekdocCollapseSection: true
-weight: 10
+weight: 20
 ---
 
 In this section, the design of the PrCore system is described.

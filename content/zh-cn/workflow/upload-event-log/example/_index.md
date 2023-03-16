@@ -1,7 +1,7 @@
 ---
-title: "Example"
+title: "示例"
 toc: true
-weight: 30
+weight: 40
 ---
 
 The examples in this section will show you how to use the API to upload event logs and create a new project.
