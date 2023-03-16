@@ -1,6 +1,6 @@
 ---
 title: "关于日志定义"
-weight: 30
+weight: 20
 ---
 
 When setting the columns definition for the event log, there are other fields besides `columns_definition` and `case_attributes` that can be included in the request body.
