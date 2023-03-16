@@ -1,6 +1,6 @@
 ---
 title: "Delete project"
-weight: 50
+weight: 60
 ---
 
 You can delete a project by using the enpoint introduced here.
