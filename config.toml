@@ -29,3 +29,15 @@ enableRobotsTXT = true
 [params]
   geekdocMenuBundle = false
   geekdocLogo = "images/logo-transparent.png"
+
+defaultContentLanguage = "en"
+
+[languages.en]
+languageName = "English"
+contentDir = "content/en"
+weight = 10
+
+[languages.zh-cn]
+languageName = "中文"
+contentDir = "content/zh-cn"
+weight = 20
