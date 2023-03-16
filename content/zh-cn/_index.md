@@ -1,5 +1,5 @@
 ---
-title: Welcome to the documentation
+title: PrCore 文档
 geekdocNav: false
 geekdocAlign: center
 geekdocAnchor: false

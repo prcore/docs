@@ -1,5 +1,5 @@
 ---
-title: "Public API"
+title: "公开 API"
 weight: 40
 ---
 

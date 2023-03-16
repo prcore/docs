@@ -1,5 +1,5 @@
 ---
-title: "Getting Started"
+title: "开始使用"
 icon: "🚀"
 weight: -20
 ---

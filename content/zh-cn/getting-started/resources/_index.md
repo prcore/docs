@@ -1,5 +1,5 @@
 ---
-title: "Resources"
+title: "资源与教程"
 weight: 30
 ---
 

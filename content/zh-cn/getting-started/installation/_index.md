@@ -1,5 +1,5 @@
 ---
-title: "Installation"
+title: "本地安装"
 weight: 60
 ---
 
