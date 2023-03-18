@@ -1,4 +1,4 @@
-baseURL = "https://prcore.gitlab.io"
+baseURL = "https://prcore-docs.chaos.run"
 title = "PrCore Documentation"
 languageCode = "en-us"
 theme = "hugo-geekdoc"
