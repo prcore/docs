@@ -1,5 +1,5 @@
 import logging
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 from pandas import DataFrame
 
@@ -10,9 +10,8 @@ logger = logging.getLogger(__name__)
 
 
 class FooBarAlgorithm(Algorithm):
-    def __init__(self, basic_info: Dict[str, Any], project_id: int, plugin_id: Optional[int] = None,
-                 df: Optional[DataFrame] = None, model_name: str = None, treatment_definition: list = None):
-        super().__init__(basic_info, project_id, plugin_id, df, model_name, treatment_definition)
+    def __init__(self, algo_data: Dict[str, Any]):
+        super().__init__(algo_data)
 
     def preprocess(self) -> str:
         # Pre-process the data

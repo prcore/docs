@@ -4,7 +4,7 @@ geekdocCollapseSection: true
 weight: 20
 ---
 
-Once a project's status is marked as `TRAINED`, it becomes capable of receiving a continuous flow of new event data through its [stream data](/advanced-usage/stream-new-events/) API. This feature can be leveraged by business process management systems that generate events in real-time. By utilizing the stream data API, such systems can send new events to the project and receive prescription results promptly.
+Once a project's status is marked as `TRAINED`, it becomes capable of receiving a continuous flow of new event data through its [stream data]({{< relref "../../../advanced-usage/stream-new-events/_index.md" >}}) API. This feature can be leveraged by business process management systems that generate events in real-time. By utilizing the stream data API, such systems can send new events to the project and receive prescription results promptly.
 
 However, in the absence of such a system, PrCore offers the option to simulate stream data to the project. This obviates the need to set up a system for testing purposes. It is worth noting that PrCore uses 80% of the dataset to train and validate models, while the remaining 20% is reserved for simulating stream data.
 

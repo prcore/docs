@@ -66,8 +66,9 @@ The `needed_columns` variable is a list of the columns that the plugin needs to 
 
 - `ColumnDefinition.OUTCOME`
 - `ColumnDefinition.TREATMENT`
+- `ColumnDefinition.TREATMENT_RESOURCE`
 
-If you fill in other values, your plugin may not be generically usable.
+If you fill in other values, your plugin may not be generically usable. But you can still use it if your data contains the columns that you specified.
 
 ## Dockerfile
 

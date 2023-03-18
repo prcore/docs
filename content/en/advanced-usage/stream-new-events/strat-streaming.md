@@ -10,7 +10,7 @@ Before you start posting new data to the project, you need to firstly enable the
 You should only call this endpoint when the project's status is `TRAINED`.
 
 {{< hint type=note icon=gdoc_info_outline >}}
-Please note that the simulation and streaming modes are mutually exclusive. If you want to enable streaming mode, you should first stop the simulation by calling the [Stop Streaming](/workflow/send-new-data/simulate-streaming/stop-streaming/) endpoint. Vice verse.
+Please note that the simulation and streaming modes are mutually exclusive. If you want to enable streaming mode, you should first stop the simulation by calling the [Stop Streaming]({{< relref "../../workflow/send-new-data/simulate-streaming/stop-streaming.md" >}}) endpoint. Vice verse.
 {{< /hint >}}
 
 | Method | Endpoint | Request body type | Description |
@@ -26,6 +26,6 @@ Please note that the simulation and streaming modes are mutually exclusive. If y
 }
 ```
 
-After the streaming mode is enabled, you can start posting new data to the project by calling the [Stream Data](/advanced-usage/stream-new-events/stream-data/) endpoint.
+After the streaming mode is enabled, you can start posting new data to the project by calling the [Stream Data]({{< relref "./stream-data.md" >}}) endpoint.
 
-If you want to stop the streaming mode, you can call the [Stop Streaming](/workflow/send-new-data/simulate-streaming/stop-streaming/) endpoint.
+If you want to stop the streaming mode, you can call the [Stop Streaming]({{< relref "../../workflow/send-new-data/simulate-streaming/stop-streaming.md" >}}) endpoint.

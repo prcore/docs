@@ -1,5 +1,5 @@
 import logging
-from typing import Any, Dict, List
+from typing import Any, Dict
 
 from core.confs import config
 from core.enums.definition import ColumnDefinition
@@ -14,6 +14,9 @@ basic_info: Dict[str, Any] = {
     "name": "Foo bar",
     "prescription_type": PluginType.NEXT_ACTIVITY,
     "description": "This is a foo bar plugin",
-    "parameters": {}
+    "parameters": {},
+    "needed_columns": [],
+    "needed_info_for_training": [],
+    "needed_info_for_prediction": [],
+    "supported_encoding": []
 }
-needed_columns: List[ColumnDefinition] = []

@@ -37,7 +37,7 @@ languageName = "English"
 contentDir = "content/en"
 weight = 10
 
-[languages.zh-cn]
-languageName = "中文"
-contentDir = "content/zh-cn"
-weight = 20
+# [languages.zh-cn]
+# languageName = "中文"
+# contentDir = "content/zh-cn"
+# weight = 20

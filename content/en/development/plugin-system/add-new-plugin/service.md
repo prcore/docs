@@ -35,11 +35,10 @@ Next, we need to add the following lines to the `services` section in `docker-co
       - prcore
 ```
 
-Under the `core` service section, we need to modify the `ENABLED_PLUGINS` environment variable to include the new plugin. For example, if we want to enable the `plugin-foo-bar` plugin, we need to add `plugin-foo-bar` to the `ENABLED_PLUGINS` environment variable:
+In the `.env` file in the root directory of PrCore, we need to modify the `ENABLED_PLUGINS` environment variable to include the new plugin. For example, if we want to enable the `plugin-foo-bar` plugin, we need to add `plugin-foo-bar` to the `ENABLED_PLUGINS` environment variable:
 
-```
-    environment:
-      ENABLED_PLUGINS: "plugin-foo-bar || plugin-knn-next-activity || plugin-random-forest-alarm"
+```env
+ENABLED_PLUGINS="plugin-foo-bar || plugin-knn-next-activity || plugin-random-forest-alarm || plugin-causallift-treatment-effect || plugin-causallift-resource-allocation"
 ```
 
 Please note that the added plugin must be separated by `||` from the other plugins, and the value comes from the `APP_ID` environment variable in the `plugin-foo-bar` service section.

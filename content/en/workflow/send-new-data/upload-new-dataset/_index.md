@@ -8,7 +8,7 @@ When the project's status is `TRAINED`, you can upload a new test dataset to the
 {{< hint type=note icon=gdoc_info_outline >}}
 The test dataset should only contain ongoing cases.
 
-If you already uploaded a test dataset together with the historical event log, you can skip this step. Because you will receive a `result_key` when you [created the project](/workflow/upload-event-log/project-creation/).
+If you already uploaded a test dataset together with the historical event log, you can skip this step. Because you will receive a `result_key` when you [created the project]({{< relref "../../upload-event-log/project-creation.md" >}}).
 {{< /hint >}}
 
 
@@ -40,4 +40,4 @@ The system will validate the dataset. If everything is fine, the response will b
 
 Since the processing of the dataset may take a while, the response will not contain the result, but a `result_key`.
 
-The `result_key` will be used in the [Get Dataset Result](/workflow/get-prescriptions/get-dataset-result/) API.
+The `result_key` will be used in the [Get Dataset Result]({{< relref "../../get-prescriptions/get-dataset-result.md" >}}) API.

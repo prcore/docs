@@ -54,4 +54,4 @@ The request body keys correspond to the event attributes, with their respective 
 }
 ```
 
-After you post a new event, the event will be processed by the system. You can get the prescriptions of the event by calling the [Get Streaming Result](/workflow/get-prescriptions/get-streaming-result/) endpoint.
+After you post a new event, the event will be processed by the system. You can get the prescriptions of the event by calling the [Get Streaming Result]({{< relref "../../workflow/get-prescriptions/get-streaming-result/index.md" >}}) endpoint.

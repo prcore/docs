@@ -9,7 +9,7 @@ If you don't need to change the outcome and treatment definition, you can skip t
 But, if you just changed the columns definition after the project is created, then you must redefine the outcome and treatment definition here.
 {{< /hint >}}
 
-If you think the outcome and treatment definition is not suitable for your project, you can change it. The procedure is very similar with the `Create project` step in the [Upload Event Log](/workflow/upload-event-log/project-creation/) section.
+If you think the outcome and treatment definition is not suitable for your project, you can change it. The procedure is very similar with the `Create project` step in the [Upload Event Log]({{< relref "../../workflow/upload-event-log/project-creation.md" >}}) section.
 
 {{< hint type=warning icon=gdoc_info_outline >}}
 Upon the modification of the outcome and treatment definitions, the project status will be altered to `WAITING`, and the pre-processing and training tasks will restart from the beginning. If there is any ongoing simulation of streaming data, it will automatically be terminated, and the project will not accept any streaming data until the new training has been completed.

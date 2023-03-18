@@ -7,7 +7,7 @@ weight: 10
 If you don't need to change the columns definition, you can skip this step.
 {{< /hint >}}
 
-If you think the columns definition is not suitable for your project, you can change it. The procedure is very similar with the `columns-definition` step in the [Upload Event Log](/workflow/upload-event-log/columns-definition/) section.
+If you think the columns definition is not suitable for your project, you can change it. The procedure is very similar with the `columns-definition` step in the [Upload Event Log]({{< relref "../../workflow/upload-event-log/columns-definition.md" >}}) section.
 
 {{< hint type=warning icon=gdoc_info_outline >}}
 1. It is only possible to change the column definitions after the previous training has been completed.
@@ -111,7 +111,7 @@ Please note that **there is no `columns_inferred_definition` in the response, in
 
 ## Update the definition
 
-This step is same as the `columns-definition` step in the [Upload Event Log](/workflow/upload-event-log/columns-definition/) section.
+This step is same as the `columns-definition` step in the [Upload Event Log]({{< relref "../../workflow/upload-event-log/columns-definition.md" >}}) section.
 
 ### Request
 

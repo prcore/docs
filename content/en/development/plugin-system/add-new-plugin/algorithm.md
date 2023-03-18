@@ -27,6 +27,9 @@ The column name can be one of the following:
 - `COST`
 - `OUTCOME`
 - `TREATMENT`
+- `TREATMENT_RESOURCE`
+
+The `TREATMENT_RESOURCE` represents the first resource who triggers the treatment in a case. If there is no treatment in a case, the value will be empty.
 
 If the column is not in the above list, but it is marked as case attribute, it will be renamed to `CASE_ATTRIBUTE_<data_type>_<attribute_name>`. For example, if the attribute name is `age`, the column name will be `CASE_ATTRIBUTE_NUMBER_age`.
 
@@ -39,6 +42,10 @@ The data type can be one of the following:
 - `CATEGORICAL`
 
 If the column is not case attribute, it will be renamed to `EVENT_ATTRIBUTE_<data_type>_<attribute_name>`.
+
+You can use `self.get_parameter_value(key)` to get the value of the parameter. The parameter can come from the `config.py` file, or it can be set by the user. The `key` should be a string.
+
+You can also use `self.get_additional_info_value(key)` to get the value of the additional information. The additional information can be set by the user. The `key` should be a string.
 
 Having the above information, you can prepare the training data for your algorithm.
 

@@ -2,7 +2,7 @@ import logging
 
 from plugins.common.starter import plugin_scheduler, plugin_run
 from plugins.foo_bar.algorithm import FooBarAlgorithm
-from plugins.foo_bar.config import basic_info, needed_columns
+from plugins.foo_bar.config import basic_info
 
 # Enable logging
 logger = logging.getLogger(__name__)
@@ -12,4 +12,4 @@ for _ in logging.root.manager.loggerDict:
 
 if __name__ == "__main__":
     plugin_scheduler()
-    plugin_run(basic_info, needed_columns, FooBarAlgorithm)
+    plugin_run(basic_info, FooBarAlgorithm)

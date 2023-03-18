@@ -155,5 +155,8 @@ The `prescription_type` field of the plugin indicates the type of the plugin. Th
 - `NEXT_ACTIVITY`: The plugin predicts the next activity.
 - `ALARM`: The plugin provides the probability of negative outcome.
 - `TREATMENT_EFFECT`: The plugin provides the treatment effect.
+- `RESOURCE_ALLOCATION`: The plugin provides the resource allocation suggestion.
+
+For more information about the prescription types, please refer to [Result Explanation]({{< relref "../../workflow/get-prescriptions/result-explanation.md" >}}).
 
 If you're using your own plugins, it will return the type string you defined in the plugin.
