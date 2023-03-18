@@ -27,7 +27,7 @@ Overall, PrCore enables prescriptive process monitoring and offers users an effi
 
 ## Use Case
 
-{{< link "Kairos" "https://github.com/VisualPM" >}} is a prescriptive process monitoring interface that uses PrCore as a backend to get prescriptions. It provides a user-friendly interface for users to upload event logs and receive prescriptions in a visualized way.
+{{< link "Kairos" "https://kairos.cloud.ut.ee/" >}} is a prescriptive process monitoring interface that uses PrCore as a service to get prescriptions. It provides a user-friendly interface for users to upload event logs and receive prescriptions in a visualized way. You can check its source code {{< link "here" "https://github.com/VisualPM" >}}.
 
 ## User Guide
 
