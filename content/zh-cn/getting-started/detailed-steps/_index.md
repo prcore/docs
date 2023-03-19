@@ -7,7 +7,7 @@ weight: 20
 
 假设您手头有已经有一个在某领域内的业务事件日志文件，其中应**只包含已经完成的案例**。您的这份业务事件日志可以是来自于您的业务管理系统，也可以是其他的数据源。文件格式支持 CSV 和 XES。PrCore 可以通过这份日志文件来训练模型，从而为您正在进行的案例提供预测结果以及多种建议。
 
-首先，您需要使用 [上传文件]({{< relref "../../workflow/upload-event-log/upload-file.md" >}}) 一节中介绍的方法，将您的这份文件上传到 PrCore 中。接着，利用 [提供列定义]({{< relref "../../workflow/upload-event-log/columns-definition.md" >}}) 一节中描述的 API，来告诉 PrCore 您日志文件中每个列的含义。最后，您可以通过 [创建项目]({{< relref "../../workflow/upload-event-log/project-creation.md" >}}) 中介绍的方法，告诉 PrCore 符合哪些条件的案例是成功的、符合预期的，而根据您的业务领域，哪些行为和事件是可以作为一个改善案例所可以尝试的干预行为。PrCore 会根据您的事务日志文件和这些信息，创建一个项目，然后自动开始训练模型。
+首先，您需要使用 [上传文件]({{< relref "../../workflow/upload-event-log/upload-file.md" >}}) 一节中介绍的方法，将您的这份文件上传到 PrCore 中。接着，利用 [提供列定义]({{< relref "../../workflow/upload-event-log/columns-definition.md" >}}) 一节中描述的 API，来告诉 PrCore 您日志文件中每个列的含义。最后，您可以通过 [创建项目]({{< relref "../../workflow/upload-event-log/project-creation.md" >}}) 中介绍的方法，告诉 PrCore 符合哪些条件的案例是成功的、符合预期的，而根据您的业务领域，哪些行为和事件是可以作为一个改善案例所可以尝试的干预行为。PrCore 会根据您的事务日志文件和这些信息，创建一个项目，然后自动开始训练模型。项目创建完毕，后，您可以随时通过 [更新基础信息]({{< relref "../../workflow/project-operations/update-basic-information.md" >}}) 的 API 来更改项目的名称和描述，以便您能更好区分各个项目。
 
 PrCore 可以接入多个插件，每个插件是一个独立的容器，负责提供某种类型的预测或建议。因此，在创建项目时，您可以按照 [设定参数]({{< relref "../../advanced-usage/plugin-operations/set-parameters.md" >}}) 一节的说明指定插件的参数，这将调整插件训练的模型的效果。PrCore 也允许您提供任意的附加信息，这些附加信息可用于插件的训练和预测阶段（如果插件支持识别这些信息），此功能尤其对自行开发的插件有用，因为非默认插件可能需要更多信息以支持工作。关于详情，您可以参考 [提供附加信息]({{< relref "../../advanced-usage/plugin-operations/update-additional-info.md" >}}) 一节。同时，如果您在创建项目后，需要禁用某些插件，以令其在您提供新数据时，不提供任何建议和预测，则请参考 [禁用或启用插件]({{< relref "../../advanced-usage/plugin-operations/disable-or-enable.md" >}}) 一节进行操作。
 
