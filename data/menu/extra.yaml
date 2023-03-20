@@ -4,3 +4,7 @@ header:
     ref: https://github.com/prcore/prcore
     icon: gdoc_github
     external: true
+  - name: AI Assistant
+    ref: https://prcore-assistant.chaos.run
+    icon: gdoc_star
+    external: true
