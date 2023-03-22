@@ -3,6 +3,8 @@ title = "PrCore Documentation"
 languageCode = "en-us"
 theme = "hugo-geekdoc"
 
+googleAnalytics = "G-JMLNEB9ECW"
+
 pluralizeListTitles = false
 
 # Geekdoc required configuration
