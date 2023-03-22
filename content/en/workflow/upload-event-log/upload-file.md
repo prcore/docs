@@ -28,7 +28,7 @@ Should the user choose to upload the test file after [created the project](../pr
 
 ## Response
 
-Since the event log file can have varying event attributes, the following is just an example. Once the API processes the request, the response will include the first 5 events data along with their respective headers and inferred definitions.
+Since the event log file can have varying event attributes, the following is just an example. Once the API processes the request, the response will include the first 5 events data along with their respective headers and inferred definitions. Please note if the event log file is not used to create a project, this uploaded event log will be deleted by the system regularly every day.
 
 ```json
 {
