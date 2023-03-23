@@ -12,3 +12,9 @@ more:
     ref: "https://github.com/prcore/prcore"
     external: true
     icon: "gdoc_github"
+  - name:
+      en: "Ask AI"
+      zh-cn: AI 问答
+    ref: "https://prcore-assistant.chaos.run"
+    external: true
+    icon: "gdoc_star"

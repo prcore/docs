@@ -31,4 +31,5 @@ It should be noted that the simulation will come to a stop under the following c
 1. All simulation data has been consumed.
 2. Results have not been consumed within a 5-minute window.
 3. If the reading result connection is closed, the simulation will be stopped in 1 minute. However, if the connection is re-established within this timeframe, the simulation will continue uninterrupted.
-4. The simulation is stopped by calling the [Stop Streaming]({{< relref "../../send-new-data/simulate-streaming/stop-streaming.md" >}}) endpoint.
+4. The simulator has sent 1800 events, which is equivalent to 30 minutes of simulation if the event rate is 1 event per second.
+5. The simulation is stopped by calling the [Stop Streaming]({{< relref "../../send-new-data/simulate-streaming/stop-streaming.md" >}}) endpoint.

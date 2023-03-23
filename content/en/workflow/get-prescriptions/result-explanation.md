@@ -3,7 +3,7 @@ title: "Result Explanation"
 weight: 30
 ---
 
-PrCore has three default plugins. Here we explain the prescription output schema.
+PrCore has four default plugins. Here we explain the prescription output schema.
 
 ## Fields
 
@@ -102,7 +102,9 @@ The output is an object with the following fields:
 The output is an object with the following fields:
 
 - `resource`: The allocated resource.
-- `allocated_until`: The timestamp until which the resource will be released.
+- `allocated_until`: The timestamp until which the resource will be released. Which is the allocated timestamp plus the treatment duration.
+
+Please note that this prescription is only provided under the streaming mode.
 
 ```json
 {
