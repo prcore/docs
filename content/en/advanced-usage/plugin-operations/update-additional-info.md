@@ -98,4 +98,4 @@ After the `additional_info` are updated, if necessary, the plugin will be retrai
 
 ### Note
 
-At the same time, with the same endpoint, you can also change the `additional_info` of the plugin. Please refer to [Update Additional Info]({{< relref "./update-additional-info.md" >}}) section.
+At the same time, with the same endpoint, you can also change the `parameters` of the plugin. Please refer to [Set Parameters]({{< relref "./set-parameters.md" >}}) section.

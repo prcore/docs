@@ -21,7 +21,7 @@ The request body is a JSON object, the key is the column name, and the value is 
 {{< propertylist name=columns-request >}}
 
 {{< hint type=important icon=gdoc_info_outline >}}
-Theses attributes `fast_mode`, `start_transition`, `complete_transition`, `abort_transition` are optional, and are explained in the [Advanced Usage - Log Definition](/advanced-usage/log-definition/) section. Before you check this section, please ignore these attributes, otherwise, some unexpected behaviors may occur.
+Theses attributes `fast_mode`, `start_transition`, `complete_transition`, `abort_transition` are optional, and are explained in the [Advanced Usage - Log Definition]({{ relref "../../advanced-usage/event-log-operations/log-definition.md" }}) section. Before you check this section, please ignore these attributes, otherwise, some unexpected behaviors may occur.
 {{< /hint >}}
 
 ### Request body example
@@ -45,7 +45,7 @@ Theses attributes `fast_mode`, `start_transition`, `complete_transition`, `abort
 
 Upon a successful request, the API response will provide three distinct pieces of information: the count of unique activities, the available outcome options, and the available treatment options.
 
-It should be noted that the `outcome_options` and `treatment_options` can be utilized to select the specific columns that will generate the outcome and treatment labels when [creating the project](../project-creation/).
+It should be noted that the `outcome_options` and `treatment_options` can be utilized to select the specific columns that will generate the outcome and treatment labels when [creating the project]({{ relref "./project-creation.md" }}).
 
 ```json
 {
