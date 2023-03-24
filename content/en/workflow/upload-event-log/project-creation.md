@@ -92,7 +92,7 @@ The value should be a string.
 So instead of `0`, you should use `"0"`, and instead of `1`, you should use `"1"`.
 {{< /tab >}}
 {{< tab "DURATION" >}}
-The default unit is `second`, and the value should be a integer, or a integer string.
+The default unit is `second`, and the value should be a number, or a number string. The number should be positive, and it only allows up to 2 decimal places.
 
 If you want to use other unit, you can use the following format: `value unit`.
 
