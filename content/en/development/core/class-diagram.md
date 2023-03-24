@@ -49,7 +49,6 @@ classDiagram
         description: str
         status: str
         error: str
-        selected_plugins: list[str]
         event_log: EventLog
         plugins: list[Plugin]
     }
