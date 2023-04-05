@@ -7,7 +7,11 @@ properties:
   - name: positive_outcome
     type: list(list(dict(str, Union[str, int])))
     description: The definition of the positive outcome.
-    required: true
+    required: false
+  - name: negative_outcome
+    type: list(list(dict(str, Union[str, int])))
+    description: The definition of the negative outcome, and it is mutually exclusive with the positive outcome. You can only specify one of them.
+    required: false
   - name: treatment
     type: list(list(dict(str, Union[str, int])))
     description: The definition of the treatment.

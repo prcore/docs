@@ -134,6 +134,8 @@ For example, if you want to define the outcome as `Offer sent` activity happened
 ]
 ```
 
+If you prefer to define the negative outcome, you can specify the `negative_outcome` field, and use the same format as the `positive_outcome` field. Please note that they are mutually exclusive, you can only specify one of them.
+
 PrCore will evaluate the event log, and find out whether the `Offer sent` activity happened in any event, if it happened, then it knows the event's belonging case has positive outcome, otherwise, it has negative outcome. PrCore will use this information to train the model.
 
 Regarding treatment, for example, if you want to define the treatment as `Change application type` activity happened, you can select column `Action`, and select `EQUAL` as the operator, and choose `Change application type` as the value.
