@@ -3,6 +3,14 @@ title: "Public API"
 weight: 40
 ---
 
+**The public demo API is not available since 2023-10-23, but you can still use the API by running the PrCore application locally.** Please refer to the "Getting Started" page for more information. 
+
+---
+
+Below is the original content of this page.
+
+---
+
 Public API is available for testing and integration, and the base path is https://prcore.chaos.run
 
 You can also use the [Swagger UI](https://prcore.chaos.run/docs) to test the API.

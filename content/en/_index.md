@@ -8,7 +8,7 @@ geekdocAnchor: false
 <!-- markdownlint-capture -->
 <!-- markdownlint-disable MD033 -->
 
-<span class="badge-placeholder">[![](https://img.shields.io/github/actions/workflow/status/prcore/prcore/main.yml?label=Docker%20compose%20service)](https://github.com/prcore/prcore/actions/workflows/main.yml)</span> <span class="badge-placeholder">[![](https://img.shields.io/website?label=API%20service&url=https%3A%2F%2Fprcore.chaos.run%2Fdocs)](https://prcore.chaos.run)</span>
+<span class="badge-placeholder">[![](https://img.shields.io/github/actions/workflow/status/prcore/prcore/main.yml?label=Docker%20compose%20service)](https://github.com/prcore/prcore/actions/workflows/main.yml)</span>
 
 <span class="badge-placeholder">[![](https://img.shields.io/codefactor/grade/github/prcore/prcore/main?label=Code%20quality)](https://www.codefactor.io/repository/github/prcore/prcore/overview/main)</span> <span class="badge-placeholder">[![](https://img.shields.io/github/license/prcore/prcore?color=blue&label=License)](https://github.com/prcore/prcore/blob/main/LICENSE)</span>
 

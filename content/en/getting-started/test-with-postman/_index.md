@@ -22,7 +22,7 @@ First, click the `PrCore` collection, and then click the `Variables` tab.
 
 ![](images/set-path.png)
 
-Then, set the `server` as `https://prcore.chaos.run`.
+Then, set the `server` as the local hosted PrCore server's address.
 
 Also, when we using this collection, we need to set the environment to `PrCore`, which is the environment we imported before.
 

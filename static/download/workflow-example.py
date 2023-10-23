@@ -8,7 +8,7 @@ from time import sleep
 # Change this to your own event log file
 EVENT_LOG_FILE = "./bpic2012-CSV.zip"
 
-BASE_URL = "https://prcore.chaos.run" 
+BASE_URL = "http***********"  # Please change this to your local instance address
 API_TOKEN = "UaJW0QvkMA1cVnOXB89E0NbLf3JRRoHwv2wWmaY5v=QYpaxr1UD9/FupeZ85sa2r"
 HEADERS = {
     "Authorization": f"Bearer {API_TOKEN}"

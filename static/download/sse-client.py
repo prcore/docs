@@ -3,7 +3,7 @@ import pprint
 import requests
 import sseclient
 
-BASE_URL = "https://prcore.chaos.run" 
+BASE_URL = "http**********"  # Please change this to your local instance address
 PROJECT_ID = 1
 URL = f"{BASE_URL}/project/{PROJECT_ID}/stream/result"
 HEADERS = {
